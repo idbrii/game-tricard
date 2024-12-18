@@ -1,10 +1,9 @@
-@tool
-extends Control
+extends Node3D
 
 ## Width of the visible card (for layout calculations).
-@export_range(10.0, 10000.0) var card_width := 510.0
+@export_range(0.1, 10000.0) var card_width := 1.0
 ## Spacing between cards.
-@export_range(10.0, 10000.0) var card_padding := 10.0
+@export_range(0.0, 10000.0) var card_padding := 0.1
 ## The fraction of a circle used for the card fan. 0 would make them a flat line.
 @export_range(0.0, 1.0) var card_fan_angle_turns := 0.25
 
@@ -26,8 +25,11 @@ func layout():
     var width = count * pos_delta
     var half_width = width / 2.0
     var pos_offset = -half_width
+
     for card in get_children():
-        card.position = Vector2.RIGHT * pos_offset
-        card.rotation = angle_offset
+        card.position = Vector3.RIGHT * pos_offset
+        printt(card, card.position)
+        card.rotation = Vector3.ZERO
+        card.rotate_z(TAU - angle_offset)
         pos_offset += pos_delta
         angle_offset += angle_delta
