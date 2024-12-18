@@ -1,4 +1,3 @@
-@tool
 extends Control
 
 ## Width of the visible card (for layout calculations).

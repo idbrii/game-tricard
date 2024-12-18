@@ -1,13 +1,204 @@
-[gd_scene load_steps=3 format=3 uid="uid://12xcvgynuav6"]
+[gd_scene load_steps=9 format=3 uid="uid://12xcvgynuav6"]
 
 [ext_resource type="Script" path="res://code/cards/card.gd" id="1_7usar"]
-[ext_resource type="Texture2D" uid="uid://duw8uvdomgmrf" path="res://art/cowboy_card.png" id="2_xfpw3"]
+[ext_resource type="Texture2D" uid="uid://e3ic4n0reaxx" path="res://assets/textures/cardbase/T_Card_TriangleBG.png" id="2_lb1f7"]
+[ext_resource type="Texture2D" uid="uid://c52beaybyt7ay" path="res://assets/textures/cardbase/T_Bullet_Wing.png" id="3_q4ssc"]
+[ext_resource type="Texture2D" uid="uid://b4ifu66hepwb" path="res://assets/textures/cardbase/T_Card_Barrel.png" id="4_mwufe"]
+[ext_resource type="Texture2D" uid="uid://cmb6r8shnjklr" path="res://assets/textures/cardbase/T_Bullet_Full.png" id="5_ply66"]
+[ext_resource type="Script" path="res://code/cards/always_up.gd" id="6_fjk0c"]
+[ext_resource type="Texture2D" uid="uid://1o5lfsu1fw5k" path="res://assets/textures/numbers/tcnumbers_01.png" id="7_6wvox"]
+[ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="8_pyw7o"]
 
 [node name="Card" type="Control"]
+custom_minimum_size = Vector2(750, 750)
 layout_mode = 3
 anchors_preset = 0
+pivot_offset = Vector2(375, 750)
 script = ExtResource("1_7usar")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_xfpw3")
+[node name="card_root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -14.0
+offset_top = -23.0
+offset_right = 736.0
+offset_bottom = 727.0
+pivot_offset = Vector2(375, 750)
+
+[node name="bg" type="TextureRect" parent="card_root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = -358.5
+offset_right = 402.0
+offset_bottom = 358.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lb1f7")
+
+[node name="wings" type="Control" parent="card_root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="chamberwing_00" type="TextureRect" parent="card_root/wings"]
+layout_mode = 0
+offset_left = -100.5
+offset_top = -364.685
+offset_right = 144.5
+offset_bottom = -197.685
+pivot_offset = Vector2(122, 364.685)
+texture = ExtResource("3_q4ssc")
+
+[node name="chamberwing_01" type="TextureRect" parent="card_root/wings"]
+layout_mode = 0
+offset_left = -100.5
+offset_top = -364.685
+offset_right = 144.5
+offset_bottom = -197.685
+rotation = 2.0944
+pivot_offset = Vector2(122, 500)
+texture = ExtResource("3_q4ssc")
+
+[node name="chamberwing_02" type="TextureRect" parent="card_root/wings"]
+layout_mode = 0
+offset_left = -100.5
+offset_top = -364.685
+offset_right = 144.5
+offset_bottom = -197.685
+rotation = 4.18879
+pivot_offset = Vector2(122, 500)
+texture = ExtResource("3_q4ssc")
+
+[node name="barrel_root" type="Control" parent="card_root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 73.675)
+
+[node name="barrel" type="TextureRect" parent="card_root/barrel_root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -171.0
+offset_right = 233.0
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mwufe")
+
+[node name="chamber_00" type="TextureRect" parent="card_root/barrel_root"]
+layout_mode = 0
+offset_left = -97.0
+offset_top = -296.445
+offset_right = 105.0
+offset_bottom = -94.445
+pivot_offset = Vector2(101, 101)
+texture = ExtResource("5_ply66")
+
+[node name="chambernumber_00" type="TextureRect" parent="card_root/barrel_root/chamber_00"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_6wvox")
+script = ExtResource("6_fjk0c")
+
+[node name="chamber_01" type="TextureRect" parent="card_root/barrel_root"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 165.0
+offset_right = 380.0
+offset_bottom = 367.0
+pivot_offset = Vector2(101, 101)
+texture = ExtResource("5_ply66")
+
+[node name="chambernumber_00" type="TextureRect" parent="card_root/barrel_root/chamber_01" node_paths=PackedStringArray("barrel")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_6wvox")
+script = ExtResource("6_fjk0c")
+barrel = NodePath("../..")
+
+[node name="chamber_02" type="TextureRect" parent="card_root/barrel_root"]
+layout_mode = 0
+offset_left = -351.0
+offset_top = 152.0
+offset_right = -149.0
+offset_bottom = 354.0
+pivot_offset = Vector2(101, 101)
+texture = ExtResource("5_ply66")
+
+[node name="chambernumber_00" type="TextureRect" parent="card_root/barrel_root/chamber_02" node_paths=PackedStringArray("barrel")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_6wvox")
+script = ExtResource("6_fjk0c")
+barrel = NodePath("../..")
+
+[node name="card_art" type="TextureRect" parent="card_root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -107.0
+offset_right = 177.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.845, 0.845)
+pivot_offset = Vector2(174, 175)
+texture = ExtResource("8_pyw7o")
