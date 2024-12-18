@@ -27,10 +27,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -44.0
-offset_top = -494.0
-offset_right = -44.0
-offset_bottom = -494.0
+offset_left = -59.0
+offset_top = -693.0
+offset_right = -59.0
+offset_bottom = -693.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.6, 0.6)
@@ -38,6 +38,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 script = ExtResource("1_y4h2x")
 card_width = 750.0
+dist_from_root = 700.0
 
 [node name="Card" parent="CanvasLayer/HUD/Hand" instance=ExtResource("2_yef8s")]
 layout_mode = 1
