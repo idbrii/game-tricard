@@ -1,8 +1,6 @@
-@tool
 extends TextureRect
 
-@export var barrel : Control
-
+@export var barrel_pivot : Control
 
 func _process(_dt: float):
-    rotation = -barrel.rotation
+    rotation = -barrel_pivot.rotation

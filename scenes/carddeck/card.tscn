@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://12xcvgynuav6"]
+[gd_scene load_steps=11 format=3 uid="uid://12xcvgynuav6"]
 
 [ext_resource type="Script" path="res://code/cards/card.gd" id="1_7usar"]
 [ext_resource type="Texture2D" uid="uid://e3ic4n0reaxx" path="res://assets/textures/cardbase/T_Card_TriangleBG.png" id="2_lb1f7"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cmb6r8shnjklr" path="res://assets/textures/cardbase/T_Bullet_Full.png" id="5_ply66"]
 [ext_resource type="Script" path="res://code/cards/always_up.gd" id="6_fjk0c"]
 [ext_resource type="Texture2D" uid="uid://1o5lfsu1fw5k" path="res://assets/textures/numbers/tcnumbers_01.png" id="7_6wvox"]
+[ext_resource type="Texture2D" uid="uid://hb82c1dbq2op" path="res://assets/textures/numbers/tcnumbers_02.png" id="8_jf7x7"]
 [ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="8_pyw7o"]
+[ext_resource type="Texture2D" uid="uid://db71r258xpdub" path="res://assets/textures/numbers/tcnumbers_03.png" id="9_1bhxd"]
 
 [node name="Card" type="Control"]
 custom_minimum_size = Vector2(750, 750)
@@ -118,7 +120,7 @@ offset_bottom = -94.445
 pivot_offset = Vector2(101, 101)
 texture = ExtResource("5_ply66")
 
-[node name="chambernumber_00" type="TextureRect" parent="card_root/barrel_root/chamber_00"]
+[node name="chambernumber_00" type="TextureRect" parent="card_root/barrel_root/chamber_00" node_paths=PackedStringArray("barrel_pivot")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,8 +133,10 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(64, 64)
 texture = ExtResource("7_6wvox")
 script = ExtResource("6_fjk0c")
+barrel_pivot = NodePath("../..")
 
 [node name="chamber_01" type="TextureRect" parent="card_root/barrel_root"]
 layout_mode = 0
@@ -143,7 +147,7 @@ offset_bottom = 367.0
 pivot_offset = Vector2(101, 101)
 texture = ExtResource("5_ply66")
 
-[node name="chambernumber_00" type="TextureRect" parent="card_root/barrel_root/chamber_01" node_paths=PackedStringArray("barrel")]
+[node name="chambernumber_01" type="TextureRect" parent="card_root/barrel_root/chamber_01" node_paths=PackedStringArray("barrel_pivot")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -156,9 +160,10 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_6wvox")
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("8_jf7x7")
 script = ExtResource("6_fjk0c")
-barrel = NodePath("../..")
+barrel_pivot = NodePath("../..")
 
 [node name="chamber_02" type="TextureRect" parent="card_root/barrel_root"]
 layout_mode = 0
@@ -169,7 +174,7 @@ offset_bottom = 354.0
 pivot_offset = Vector2(101, 101)
 texture = ExtResource("5_ply66")
 
-[node name="chambernumber_00" type="TextureRect" parent="card_root/barrel_root/chamber_02" node_paths=PackedStringArray("barrel")]
+[node name="chambernumber_02" type="TextureRect" parent="card_root/barrel_root/chamber_02" node_paths=PackedStringArray("barrel_pivot")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -182,9 +187,10 @@ offset_right = 64.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_6wvox")
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("9_1bhxd")
 script = ExtResource("6_fjk0c")
-barrel = NodePath("../..")
+barrel_pivot = NodePath("../..")
 
 [node name="card_art" type="TextureRect" parent="card_root"]
 layout_mode = 1
