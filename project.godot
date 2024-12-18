@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GameName"
+config/name="Tricard"
 config/tags=PackedStringArray("created_by_me")
 run/main_scene="res://scenes/move_gym.tscn"
 config/features=PackedStringArray("4.3")
@@ -178,7 +178,7 @@ file_logging/enable_file_logging=true
 
 [mono]
 
-project/assembly_name="GameName"
+project/assembly_name="Tricard"
 
 [physics]
 
