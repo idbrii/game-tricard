@@ -7,6 +7,8 @@ extends Node3D
 ## The fraction of a circle used for the card fan. 0 would make them a flat line.
 @export_range(0.0, 1.0) var card_fan_angle_turns := 0.25
 
+@export_range(0.0, 10000.0) var dist_from_root := 5.0
+
 
 func _ready():
     layout()
@@ -15,21 +17,20 @@ func add_card(card):
     layout()
 
 func layout():
-    var count = get_child_count()
+    var count = get_child_count() - 1
 
     var total_angle = card_fan_angle_turns * TAU
     var angle_delta = total_angle / count
     var angle_offset = -total_angle / 2.0
 
-    var pos_delta = card_width / 2 + card_padding
-    var width = count * pos_delta
-    var half_width = width / 2.0
-    var pos_offset = -half_width
+    var pos_offset = dist_from_root + card_width
+
+    var point = Vector3.UP * pos_offset
+    point = point.rotated(Vector3.FORWARD, angle_offset)
 
     for card in get_children():
-        card.position = Vector3.RIGHT * pos_offset
-        printt(card, card.position)
+        card.position = point + Vector3.DOWN * pos_offset + Vector3.FORWARD * 0.5
         card.rotation = Vector3.ZERO
-        card.rotate_z(TAU - angle_offset)
-        pos_offset += pos_delta
+        card.rotate_z(point.signed_angle_to(Vector3.UP, Vector3.FORWARD))
+        point = point.rotated(Vector3.FORWARD, angle_delta)
         angle_offset += angle_delta
