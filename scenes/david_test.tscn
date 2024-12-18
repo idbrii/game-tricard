@@ -9,15 +9,22 @@
 script = ExtResource("1_y4h2x")
 card_width = 7.0
 card_padding = 2.0
+card_fan_angle_turns = null
+dist_from_root = null
 
 [node name="Card" parent="Hand" instance=ExtResource("3_yoe3k")]
-transform = Transform3D(0.464842, 0.885394, 0, -0.885394, 0.464842, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Card2" parent="Hand" instance=ExtResource("3_yoe3k")]
 
 [node name="Card3" parent="Hand" instance=ExtResource("3_yoe3k")]
 
 [node name="Card4" parent="Hand" instance=ExtResource("3_yoe3k")]
+
+[node name="Card5" parent="Hand" instance=ExtResource("3_yoe3k")]
+
+[node name="Card6" parent="Hand" instance=ExtResource("3_yoe3k")]
+
+[node name="Card7" parent="Hand" instance=ExtResource("3_yoe3k")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.5867)
