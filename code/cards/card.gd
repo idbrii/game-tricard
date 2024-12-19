@@ -3,6 +3,9 @@ class_name Card
 
 @export var chamber_labels: Array[Control] = []
 
+@onready var card_front: Control = $card_root
+@onready var card_back: Control = $card_back
+
 @onready var barrel_root := $card_root/barrel_root
 @onready var click_area := $card_root/ClickArea
 @onready var actions_root := $"%card_actions"
@@ -17,6 +20,16 @@ var chamber_values: Array[int] = []
 func _ready():
     click_area.pressed.connect(_on_pressed)
     load_card(def)
+    set_is_face_up(false)
+
+
+func set_is_face_up(is_face_up):
+    card_front.visible = is_face_up
+    card_back.visible = not is_face_up
+
+
+func is_face_up():
+    return card_front.visible
 
 
 func _on_pressed():

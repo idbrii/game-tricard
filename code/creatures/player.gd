@@ -4,6 +4,8 @@ extends Node
 
 @onready var attack_btn := $"%AttackButton"
 @onready var target_self_btn := $"%SelfButton"
+@onready var discard_btn := $"%HUD/DiscardAll"
+@onready var deck := $"%HUD/Deck"
 
 ## Placeholder until we have targeting.
 var victim : Node
@@ -13,6 +15,7 @@ var victim : Node
 func _ready():
     attack_btn.pressed.connect(_on_attack_pressed)
     target_self_btn.pressed.connect(_on_target_self_pressed)
+    discard_btn.pressed.connect(_on_discard_pressed)
 
 
 func _on_attack_pressed():
@@ -21,6 +24,10 @@ func _on_attack_pressed():
 
 func _on_target_self_pressed():
     play_card(self)
+
+
+func _on_discard_pressed():
+    deck.discard_all()
 
 
 func play_card(target):
