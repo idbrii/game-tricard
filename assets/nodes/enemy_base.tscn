@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqd0voam7vmge"]
+[gd_scene load_steps=17 format=3 uid="uid://cqd0voam7vmge"]
 
 [ext_resource type="Texture2D" uid="uid://ca3t2rev2wvo" path="res://assets/textures/characters/tc_enemy_gunslinger.png" id="1_0jw65"]
+[ext_resource type="Script" path="res://code/creatures/creature.gd" id="1_jcodj"]
 [ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_1j4k3"]
 [ext_resource type="Texture2D" uid="uid://iu8d2hnip14p" path="res://assets/textures/icons/icon_heal.png" id="4_8ep2s"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="4_jwo6d"]
@@ -349,6 +350,7 @@ _data = {
 }
 
 [node name="enemy_base" type="Node3D"]
+script = ExtResource("1_jcodj")
 
 [node name="enemy_root" type="Marker3D" parent="."]
 

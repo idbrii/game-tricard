@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://b5jh237tf2gf8"]
 
 [ext_resource type="Script" path="res://code/cards/deck.gd" id="1_0snlv"]
-[ext_resource type="Theme" uid="uid://bppiugevah12o" path="res://assets/theme_hud.tres" id="1_h4un0"]
+[ext_resource type="Theme" path="res://assets/theme_hud.tres" id="1_h4un0"]
 [ext_resource type="Script" path="res://code/cards/hand.gd" id="1_y4h2x"]
 [ext_resource type="PackedScene" uid="uid://12xcvgynuav6" path="res://scenes/carddeck/card.tscn" id="2_yef8s"]
 [ext_resource type="PackedScene" uid="uid://1yll1nfkot1c" path="res://scenes/creatures/cowboy.tscn" id="4_045j0"]
