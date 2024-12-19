@@ -8,7 +8,14 @@ signal die()
 @export var block := 0
 @export var turns := 0
 
-@export var health_label : Label3D
+## Label or Label3D for current health value.
+@export var health_label : Node
+
+## Label or Label3D for current block value.
+@export var block_label : Node
+
+## Label or Label3D for current turns value.
+@export var turns_label : Node
 
 
 func _ready():
@@ -20,6 +27,16 @@ func _update_health():
         health_label.text = str(health)
 
 
+func _update_block():
+    if block_label:
+        block_label.text = str(block)
+
+
+func _update_turns():
+    if turns_label:
+        turns_label.text = str(turns)
+
+
 func mod_health(amount):
     # TODO: resolve block
     health += amount
@@ -29,11 +46,14 @@ func mod_health(amount):
         hurt.emit(amount)
 
     _update_health()
+    _update_block()
 
 func mod_block(amount):
     block += amount
     block = max(block, 0)
+    _update_block()
 
 
 func mod_turns(amount):
     turns += amount
+    _update_turns()
