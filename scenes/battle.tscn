@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8auld8b8c1b8"]
+[gd_scene load_steps=3 format=3 uid="uid://c8auld8b8c1b8"]
 
 [ext_resource type="Script" path="res://scenes/battle.gd" id="1_np3yy"]
+[ext_resource type="PackedScene" uid="uid://duaopp0l0n4dv" path="res://scenes/stage-canyon.tscn" id="2_s08cu"]
 
 [node name="Battle" type="Node3D"]
 script = ExtResource("1_np3yy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.201063, 2.46514, -1.45489)
 projection = 1
-size = 10.0
+current = true
+size = 9.60921
 
 [node name="Stage" type="Node" parent="."]
 
@@ -21,3 +24,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03015, 0, -6.18261)
 
 [node name="C" type="Node3D" parent="Stage/SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.21166, 0, -6.18261)
+
+[node name="level_canyon" parent="." instance=ExtResource("2_s08cu")]

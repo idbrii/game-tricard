@@ -62,15 +62,15 @@ func startPlayerTurn():
 	mode = Mode.Select
 	var en:Enemy = await self.enemyPicked
 	mode = Mode.PlayerTurn
-	en.damage(1)
+	await en.damage(1)
 	await startEnemyTurn()
-	await spawnEnemies()
 	mode = Mode.None
 
 func startEnemyTurn():
 	mode = Mode.EnemyTurn
 	for n:Enemy in enemies.values():
 		await n.tick()
+	await spawnEnemies()
 
 func onEnemyDied(en:Enemy):
 	enemies.erase(en.spawner)
