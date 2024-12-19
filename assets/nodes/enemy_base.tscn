@@ -1,14 +1,29 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqd0voam7vmge"]
+[gd_scene load_steps=16 format=3 uid="uid://cqd0voam7vmge"]
 
 [ext_resource type="Texture2D" uid="uid://ca3t2rev2wvo" path="res://assets/textures/characters/tc_enemy_gunslinger.png" id="1_0jw65"]
 [ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_1j4k3"]
+[ext_resource type="Texture2D" uid="uid://iu8d2hnip14p" path="res://assets/textures/icons/icon_heal.png" id="4_8ep2s"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="4_jwo6d"]
+[ext_resource type="Theme" path="res://assets/theme_hud.tres" id="4_rt5dg"]
+[ext_resource type="Texture2D" uid="uid://8omskisvw082" path="res://assets/textures/icons/icon_block.png" id="5_bq5oe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnoub"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
 albedo_texture = ExtResource("2_1j4k3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_xv412"]
+size = Vector2(4, 4)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_uxfif"]
+viewport_path = NodePath("enemy_root/enemy_UI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wnh3"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_uxfif")
 
 [sub_resource type="Animation" id="Animation_mpsn4"]
 length = 0.001
@@ -364,22 +379,74 @@ gi_mode = 0
 texture = ExtResource("2_1j4k3")
 
 [node name="enemy_UI" type="Marker3D" parent="enemy_root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78262, 12.0259, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.803, 12.026, 0)
 
 [node name="Label3D" type="Label3D" parent="enemy_root/enemy_UI"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51, 0)
+visible = false
 pixel_size = 0.031
 text = "The Enemy"
 
-[node name="Health" type="Label3D" parent="enemy_root/enemy_UI"]
-pixel_size = 0.05
+[node name="SubViewport" type="SubViewport" parent="enemy_root/enemy_UI"]
+gui_embed_subwindows = true
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="enemy_root/enemy_UI/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_rt5dg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="enemy_root/enemy_UI/SubViewport/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer"]
+layout_mode = 2
+text = "The Enemy"
+
+[node name="Stats" type="HBoxContainer" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Icon" type="TextureRect" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
+layout_mode = 2
+texture = ExtResource("4_8ep2s")
+stretch_mode = 5
+
+[node name="Health" type="Label" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
+layout_mode = 2
 text = "100"
+
+[node name="padding" type="Control" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Icon2" type="TextureRect" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
+layout_mode = 2
+texture = ExtResource("5_bq5oe")
+stretch_mode = 5
+
+[node name="Block" type="Label" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
+layout_mode = 2
+text = "0"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy_root/enemy_UI"]
+mesh = SubResource("QuadMesh_xv412")
+surface_material_override/0 = SubResource("StandardMaterial3D_5wnh3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ndbw6")
 }
 
-[node name="Status" type="Node" parent="." node_paths=PackedStringArray("health_label")]
+[node name="Status" type="Node" parent="." node_paths=PackedStringArray("health_label", "block_label")]
 script = ExtResource("4_jwo6d")
-health_label = NodePath("../enemy_root/enemy_UI/Health")
+health_label = NodePath("../enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats/Health")
+block_label = NodePath("../enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats/Block")
