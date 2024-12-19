@@ -37,7 +37,7 @@ func play_card(target):
 	var card := InputFocus.get_focus() as Card
 	if card:
 		prints("Playing card", card, "on", target)
-		card.play(target)
+		card.play_card(self, target)
 		await get_tree().create_timer(0.6).timeout
 		# Clear the card so it goes back into the hand.
 		InputFocus.set_focus(null)

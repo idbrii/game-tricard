@@ -4,7 +4,7 @@ func _ready():
     # TODO: new icon
     texture = preload("res://assets/textures/icons/icon_block.png")
 
-func apply(target: Node, power: int):
+func apply(_actor: Node, target: Node, power: int):
     target.status.mod_burn(power)
 
 

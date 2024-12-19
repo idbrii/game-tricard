@@ -4,8 +4,8 @@ func _ready():
     texture = preload("res://assets/textures/icons/icon_draw.png")
 
 
-func apply(target: Node, power: int):
-    target.draw_card(power)
+func apply(actor: Node, _target: Node, power: int):
+    actor.draw_card(power)
 
 
 func get_target_type() -> CardDef.Target:

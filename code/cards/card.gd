@@ -52,10 +52,10 @@ func load_card(card_def: CardDef):
     card_def.add_actions(actions_root)
 
 
-func play(target):
+func play_card(actor, target):
     var power = chamber_values[upgrade_level]
     for action in actions_root.get_children():
-        action.apply(target, power)
+        action.apply(actor, target, power)
     next_chamber()
     if upgrade_level == chamber_values.size():
         upgrade()

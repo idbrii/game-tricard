@@ -50,7 +50,6 @@ func requires_target(actions_root: Control):
     if is_barrage:
         return false
 
-    var targets = {}
     for action in actions_root.get_children():
         var t = action.get_target_type()
         if t == Target.OPPONENT:
