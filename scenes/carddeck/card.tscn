@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="8_pyw7o"]
 [ext_resource type="Texture2D" uid="uid://db71r258xpdub" path="res://assets/textures/numbers/tcnumbers_03.png" id="9_1bhxd"]
 
-[node name="Card" type="Control"]
+[node name="Card" type="Control" node_paths=PackedStringArray("chamber_labels")]
 custom_minimum_size = Vector2(750, 750)
 layout_mode = 3
 anchors_preset = 0
@@ -19,6 +19,7 @@ offset_right = 750.0
 offset_bottom = 750.0
 pivot_offset = Vector2(375, 750)
 script = ExtResource("1_7usar")
+chamber_labels = [NodePath("card_root/barrel_root/chamber_00/chambernumber_00"), NodePath("card_root/barrel_root/chamber_01/chambernumber_01"), NodePath("card_root/barrel_root/chamber_02/chambernumber_02")]
 
 [node name="card_root" type="Control" parent="."]
 layout_mode = 3
@@ -144,9 +145,9 @@ barrel_pivot = NodePath("../..")
 
 [node name="chamber_01" type="TextureRect" parent="card_root/barrel_root"]
 layout_mode = 0
-offset_left = 178.0
+offset_left = -351.0
 offset_top = 165.0
-offset_right = 380.0
+offset_right = -149.0
 offset_bottom = 367.0
 pivot_offset = Vector2(101, 101)
 mouse_filter = 2
@@ -173,10 +174,10 @@ barrel_pivot = NodePath("../..")
 
 [node name="chamber_02" type="TextureRect" parent="card_root/barrel_root"]
 layout_mode = 0
-offset_left = -351.0
-offset_top = 152.0
-offset_right = -149.0
-offset_bottom = 354.0
+offset_left = 178.0
+offset_top = 165.0
+offset_right = 380.0
+offset_bottom = 367.0
 pivot_offset = Vector2(101, 101)
 mouse_filter = 2
 texture = ExtResource("5_ply66")

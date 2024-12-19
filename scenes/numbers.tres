@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=12 format=3 uid="uid://n5wd1bef1i6e"]
+
+[ext_resource type="Texture2D" uid="uid://c6pxhw6wtbamg" path="res://assets/textures/numbers/tcnumbers_00.png" id="1_8ur4l"]
+[ext_resource type="Texture2D" uid="uid://1o5lfsu1fw5k" path="res://assets/textures/numbers/tcnumbers_01.png" id="2_g41am"]
+[ext_resource type="Texture2D" uid="uid://hb82c1dbq2op" path="res://assets/textures/numbers/tcnumbers_02.png" id="3_w7xps"]
+[ext_resource type="Texture2D" uid="uid://db71r258xpdub" path="res://assets/textures/numbers/tcnumbers_03.png" id="4_dtd85"]
+[ext_resource type="Texture2D" uid="uid://buk1qtptd46sw" path="res://assets/textures/numbers/tcnumbers_04.png" id="5_m20i3"]
+[ext_resource type="Texture2D" uid="uid://dorft2qln6cwa" path="res://assets/textures/numbers/tcnumbers_05.png" id="6_ga27r"]
+[ext_resource type="Texture2D" uid="uid://bd7ysdrsykusx" path="res://assets/textures/numbers/tcnumbers_06.png" id="7_pjgiw"]
+[ext_resource type="Texture2D" uid="uid://crkkygnpnch38" path="res://assets/textures/numbers/tcnumbers_07.png" id="8_tmo4i"]
+[ext_resource type="Texture2D" uid="uid://bv8dgg5idteq0" path="res://assets/textures/numbers/tcnumbers_08.png" id="9_4ijbg"]
+[ext_resource type="Texture2D" uid="uid://b8k7pjunjmbbu" path="res://assets/textures/numbers/tcnumbers_09.png" id="10_qbwlb"]
+[ext_resource type="Script" path="res://code/cards/numbers.gd" id="11_ltxxd"]
+
+[resource]
+script = ExtResource("11_ltxxd")
+numbers = Array[Texture2D]([ExtResource("1_8ur4l"), ExtResource("2_g41am"), ExtResource("3_w7xps"), ExtResource("4_dtd85"), ExtResource("5_m20i3"), ExtResource("6_ga27r"), ExtResource("7_pjgiw"), ExtResource("8_tmo4i"), ExtResource("9_4ijbg"), ExtResource("10_qbwlb")])
