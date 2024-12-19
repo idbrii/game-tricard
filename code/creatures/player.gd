@@ -6,7 +6,7 @@ extends Node
 @onready var target_self_btn := $"%SelfButton"
 
 ## Placeholder until we have targeting.
-@onready var victim := $"%DummyTarget"
+var victim : Node
 
 
 

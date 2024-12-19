@@ -22,6 +22,11 @@ func _ready() -> void:
 	await spawnEnemies()
 	mode = Mode.None
 
+	# hack: until enemy picking is in
+	for n: Enemy in enemies.values():
+		$"%Player".victim = n
+		break
+
 func _process(delta: float) -> void:
 	if mode == Mode.None:
 		startPlayerTurn()

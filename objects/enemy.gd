@@ -1,5 +1,7 @@
 extends RigidBody3D
 
+@onready var status := $Status as Status
+
 var health:int
 var turn:int
 var spawner:String
@@ -13,7 +15,7 @@ signal damaged
 func setTurn(val:int):
 	turn = val
 	$LabelTurn.text = "Turn: " + str(turn)
-	
+
 func setHP(val:int):
 	health = val
 	$LabelHP.text = "HP: "+str(health)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyx7b6jhwlali"]
+[gd_scene load_steps=6 format=3 uid="uid://cyx7b6jhwlali"]
 
 [ext_resource type="Script" path="res://objects/enemy.gd" id="1_k030x"]
 [ext_resource type="Material" uid="uid://bvprxsbpa0wra" path="res://misc/black.material" id="2_mlfy0"]
+[ext_resource type="Script" path="res://code/creatures/status.gd" id="3_f82eg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e32k0"]
 size = Vector3(2.00073, 1.99567, 1)
@@ -28,3 +29,6 @@ text = "Turn: X"
 [node name="LabelHP" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.979889, 1.20062, 0)
 text = "HP: XX"
+
+[node name="Status" type="Node" parent="."]
+script = ExtResource("3_f82eg")
