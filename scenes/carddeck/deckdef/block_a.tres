@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardDef" load_steps=3 format=3 uid="uid://bt3orkicewcl1"]
+
+[ext_resource type="PackedScene" uid="uid://d27ihdeu6s2uk" path="res://scenes/carddeck/actions/action_block.tscn" id="1_0bfva"]
+[ext_resource type="Script" path="res://code/cards/carddef.gd" id="2_asmll"]
+
+[resource]
+script = ExtResource("2_asmll")
+card_name = "Blast"
+is_barrage = true
+actions = Array[PackedScene]([ExtResource("1_0bfva")])
+chamber_values = Array[int]([1, 2, 2])
