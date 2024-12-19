@@ -10,7 +10,8 @@ extends Control
 @export_range(0.0, 1.0) var card_fan_angle_turns := 0.25
 
 ## When a card is selected, move it up a bit.
-@export_range(0.0, 1.0) var selected_offset_multiplier := 1.2
+@export_range(0.0, 3.0) var selected_offset_multiplier := 1.4
+
 
 func _process(_dt: float):
     layout()
