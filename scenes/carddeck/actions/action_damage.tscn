@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://m6t7nu3xrwei"]
 
 [ext_resource type="Texture2D" uid="uid://b80p2un5tme2i" path="res://assets/textures/actions/icon_dmg.png" id="1_5qwfx"]
-[ext_resource type="Script" path="res://code/cards/action/card_action.gd" id="2_fxvr5"]
+[ext_resource type="Script" path="res://code/cards/action/damage.gd" id="2_tjqum"]
 
 [node name="Damage" type="TextureRect"]
 texture = ExtResource("1_5qwfx")
-script = ExtResource("2_fxvr5")
+script = ExtResource("2_tjqum")

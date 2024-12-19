@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3p4sigsndpvs"]
 
 [ext_resource type="Texture2D" uid="uid://c4k8y2sbq1wrn" path="res://assets/textures/actions/icon_heal.png" id="1_pp5dy"]
-[ext_resource type="Script" path="res://code/cards/action/card_action.gd" id="2_qfmd2"]
+[ext_resource type="Script" path="res://code/cards/action/heal.gd" id="2_c8c4k"]
 
 [node name="Heal" type="TextureRect"]
 texture = ExtResource("1_pp5dy")
-script = ExtResource("2_qfmd2")
+script = ExtResource("2_c8c4k")
