@@ -132,6 +132,70 @@ tracks/9/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_73j11"]
+resource_name = "enemy_anim_dead"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy_root:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.233333, 0.3, 0.366667, 1.06667, 2),
+"transitions": PackedFloat32Array(1, 1, 0.241484, 2.54912, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.302683, -0.106909, 0.0319788), Vector3(-0.535051, -0.150723, -0.0183611), Vector3(-0.902604, -0.257381, 0.116369), Vector3(-1.39235, -1.09409, 1.00015)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enemy_root:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0666667, 0.166667, 0.3, 0.366667, 1.06667, 2),
+"transitions": PackedFloat32Array(1, 1, 1e+06, 1e+06, 1, 0.241484, 2.54912, 1),
+"update": 0,
+"values": [Vector3(1.037, 1, 1.037), Vector3(1, 1, 1), Vector3(0.999765, 0.964182, 1), Vector3(0.999765, 0.964182, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("enemy_root/enemy_mainsprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.7, 1.13333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(0.798974, 4.3799e-06, 6.73831e-07, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("enemy_root:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.233333, 0.3, 0.366667, 1.06667, 2),
+"transitions": PackedFloat32Array(1, 1, 0.241484, 2.54912, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.54406, -1.35402), Vector3(0, 2.55244, -2.67915), Vector3(0, 3.75604, -9.60197), Vector3(0, 3.67522, -13.7956)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("enemy_root/enemy_mainsprite:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0334333, 0.133333, 0.233333, 1.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, true, false]
+}
+
 [sub_resource type="Animation" id="Animation_bxdmq"]
 resource_name = "enemy_anim_fire"
 length = 0.2
@@ -260,70 +324,6 @@ tracks/4/keys = {
 "values": [false, true, false]
 }
 
-[sub_resource type="Animation" id="Animation_73j11"]
-resource_name = "enemy_anim_dead"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("enemy_root:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.233333, 0.3, 0.366667, 1.06667, 2),
-"transitions": PackedFloat32Array(1, 1, 0.241484, 2.54912, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.302683, -0.106909, 0.0319788), Vector3(-0.535051, -0.150723, -0.0183611), Vector3(-0.902604, -0.257381, 0.116369), Vector3(-1.39235, -1.09409, 1.00015)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("enemy_root:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0001, 0.0666667, 0.166667, 0.3, 0.366667, 1.06667, 2),
-"transitions": PackedFloat32Array(1, 1, 1e+06, 1e+06, 1, 0.241484, 2.54912, 1),
-"update": 0,
-"values": [Vector3(1.037, 1, 1.037), Vector3(1, 1, 1), Vector3(0.999765, 0.964182, 1), Vector3(0.999765, 0.964182, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("enemy_root/enemy_mainsprite:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.7, 1.13333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(0.798974, 4.3799e-06, 6.73831e-07, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("enemy_root:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.233333, 0.3, 0.366667, 1.06667, 2),
-"transitions": PackedFloat32Array(1, 1, 0.241484, 2.54912, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.54406, -1.35402), Vector3(0, 2.55244, -2.67915), Vector3(0, 3.75604, -9.60197), Vector3(0, 3.67522, -13.7956)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("enemy_root/enemy_mainsprite:flip_h")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.0334333, 0.133333, 0.233333, 1.53333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, false, true, false, true, false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ndbw6"]
 _data = {
 "RESET": SubResource("Animation_mpsn4"),
@@ -332,7 +332,7 @@ _data = {
 "enemy_anim_hurt": SubResource("Animation_4hnro")
 }
 
-[node name="enemy_base" type="Node"]
+[node name="enemy_base" type="Node3D"]
 
 [node name="enemy_root" type="Marker3D" parent="."]
 
@@ -363,7 +363,12 @@ gi_mode = 0
 texture = ExtResource("2_1j4k3")
 
 [node name="enemy_UI" type="Marker3D" parent="enemy_root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.0259, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4372, 0)
+
+[node name="Label3D" type="Label3D" parent="enemy_root/enemy_UI"]
+pixel_size = 0.031
+text = "The Enemy
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
