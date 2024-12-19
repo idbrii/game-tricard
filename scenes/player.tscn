@@ -102,6 +102,10 @@ anchor_bottom = 1.0
 offset_top = -416.0
 offset_right = 469.0
 grow_vertical = 0
+mouse_filter = 2
+script = ExtResource("6_2m6ee")
+card_fan_angle_turns = 0.02
+selected_offset_multiplier = 1.0
 
 [node name="DiscardPile" type="Control" parent="CanvasLayer/HUD"]
 layout_mode = 1
@@ -117,6 +121,10 @@ offset_bottom = -184.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.75, 0.75)
+mouse_filter = 2
+script = ExtResource("6_2m6ee")
+card_fan_angle_turns = 0.02
+selected_offset_multiplier = 1.0
 
 [node name="DiscardAll" type="TextureButton" parent="CanvasLayer/HUD"]
 layout_mode = 1
@@ -132,4 +140,3 @@ grow_vertical = 0
 texture_normal = ExtResource("8_1eb0y")
 texture_pressed = ExtResource("9_8wgg6")
 texture_hover = ExtResource("10_xyumm")
-texture_focused = ExtResource("10_xyumm")

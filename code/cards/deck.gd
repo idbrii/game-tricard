@@ -7,7 +7,6 @@ var unique_cards: Array[CardDef]
 
 @onready var draw := $"%HUD/DrawPile"
 @onready var discard := $"%HUD/DiscardPile"
-@onready var discard_btn := $"%HUD/DiscardAll"
 
 var deck_size := 16
 var hand_size := 5
@@ -56,3 +55,10 @@ func draw_cards(num_cards):
         draw.remove_child(c)
         hand.add_child(c)
         c.set_is_face_up(true)
+
+
+func discard_all():
+    for c in hand.get_children():
+        c.set_is_face_up(false)
+        hand.remove_child(c)
+        discard.add_child(c)
