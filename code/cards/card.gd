@@ -14,7 +14,7 @@ class_name Card
 
 var times_used := 0
 var upgrade_level := 0
-var has_input_focus := false
+
 
 func _ready():
     click_area.pressed.connect(_on_pressed)
@@ -37,4 +37,5 @@ func play(target):
 
 
 func next_chamber():
+    upgrade_level += 1
     barrel_root.rotation += TAU/3
