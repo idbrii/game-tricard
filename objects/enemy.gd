@@ -1,32 +1,22 @@
 extends RigidBody3D
 
-@onready var status := $Status as Status
-
-var health:int
-var turn:int
 var spawner:String
+@onready var status := $Status as Status
 
 var matYellow = preload("res://misc/yellow.material")
 var matBlack = preload("res://misc/black.material")
 
-signal died
-signal damaged
+signal disposed
 
-func setTurn(val:int):
-	turn = val
-	$LabelTurn.text = "Turn: " + str(turn)
-
-func setHP(val:int):
-	health = val
-	$LabelHP.text = "HP: "+str(health)
-
-func isDead() -> bool:
-	return health <= 0
+func _ready():
+	status.die.connect(onDied)
+	status.hurt.connect(onHurt)
+	status.blocked.connect(onBlocked)
 
 func spawn():
-	setTurn(2)
-	setHP(3)
+	status.reset()
 	await get_tree().create_timer(0.1).timeout
+	# TODO anim
 
 func focus():
 	$MeshInstance3D.material_override = matYellow
@@ -34,21 +24,28 @@ func focus():
 func unfocus():
 	$MeshInstance3D.material_override = matBlack
 
-func damage(val:int):
+func onDied():
+	$Model/AnimationPlayer.play("enemy_anim_dead")
+	await $Model/AnimationPlayer.animation_finished
+	$UI/LabelHP.text = "0"
+	disposed.emit(self)
+
+func onHurt():
 	await get_tree().create_timer(0.1).timeout
-	setHP(max(health-val, 0))
-	if isDead():
-		died.emit(self)
-	else:
-		damaged.emit(self)
+	$Model/AnimationPlayer.play("enemy_anim_hurt")
+	await $Model/AnimationPlayer.animation_finished
+	$UI/LabelHP.text = str(status.health)
+
+func onBlocked():
+	await get_tree().create_timer(0.1).timeout
+	# TODO play anim
 
 func tick():
-	setTurn(max(turn-1, 0))
 	await get_tree().create_timer(0.2).timeout
-	if turn > 0:
-		return
-	await performAction()
-	setTurn(2)
+	status.mod_turns(-1)
+	if status.turns <= 0:
+		await performAction()
+		status.reset_turns()
 
 func performAction():
 	print(spawner, " doing action")

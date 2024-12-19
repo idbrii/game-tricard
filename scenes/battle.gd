@@ -56,7 +56,7 @@ func spawnEnemies():
 		var en:Enemy = EnemyPrefab.instantiate()
 		en.position = n.position
 		en.spawner = n.name
-		en.died.connect(onEnemyDied)
+		en.disposed.connect(onEnemyDisposed)
 		enemies[n.name] = en
 		add_child(en)
 		await en.spawn()
@@ -77,7 +77,7 @@ func startEnemyTurn():
 		await n.tick()
 	await spawnEnemies()
 
-func onEnemyDied(en:Enemy):
+func onEnemyDisposed(en:Enemy):
 	enemies.erase(en.spawner)
 	remove_child(en)
 

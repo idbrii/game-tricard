@@ -67,3 +67,6 @@ func mod_poison(amount):
 func mod_turns(amount):
 	turns += amount
 	turned.emit(turns)
+
+func resetTurns():
+	turns = maxTurns
