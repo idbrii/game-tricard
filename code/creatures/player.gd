@@ -28,3 +28,6 @@ func play_card(target):
     if card:
         printt("Playing card", card, "on", target)
         card.play(target)
+        await get_tree().create_timer(0.6).timeout
+        # Clear the card so it goes back into the hand.
+        InputFocus.set_focus(null)
