@@ -23,13 +23,17 @@ func _ready():
     set_is_face_up(false)
 
 
-func set_is_face_up(is_face_up):
-    card_front.visible = is_face_up
-    card_back.visible = not is_face_up
+func set_is_face_up(want_face_up):
+    card_front.visible = want_face_up
+    card_back.visible = not want_face_up
 
 
 func is_face_up():
     return card_front.visible
+
+
+func requires_target():
+    return def.requires_target(actions_root)
 
 
 func _on_pressed():
@@ -52,10 +56,10 @@ func load_card(card_def: CardDef):
     card_def.add_actions(actions_root)
 
 
-func play(target):
+func play_card(actor, target):
     var power = chamber_values[upgrade_level]
     for action in actions_root.get_children():
-        action.apply(target, power)
+        action.apply(actor, target, power)
     next_chamber()
     if upgrade_level == chamber_values.size():
         upgrade()
