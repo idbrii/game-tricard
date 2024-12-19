@@ -16,8 +16,10 @@ extends Control
 func _process(_dt: float):
     layout()
 
+
 func add_card(card):
     layout()
+
 
 func layout():
     var count = get_child_count() - 1
@@ -36,6 +38,6 @@ func layout():
         if card.is_focused():
             p *= selected_offset_multiplier
         card.position = p + Vector2.DOWN * pos_offset
-        card.rotation = p.angle_to_point(Vector2.UP) - TAU/4
+        card.rotation = p.angle_to_point(Vector2.UP) - TAU / 4
         point = point.rotated(angle_delta)
         angle_offset += angle_delta

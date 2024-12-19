@@ -1,19 +1,17 @@
 extends Control
 class_name Card
 
-@export var chamber_labels : Array[Control] = []
-
+@export var chamber_labels: Array[Control] = []
 
 @onready var barrel_root := $card_root/barrel_root
 @onready var click_area := $card_root/ClickArea
 @onready var actions_root := $"%card_actions"
-@onready var art : TextureRect = $"%card_art"
+@onready var art: TextureRect = $"%card_art"
 
-
-var def : CardDef
+var def: CardDef
 var times_used := 0
 var upgrade_level := 0
-var chamber_values : Array[int] = []
+var chamber_values: Array[int] = []
 
 
 func _ready():
@@ -58,7 +56,7 @@ func play(target):
 
 func next_chamber():
     upgrade_level += 1
-    barrel_root.rotation += TAU/3
+    barrel_root.rotation += TAU / 3
 
 
 func upgrade():
