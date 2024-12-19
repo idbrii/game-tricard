@@ -54,4 +54,6 @@ text = "X"
 font_size = 72
 outline_size = 32
 
+[node name="Sprite3D" type="Sprite3D" parent="UI"]
+
 [node name="Model" parent="." instance=ExtResource("4_jkhu7")]

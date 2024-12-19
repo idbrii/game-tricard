@@ -34,13 +34,12 @@ func onDied():
 	$UI/LabelHP.text = "0"
 	disposed.emit(self)
 
-func onHurt():
-	await get_tree().create_timer(0.1).timeout
+func onHurt(amount:int):
 	$Model/AnimationPlayer.play("enemy_anim_hurt")
 	await $Model/AnimationPlayer.animation_finished
 	$UI/LabelHP.text = str(status.health)
 
-func onBlocked():
+func onBlocked(amount:int):
 	$UI/LabelBlock.text = str(status.block)
 	await get_tree().create_timer(0.1).timeout
 	# TODO play anim
