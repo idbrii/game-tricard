@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3itjkr7u7brk"]
+
+[ext_resource type="Script" path="res://code/creatures/player.gd" id="1_j3yra"]
+[ext_resource type="Script" path="res://code/creatures/status.gd" id="2_h4t6e"]
+[ext_resource type="Theme" uid="uid://cb7775rienopg" path="res://assets/theme_hud.tres" id="3_01oue"]
+[ext_resource type="Script" path="res://code/cards/deck.gd" id="4_fojud"]
+[ext_resource type="PackedScene" uid="uid://12xcvgynuav6" path="res://scenes/carddeck/card.tscn" id="5_nrki5"]
+[ext_resource type="Script" path="res://code/cards/hand.gd" id="6_2m6ee"]
+[ext_resource type="PackedScene" uid="uid://dl6hn1xmgjcer" path="res://scenes/ui_stats.tscn" id="7_774ek"]
+
+[node name="Player" type="Node"]
+script = ExtResource("1_j3yra")
+
+[node name="Status" type="Node" parent="."]
+script = ExtResource("2_h4t6e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_01oue")
+
+[node name="Deck" type="Node" parent="CanvasLayer/HUD" node_paths=PackedStringArray("hand")]
+script = ExtResource("4_fojud")
+card_template = ExtResource("5_nrki5")
+hand = NodePath("../Hand")
+
+[node name="Hand" type="Control" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -587.0
+offset_right = -167.0
+offset_bottom = -587.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("6_2m6ee")
+card_width = 750.0
+dist_from_root = 700.0
+
+[node name="AttackButton" type="Button" parent="CanvasLayer/HUD"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -173.0
+offset_top = 207.0
+offset_right = 173.0
+offset_bottom = 739.0
+grow_horizontal = 2
+text = "ATTACK"
+flat = true
+
+[node name="SelfButton" type="Button" parent="CanvasLayer/HUD"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -486.0
+offset_top = 63.0
+offset_right = 487.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SELF"
+
+[node name="Stats" parent="CanvasLayer/HUD" instance=ExtResource("7_774ek")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 225.0
+offset_bottom = 64.0
+grow_horizontal = 1
+grow_vertical = 1
