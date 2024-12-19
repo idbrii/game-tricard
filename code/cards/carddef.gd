@@ -13,6 +13,10 @@ class_name CardDef
 ## Three values that are the power values on each chamber.
 @export var chamber_values: Array[int]
 
+enum Target {
+    SELF,
+    OPPONENT,
+}
 
 # Resources don't display properly without this boilerplate init function.
 func _init(
@@ -40,3 +44,15 @@ func add_actions(actions_root: Control):
     for action in actions:
         var a = action.new()
         actions_root.add_child(a)
+
+
+func requires_target(actions_root: Control):
+    if is_barrage:
+        return false
+
+    var targets = {}
+    for action in actions_root.get_children():
+        var t = action.get_target_type()
+        if t == Target.OPPONENT:
+            return true
+    return false

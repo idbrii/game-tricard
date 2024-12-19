@@ -6,3 +6,7 @@ func _ready():
 
 func apply(target: Node, power: int):
     target.draw_card(power)
+
+
+func get_target_type() -> CardDef.Target:
+    return CardDef.Target.SELF
