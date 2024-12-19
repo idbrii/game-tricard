@@ -26,7 +26,7 @@ func reset():
 	poison = 0
 	burn = 0
 
-func isDead() -> bool:
+func is_dead() -> bool:
 	return health <= 0
 
 func end_turn():
@@ -68,5 +68,5 @@ func mod_turns(amount):
 	turns += amount
 	turned.emit(turns)
 
-func resetTurns():
+func reset_turns():
 	turns = maxTurns

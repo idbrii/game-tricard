@@ -1,6 +1,6 @@
 extends Node3D
+class_name Battle
 
-const Enemy = preload("res://objects/enemy.gd")
 var EnemyPrefab = preload("res://objects/enemy.tscn")
 
 enum Mode {
@@ -22,15 +22,8 @@ func _ready() -> void:
 	await spawnEnemies()
 	mode = Mode.None
 
-	# hack: until enemy picking is in
-	for n: Enemy in enemies.values():
-		$"%Player".victim = n
-		break
-
 func _process(delta: float) -> void:
-	if mode == Mode.None:
-		startPlayerTurn()
-	elif mode == Mode.Select:
+	if mode == Mode.Select:
 		var en = getEnemyAtMouse()
 		if en != null:
 			if en != currentSelection:
@@ -62,20 +55,15 @@ func spawnEnemies():
 		await en.spawn()
 		print("spawned enemy at ", n.name)
 
-func startPlayerTurn():
-	print("starting player turn")
+func selectEnemy():
 	mode = Mode.Select
-	var en:Enemy = await self.enemyPicked
-	mode = Mode.PlayerTurn
-	await en.damage(1)
-	await startEnemyTurn()
-	mode = Mode.None
 
-func startEnemyTurn():
+func startEnemyTurn(player:Player):
 	mode = Mode.EnemyTurn
 	for n:Enemy in enemies.values():
-		await n.tick()
+		await n.tick(player)
 	await spawnEnemies()
+	mode = Mode.None
 
 func onEnemyDisposed(en:Enemy):
 	enemies.erase(en.spawner)

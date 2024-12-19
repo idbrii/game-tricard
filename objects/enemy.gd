@@ -1,4 +1,5 @@
 extends RigidBody3D
+class_name Enemy
 
 var spawner:String
 @onready var status := $Status as Status
@@ -15,6 +16,9 @@ func _ready():
 
 func spawn():
 	status.reset()
+	$UI/LabelHP.text = str(status.health)
+	$UI/LabelBlock.text = str(status.block)
+	$UI/LabelTurn.text = str(status.turns)
 	await get_tree().create_timer(0.1).timeout
 	# TODO anim
 
@@ -37,16 +41,19 @@ func onHurt():
 	$UI/LabelHP.text = str(status.health)
 
 func onBlocked():
+	$UI/LabelBlock.text = str(status.block)
 	await get_tree().create_timer(0.1).timeout
 	# TODO play anim
 
-func tick():
-	await get_tree().create_timer(0.2).timeout
+func tick(player:Player):
+	await get_tree().create_timer(0.1).timeout
 	status.mod_turns(-1)
 	if status.turns <= 0:
-		await performAction()
+		await performAction(player)
 		status.reset_turns()
 
-func performAction():
-	print(spawner, " doing action")
-	await get_tree().create_timer(1).timeout
+func performAction(player:Player):
+	prints(spawner, "doing action")
+	$Model/AnimationPlayer.play("enemy_anim_fire")
+	await $Model/AnimationPlayer.animation_finished
+	player.status.mod_health(-10) # TODO get strength stat
