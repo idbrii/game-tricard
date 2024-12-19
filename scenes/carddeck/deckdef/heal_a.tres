@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_a8ee6")
-card_name = "Blast"
-is_barrage = true
+card_name = "A Good Sniff"
+is_barrage = false
 actions = Array[PackedScene]([ExtResource("1_cnxr7")])
 chamber_values = Array[int]([1, 2, 3])
