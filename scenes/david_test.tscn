@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c22pftfrpe608"]
+[gd_scene load_steps=4 format=3 uid="uid://b5jh237tf2gf8"]
 
+[ext_resource type="Script" path="res://code/cards/deck.gd" id="1_0snlv"]
 [ext_resource type="Script" path="res://code/cards/hand.gd" id="1_y4h2x"]
 [ext_resource type="PackedScene" uid="uid://12xcvgynuav6" path="res://scenes/carddeck/card.tscn" id="2_yef8s"]
 
@@ -20,6 +21,11 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Deck" type="Node" parent="CanvasLayer/HUD" node_paths=PackedStringArray("hand")]
+script = ExtResource("1_0snlv")
+card_template = ExtResource("2_yef8s")
+hand = NodePath("../Hand")
+
 [node name="Hand" type="Control" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = 7
@@ -39,115 +45,3 @@ size_flags_vertical = 8
 script = ExtResource("1_y4h2x")
 card_width = 750.0
 dist_from_root = 700.0
-
-[node name="Card" parent="CanvasLayer/HUD/Hand" instance=ExtResource("2_yef8s")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -375.0
-offset_top = -750.0
-offset_right = 375.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Card2" parent="CanvasLayer/HUD/Hand" instance=ExtResource("2_yef8s")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -375.0
-offset_top = -750.0
-offset_right = 375.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Card3" parent="CanvasLayer/HUD/Hand" instance=ExtResource("2_yef8s")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -375.0
-offset_top = -750.0
-offset_right = 375.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Card4" parent="CanvasLayer/HUD/Hand" instance=ExtResource("2_yef8s")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -375.0
-offset_top = -750.0
-offset_right = 375.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Card5" parent="CanvasLayer/HUD/Hand" instance=ExtResource("2_yef8s")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -375.0
-offset_top = -750.0
-offset_right = 375.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Card6" parent="CanvasLayer/HUD/Hand" instance=ExtResource("2_yef8s")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -375.0
-offset_top = -750.0
-offset_right = 375.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Card7" parent="CanvasLayer/HUD/Hand" instance=ExtResource("2_yef8s")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -375.0
-offset_top = -750.0
-offset_right = 375.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Card8" parent="CanvasLayer/HUD/Hand" instance=ExtResource("2_yef8s")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -375.0
-offset_top = -750.0
-offset_right = 375.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0

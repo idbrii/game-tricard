@@ -3,6 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cy6yl8su2u8w7" path="res://assets/textures/actions/icon_block.png" id="1_gyvo5"]
 [ext_resource type="Script" path="res://code/cards/action/card_action.gd" id="2_rv7ri"]
 
-[node name="CardAction" type="TextureRect"]
+[node name="Block" type="TextureRect"]
 texture = ExtResource("1_gyvo5")
 script = ExtResource("2_rv7ri")

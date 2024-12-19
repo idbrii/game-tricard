@@ -20,6 +20,7 @@ config/windows_native_icon="res://icon.ico"
 [autoload]
 
 InputFocus="*res://code/cards/input_focus.gd"
+DebugDraw2D="*res://addons/debugdraw2d/DebugDraw2D.gd"
 
 [display]
 

@@ -1,23 +1,21 @@
 extends Control
 class_name Card
 
-@export var card_name := ""
-
-@export var card_description := ""
-
-## Does the card attack all enemies?
-@export var is_barrage := false
-
 @onready var barrel_root := $card_root/barrel_root
 @onready var click_area := $card_root/ClickArea
+@onready var actions_root := $"%card_actions"
+@onready var art : TextureRect = $"%card_art"
 
 
+var def : CardDef
 var times_used := 0
 var upgrade_level := 0
+var chamber_values : Array[int] = []
 
 
 func _ready():
     click_area.pressed.connect(_on_pressed)
+    load_card(def)
 
 
 func _on_pressed():
@@ -28,12 +26,22 @@ func is_focused():
     return InputFocus.is_focused(self)
 
 
-func load_card():
-    pass
+func load_card(card_def: CardDef):
+    chamber_values = card_def.chamber_values
+    art.texture = card_def.get_art()
+    for item in card_def.actions:
+        add_action(item)
+
+
+func add_action(action):
+    var a = action.instantiate()
+    actions_root.add_child(a)
 
 
 func play(target):
-    pass
+    var power = chamber_values[upgrade_level]
+    for action in actions_root.get_children():
+        action.apply(target, power)
 
 
 func next_chamber():
