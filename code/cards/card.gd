@@ -32,6 +32,10 @@ func is_face_up():
     return card_front.visible
 
 
+func requires_target():
+    return def.requires_target(actions_root)
+
+
 func _on_pressed():
     InputFocus.set_focus(self)
 
