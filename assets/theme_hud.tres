@@ -1,4 +1,6 @@
-[gd_resource type="Theme" format=3 uid="uid://bppiugevah12o"]
+[gd_resource type="Theme" format=3 uid="uid://cb7775rienopg"]
 
 [resource]
+Label/colors/font_shadow_color = Color(0, 0, 0, 1)
+Label/constants/shadow_outline_size = 10
 Label/font_sizes/font_size = 22
