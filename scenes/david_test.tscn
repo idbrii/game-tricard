@@ -50,6 +50,7 @@ anchor_bottom = 1.0
 offset_left = -375.0
 offset_top = -750.0
 offset_right = 375.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -63,6 +64,7 @@ anchor_bottom = 1.0
 offset_left = -375.0
 offset_top = -750.0
 offset_right = 375.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -76,6 +78,7 @@ anchor_bottom = 1.0
 offset_left = -375.0
 offset_top = -750.0
 offset_right = 375.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -89,6 +92,7 @@ anchor_bottom = 1.0
 offset_left = -375.0
 offset_top = -750.0
 offset_right = 375.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -102,6 +106,7 @@ anchor_bottom = 1.0
 offset_left = -375.0
 offset_top = -750.0
 offset_right = 375.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -115,6 +120,7 @@ anchor_bottom = 1.0
 offset_left = -375.0
 offset_top = -750.0
 offset_right = 375.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -128,6 +134,7 @@ anchor_bottom = 1.0
 offset_left = -375.0
 offset_top = -750.0
 offset_right = 375.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -141,5 +148,6 @@ anchor_bottom = 1.0
 offset_left = -375.0
 offset_top = -750.0
 offset_right = 375.0
+offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0

@@ -9,16 +9,23 @@ class_name Card
 @export var is_barrage := false
 
 @onready var barrel_root := $card_root/barrel_root
+@onready var click_area := $card_root/ClickArea
 
 
 var times_used := 0
 var upgrade_level := 0
-var has_focused := false
+var has_input_focus := false
+
+func _ready():
+    click_area.pressed.connect(_on_pressed)
+
+
+func _on_pressed():
+    InputFocus.set_focus(self)
 
 
 func is_focused():
-    # TODO: ask focus system if we're focused?
-    return has_focused
+    return InputFocus.is_focused(self)
 
 
 func load_card():

@@ -15,6 +15,8 @@
 custom_minimum_size = Vector2(750, 750)
 layout_mode = 3
 anchors_preset = 0
+offset_right = 750.0
+offset_bottom = 750.0
 pivot_offset = Vector2(375, 750)
 script = ExtResource("1_7usar")
 
@@ -27,20 +29,14 @@ offset_right = 736.0
 offset_bottom = 727.0
 pivot_offset = Vector2(375, 750)
 
-[node name="bg" type="TextureRect" parent="card_root"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -402.0
-offset_top = -358.5
-offset_right = 402.0
-offset_bottom = 358.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_lb1f7")
+[node name="ClickArea" type="Button" parent="card_root"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 16.5
+offset_right = 785.0
+offset_bottom = 741.5
+icon = ExtResource("2_lb1f7")
+flat = true
 
 [node name="wings" type="Control" parent="card_root"]
 layout_mode = 1
@@ -55,6 +51,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="chamberwing_00" type="TextureRect" parent="card_root/wings"]
 layout_mode = 0
@@ -63,6 +60,7 @@ offset_top = -364.685
 offset_right = 144.5
 offset_bottom = -197.685
 pivot_offset = Vector2(122, 364.685)
+mouse_filter = 2
 texture = ExtResource("3_q4ssc")
 
 [node name="chamberwing_01" type="TextureRect" parent="card_root/wings"]
@@ -73,6 +71,7 @@ offset_right = 144.5
 offset_bottom = -197.685
 rotation = 2.0944
 pivot_offset = Vector2(122, 500)
+mouse_filter = 2
 texture = ExtResource("3_q4ssc")
 
 [node name="chamberwing_02" type="TextureRect" parent="card_root/wings"]
@@ -83,6 +82,7 @@ offset_right = 144.5
 offset_bottom = -197.685
 rotation = 4.18879
 pivot_offset = Vector2(122, 500)
+mouse_filter = 2
 texture = ExtResource("3_q4ssc")
 
 [node name="barrel_root" type="Control" parent="card_root"]
@@ -95,6 +95,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(0, 73.675)
+mouse_filter = 2
 
 [node name="barrel" type="TextureRect" parent="card_root/barrel_root"]
 layout_mode = 1
@@ -109,6 +110,7 @@ offset_right = 233.0
 offset_bottom = 309.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_mwufe")
 
 [node name="chamber_00" type="TextureRect" parent="card_root/barrel_root"]
@@ -118,6 +120,7 @@ offset_top = -296.445
 offset_right = 105.0
 offset_bottom = -94.445
 pivot_offset = Vector2(101, 101)
+mouse_filter = 2
 texture = ExtResource("5_ply66")
 
 [node name="chambernumber_00" type="TextureRect" parent="card_root/barrel_root/chamber_00" node_paths=PackedStringArray("barrel_pivot")]
@@ -134,6 +137,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(64, 64)
+mouse_filter = 2
 texture = ExtResource("7_6wvox")
 script = ExtResource("6_fjk0c")
 barrel_pivot = NodePath("../..")
@@ -145,6 +149,7 @@ offset_top = 165.0
 offset_right = 380.0
 offset_bottom = 367.0
 pivot_offset = Vector2(101, 101)
+mouse_filter = 2
 texture = ExtResource("5_ply66")
 
 [node name="chambernumber_01" type="TextureRect" parent="card_root/barrel_root/chamber_01" node_paths=PackedStringArray("barrel_pivot")]
@@ -161,6 +166,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(64, 64)
+mouse_filter = 2
 texture = ExtResource("8_jf7x7")
 script = ExtResource("6_fjk0c")
 barrel_pivot = NodePath("../..")
@@ -172,6 +178,7 @@ offset_top = 152.0
 offset_right = -149.0
 offset_bottom = 354.0
 pivot_offset = Vector2(101, 101)
+mouse_filter = 2
 texture = ExtResource("5_ply66")
 
 [node name="chambernumber_02" type="TextureRect" parent="card_root/barrel_root/chamber_02" node_paths=PackedStringArray("barrel_pivot")]
@@ -188,6 +195,7 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(64, 64)
+mouse_filter = 2
 texture = ExtResource("9_1bhxd")
 script = ExtResource("6_fjk0c")
 barrel_pivot = NodePath("../..")
@@ -207,4 +215,5 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.845, 0.845)
 pivot_offset = Vector2(174, 175)
+mouse_filter = 2
 texture = ExtResource("8_pyw7o")

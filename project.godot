@@ -17,6 +17,10 @@ config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
+[autoload]
+
+InputFocus="*res://code/cards/input_focus.gd"
+
 [display]
 
 window/size/viewport_width=3840
