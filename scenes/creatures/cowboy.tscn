@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://1yll1nfkot1c"]
+
+[ext_resource type="PackedScene" uid="uid://cqd0voam7vmge" path="res://assets/nodes/enemy_base.tscn" id="1_aj0nc"]
+
+[node name="Cowboy" instance=ExtResource("1_aj0nc")]
+
+[node name="Status" parent="." index="2"]
+health = 10

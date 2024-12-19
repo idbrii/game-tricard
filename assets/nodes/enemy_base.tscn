@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqd0voam7vmge"]
+[gd_scene load_steps=10 format=3 uid="uid://cqd0voam7vmge"]
 
 [ext_resource type="Texture2D" uid="uid://ca3t2rev2wvo" path="res://assets/textures/characters/tc_enemy_gunslinger.png" id="1_0jw65"]
 [ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_1j4k3"]
+[ext_resource type="Script" path="res://code/creatures/status.gd" id="4_jwo6d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnoub"]
 transparency = 1
@@ -363,14 +364,22 @@ gi_mode = 0
 texture = ExtResource("2_1j4k3")
 
 [node name="enemy_UI" type="Marker3D" parent="enemy_root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4372, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.78262, 12.0259, 0)
 
 [node name="Label3D" type="Label3D" parent="enemy_root/enemy_UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51, 0)
 pixel_size = 0.031
-text = "The Enemy
-"
+text = "The Enemy"
+
+[node name="Health" type="Label3D" parent="enemy_root/enemy_UI"]
+pixel_size = 0.05
+text = "100"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ndbw6")
 }
+
+[node name="Status" type="Node" parent="." node_paths=PackedStringArray("health_label")]
+script = ExtResource("4_jwo6d")
+health_label = NodePath("../enemy_root/enemy_UI/Health")
