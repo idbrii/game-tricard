@@ -10,4 +10,4 @@ card_name = "Spread Shot"
 art = ExtResource("2_yhf0v")
 is_barrage = true
 actions = Array[PackedScene]([ExtResource("1_hl5nb")])
-chamber_values = Array[int]([1, 2, 3])
+chamber_values = Array[int]([1, 1, 2])

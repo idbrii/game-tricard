@@ -10,4 +10,4 @@ card_name = "A Good Sniff"
 art = ExtResource("2_46ia6")
 is_barrage = false
 actions = Array[PackedScene]([ExtResource("1_cnxr7")])
-chamber_values = Array[int]([1, 2, 3])
+chamber_values = Array[int]([1, 2, 2])

@@ -10,4 +10,4 @@ card_name = "Hunker Down"
 art = ExtResource("2_sdtlu")
 is_barrage = false
 actions = Array[PackedScene]([ExtResource("1_0bfva")])
-chamber_values = Array[int]([1, 2, 2])
+chamber_values = Array[int]([1, 1, 3])
