@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0gggeut2bem"
+path="res://.godot/imported/Western Missing Main.wav-9783791163a2e31366655cf2cfb86c40.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/Western Missing Main.wav"
+dest_files=["res://.godot/imported/Western Missing Main.wav-9783791163a2e31366655cf2cfb86c40.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
