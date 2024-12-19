@@ -1,0 +1,234 @@
+[gd_scene load_steps=15 format=3 uid="uid://d15ajm84qnqro"]
+
+[ext_resource type="Texture2D" uid="uid://thrrparcgjv3" path="res://assets/textures/particles/fx_guard02.png" id="1_jquyv"]
+[ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_t7xo0"]
+[ext_resource type="Texture2D" uid="uid://bn7ciik1tddxu" path="res://assets/textures/particles/fx_guard01.png" id="3_kkhsd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6x1u"]
+transparency = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_jquyv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_i5cn4"]
+material = SubResource("StandardMaterial3D_d6x1u")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="Curve" id="Curve_mdk5g"]
+_data = [Vector2(0.00647948, 0.00347292), 0.0, 4.47954, 0, 0, Vector2(0.261339, 0.692012), 0.0, 0.0, 0, 0, Vector2(0.492441, 0.694917), 0.0414767, 2.14022, 0, 0, Vector2(0.860691, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_if28f"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.135717, 0.406457, 1, 1)
+albedo_texture = ExtResource("2_t7xo0")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qkjm2"]
+material = SubResource("StandardMaterial3D_if28f")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Curve" id="Curve_jaapv"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 172.107, 0, 0, Vector2(0.434125, 56.7849), 108.255, 108.255, 0, 0, Vector2(0.981642, 100), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_gecam"]
+offsets = PackedFloat32Array(0, 0.0474041, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_ds0ej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guard_Particle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guard_Particle:material_override")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SparkParticle:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OmniLight3D:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20.0]
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kni6"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_kkhsd")
+
+[sub_resource type="Animation" id="Animation_b0num"]
+resource_name = "particle_play"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guard_Particle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guard_Particle:material_override")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [null, SubResource("StandardMaterial3D_7kni6"), SubResource("StandardMaterial3D_7kni6")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SparkParticle:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("OmniLight3D:light_energy")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.433333, 1),
+"transitions": PackedFloat32Array(2.14355, 1),
+"update": 0,
+"values": [20.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c37b7"]
+_data = {
+"RESET": SubResource("Animation_ds0ej"),
+"particle_play": SubResource("Animation_b0num")
+}
+
+[node name="vfx_heartbreak" type="Node3D"]
+
+[node name="Guard_Particle" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 1
+lifetime = 0.75
+one_shot = true
+mesh = SubResource("QuadMesh_i5cn4")
+direction = Vector3(0, 1, 10)
+spread = 5.0
+flatness = 0.42
+gravity = Vector3(0, -0.5, 0)
+initial_velocity_min = 0.2
+initial_velocity_max = 0.3
+damping_min = 0.8
+damping_max = 0.8
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_mdk5g")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+visible = false
+light_color = Color(0.261451, 0.684183, 1, 1)
+light_energy = 20.0
+
+[node name="SparkParticle" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 12
+lifetime = 0.35
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+lifetime_randomness = 0.1
+mesh = SubResource("QuadMesh_qkjm2")
+particle_flag_rotate_y = true
+direction = Vector3(0, 0, 1)
+spread = 180.0
+flatness = 0.5
+initial_velocity_min = 3.0
+initial_velocity_max = 6.0
+angular_velocity_min = -150.54
+angular_velocity_max = 135.09
+damping_min = 1.0
+damping_max = 2.0
+damping_curve = SubResource("Curve_jaapv")
+angle_min = -36.5
+angle_max = 73.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_gecam")
+anim_speed_min = 9.76
+anim_speed_max = 9.76
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c37b7")
+}

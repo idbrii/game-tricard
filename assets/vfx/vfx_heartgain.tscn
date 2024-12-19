@@ -1,0 +1,252 @@
+[gd_scene load_steps=13 format=3 uid="uid://ddmud8f7oysm3"]
+
+[ext_resource type="Texture2D" uid="uid://cw22lpgddfvwb" path="res://assets/textures/particles/fx_heal01.png" id="1_c0e6a"]
+[ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="3_ftj4y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_df4wa"]
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("1_c0e6a")
+
+[sub_resource type="QuadMesh" id="QuadMesh_i5cn4"]
+material = SubResource("StandardMaterial3D_df4wa")
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="Curve" id="Curve_mdk5g"]
+_data = [Vector2(0.00647948, 0.00347292), 0.0, 2.19203, 0, 0, Vector2(0.435205, 0.778697), 0.675484, 0.675484, 0, 0, Vector2(0.990281, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_if28f"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0, 0.70747, 1.54018e-06, 1)
+albedo_texture = ExtResource("3_ftj4y")
+
+[sub_resource type="QuadMesh" id="QuadMesh_qkjm2"]
+material = SubResource("StandardMaterial3D_if28f")
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="Curve" id="Curve_jaapv"]
+max_value = 100.0
+_data = [Vector2(0, 0.18605), 0.0, 78.5883, 0, 0, Vector2(0.142549, 4.21731), 5.63466, 5.63466, 0, 0, Vector2(0.99892, 7.11982), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_gecam"]
+offsets = PackedFloat32Array(0, 0.0474041, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_ds0ej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart_Particle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SparkParticle:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [20.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Heart_Particle:mesh:material")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_df4wa")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Heart_Particle:mesh:material:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b0num"]
+resource_name = "particle_play"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Heart_Particle:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SparkParticle:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("OmniLight3D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("OmniLight3D:light_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1.33333),
+"transitions": PackedFloat32Array(2.14355, 1),
+"update": 0,
+"values": [20.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Heart_Particle:mesh:material")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_df4wa")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Heart_Particle:mesh:material:albedo_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0666667, 0.333333, 0.7, 1.16667),
+"transitions": PackedFloat32Array(2.54912, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 1, 0.368627, 1), Color(1, 1, 1, 1), Color(0.657216, 0.809771, 0.691262, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c37b7"]
+_data = {
+"RESET": SubResource("Animation_ds0ej"),
+"particle_play": SubResource("Animation_b0num")
+}
+
+[node name="vfx_heartbreak" type="Node3D"]
+
+[node name="Heart_Particle" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 1
+lifetime = 2.0
+one_shot = true
+mesh = SubResource("QuadMesh_i5cn4")
+direction = Vector3(0, 0.6, 10)
+spread = 5.0
+flatness = 0.42
+gravity = Vector3(0, 0.75, 0)
+initial_velocity_min = 0.4
+initial_velocity_max = 0.6
+damping_min = 0.8
+damping_max = 0.8
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_mdk5g")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+visible = false
+light_color = Color(6.06447e-06, 0.783206, 0.352505, 1)
+light_energy = 20.0
+
+[node name="SparkParticle" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 24
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.28
+lifetime_randomness = 0.3
+mesh = SubResource("QuadMesh_qkjm2")
+emission_shape = 2
+emission_sphere_radius = 0.2
+direction = Vector3(0, 0, 1)
+spread = 180.0
+gravity = Vector3(0, 2, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+angular_velocity_min = -1.0
+angular_velocity_max = 1.0
+damping_min = 0.2
+damping_max = 0.5
+damping_curve = SubResource("Curve_jaapv")
+angle_min = -36.5
+angle_max = 73.0
+scale_amount_min = 0.5
+scale_amount_max = 0.5
+color_ramp = SubResource("Gradient_gecam")
+anim_speed_min = 9.76
+anim_speed_max = 9.76
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c37b7")
+}
