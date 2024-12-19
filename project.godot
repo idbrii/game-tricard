@@ -12,15 +12,16 @@ config_version=5
 
 config/name="Tricard"
 config/tags=PackedStringArray("created_by_me")
-run/main_scene="res://scenes/move_gym.tscn"
+run/main_scene="res://scenes/david_test.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=3840
+window/size/viewport_height=2160
+window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 window/size/width=1920
