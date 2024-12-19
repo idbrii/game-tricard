@@ -572,7 +572,5 @@ libraries = {
 "": SubResource("AnimationLibrary_ndbw6")
 }
 
-[node name="Status" type="Node" parent="." node_paths=PackedStringArray("health_label", "block_label")]
+[node name="Status" type="Node" parent="."]
 script = ExtResource("4_jwo6d")
-health_label = NodePath("../enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats/Health")
-block_label = NodePath("../enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats/Block")
