@@ -49,13 +49,7 @@ func load_card(card_def: CardDef):
         label.texture = numbers.get_number(v)
 
     art.texture = card_def.get_art()
-    for item in card_def.actions:
-        add_action(item)
-
-
-func add_action(action):
-    var a = action.new()
-    actions_root.add_child(a)
+    card_def.add_actions(actions_root)
 
 
 func play(target):

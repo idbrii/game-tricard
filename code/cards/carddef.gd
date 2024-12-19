@@ -33,3 +33,10 @@ func get_art() -> Texture2D:
     # We can't just return art because for some reason that triggers this error:
     # Parse Error: Cannot return value of type "GDScriptNativeClass" because the function return type is "Texture2D".
     return load(art.resource_path)
+
+
+## actions_root should probably be a HBoxContainer.
+func add_actions(actions_root: Control):
+    for action in actions:
+        var a = action.new()
+        actions_root.add_child(a)
