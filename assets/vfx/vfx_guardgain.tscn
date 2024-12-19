@@ -176,7 +176,7 @@ _data = {
 "particle_play": SubResource("Animation_b0num")
 }
 
-[node name="vfx_heartbreak" type="Node3D"]
+[node name="vfx_guardgain" type="Node3D"]
 
 [node name="Guard_Particle" type="CPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_7kni6")
