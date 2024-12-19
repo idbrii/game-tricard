@@ -4,10 +4,10 @@
 [ext_resource type="Theme" uid="uid://bppiugevah12o" path="res://assets/theme_hud.tres" id="1_h4un0"]
 [ext_resource type="Script" path="res://code/cards/hand.gd" id="1_y4h2x"]
 [ext_resource type="PackedScene" uid="uid://12xcvgynuav6" path="res://scenes/carddeck/card.tscn" id="2_yef8s"]
-[ext_resource type="Texture2D" uid="uid://c4k8y2sbq1wrn" path="res://assets/textures/actions/icon_heal.png" id="4_0km30"]
 [ext_resource type="PackedScene" uid="uid://1yll1nfkot1c" path="res://scenes/creatures/cowboy.tscn" id="4_045j0"]
-[ext_resource type="Texture2D" uid="uid://cy6yl8su2u8w7" path="res://assets/textures/actions/icon_block.png" id="5_hbhvr"]
+[ext_resource type="Texture2D" uid="uid://iu8d2hnip14p" path="res://assets/textures/icons/icon_heal.png" id="5_cdwvj"]
 [ext_resource type="Script" path="res://code/creatures/player.gd" id="5_hrto1"]
+[ext_resource type="Texture2D" uid="uid://8omskisvw082" path="res://assets/textures/icons/icon_block.png" id="6_epbkm"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="6_evtek"]
 
 [node name="DavidTest" type="Node3D"]
@@ -99,7 +99,7 @@ grow_vertical = 0
 
 [node name="Icon" type="TextureRect" parent="CanvasLayer/HUD/Stats"]
 layout_mode = 2
-texture = ExtResource("4_0km30")
+texture = ExtResource("5_cdwvj")
 
 [node name="Health" type="Label" parent="CanvasLayer/HUD/Stats"]
 layout_mode = 2
@@ -111,7 +111,7 @@ layout_mode = 2
 
 [node name="Icon2" type="TextureRect" parent="CanvasLayer/HUD/Stats"]
 layout_mode = 2
-texture = ExtResource("5_hbhvr")
+texture = ExtResource("6_epbkm")
 
 [node name="Block" type="Label" parent="CanvasLayer/HUD/Stats"]
 layout_mode = 2
