@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3itjkr7u7brk"]
+[gd_scene load_steps=12 format=3 uid="uid://c3itjkr7u7brk"]
 
 [ext_resource type="Script" path="res://code/creatures/player.gd" id="1_j3yra"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_h4t6e"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dj603rpe8sqad" path="res://assets/textures/card_ui/tc_button_discard.png" id="8_1eb0y"]
 [ext_resource type="Texture2D" uid="uid://bpkb31ivsl18l" path="res://assets/textures/card_ui/tc_button_discard_press.png" id="9_8wgg6"]
 [ext_resource type="Texture2D" uid="uid://bvxxd3rjxtlgl" path="res://assets/textures/card_ui/tc_button_discard_hover.png" id="10_xyumm"]
+[ext_resource type="Script" path="res://code/common/bettertexturebutton.gd" id="11_5q8ej"]
 
 [node name="Player" type="Node"]
 script = ExtResource("1_j3yra")
@@ -140,3 +141,4 @@ grow_vertical = 0
 texture_normal = ExtResource("8_1eb0y")
 texture_pressed = ExtResource("9_8wgg6")
 texture_hover = ExtResource("10_xyumm")
+script = ExtResource("11_5q8ej")
