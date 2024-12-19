@@ -41,7 +41,7 @@ func load_card(card_def: CardDef):
 
 
 func add_action(action):
-    var a = action.instantiate()
+    var a = action.new()
     actions_root.add_child(a)
 
 

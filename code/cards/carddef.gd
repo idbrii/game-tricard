@@ -8,7 +8,7 @@ class_name CardDef
 ## Does the card attack all enemies?
 @export var is_barrage := false
 
-@export var actions: Array[PackedScene]
+@export var actions: Array[Script]
 
 ## Three values that are the power values on each chamber.
 @export var chamber_values: Array[int]
@@ -19,7 +19,7 @@ func _init(
     p_card_name = "",
     p_art = null,
     p_is_barrage = false,
-    p_actions: Array[PackedScene] = [],
+    p_actions: Array[Script] = [],
     p_chamber_values: Array[int] = []
 ):
     card_name = p_card_name

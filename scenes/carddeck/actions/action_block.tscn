@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://d27ihdeu6s2uk"]
-
-[ext_resource type="Texture2D" uid="uid://8omskisvw082" path="res://assets/textures/icons/icon_block.png" id="1_irm14"]
-[ext_resource type="Script" path="res://code/cards/action/block.gd" id="2_ulsat"]
-
-[node name="Block" type="TextureRect"]
-texture = ExtResource("1_irm14")
-script = ExtResource("2_ulsat")

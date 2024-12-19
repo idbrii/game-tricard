@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardDef" load_steps=4 format=3 uid="uid://bt3orkicewcl1"]
 
-[ext_resource type="PackedScene" uid="uid://d27ihdeu6s2uk" path="res://scenes/carddeck/actions/action_block.tscn" id="1_0bfva"]
+[ext_resource type="Script" path="res://code/cards/action/block.gd" id="1_y1g2a"]
 [ext_resource type="Script" path="res://code/cards/carddef.gd" id="2_asmll"]
 [ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="2_sdtlu"]
 
@@ -9,5 +9,5 @@ script = ExtResource("2_asmll")
 card_name = "Hunker Down"
 art = ExtResource("2_sdtlu")
 is_barrage = false
-actions = Array[PackedScene]([ExtResource("1_0bfva")])
+actions = Array[Script]([ExtResource("1_y1g2a")])
 chamber_values = Array[int]([1, 1, 3])

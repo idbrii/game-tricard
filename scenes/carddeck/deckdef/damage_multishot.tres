@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CardDef" load_steps=4 format=3 uid="uid://urhrulubqmb"]
 
-[ext_resource type="PackedScene" uid="uid://m6t7nu3xrwei" path="res://scenes/carddeck/actions/action_damage.tscn" id="1_hl5nb"]
+[ext_resource type="Script" path="res://code/cards/action/damage.gd" id="1_6k8gh"]
 [ext_resource type="Script" path="res://code/cards/carddef.gd" id="2_8d1fu"]
 [ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="2_yhf0v"]
 
@@ -9,5 +9,5 @@ script = ExtResource("2_8d1fu")
 card_name = "Spread Shot"
 art = ExtResource("2_yhf0v")
 is_barrage = true
-actions = Array[PackedScene]([ExtResource("1_hl5nb")])
+actions = Array[Script]([ExtResource("1_6k8gh")])
 chamber_values = Array[int]([1, 1, 2])

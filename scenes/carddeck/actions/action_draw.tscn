@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bste8f5j4wv4n"]
-
-[ext_resource type="Texture2D" uid="uid://oj5cxifymbrn" path="res://assets/textures/icons/icon_draw.png" id="1_s22u8"]
-[ext_resource type="Script" path="res://code/cards/action/draw.gd" id="2_ra8p0"]
-
-[node name="Draw" type="TextureRect"]
-texture = ExtResource("1_s22u8")
-script = ExtResource("2_ra8p0")
