@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3itjkr7u7brk"]
+[gd_scene load_steps=11 format=3 uid="uid://c3itjkr7u7brk"]
 
 [ext_resource type="Script" path="res://code/creatures/player.gd" id="1_j3yra"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_h4t6e"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://12xcvgynuav6" path="res://scenes/carddeck/card.tscn" id="5_nrki5"]
 [ext_resource type="Script" path="res://code/cards/hand.gd" id="6_2m6ee"]
 [ext_resource type="PackedScene" uid="uid://dl6hn1xmgjcer" path="res://scenes/ui_stats.tscn" id="7_774ek"]
+[ext_resource type="Texture2D" uid="uid://dj603rpe8sqad" path="res://assets/textures/card_ui/tc_button_discard.png" id="8_1eb0y"]
+[ext_resource type="Texture2D" uid="uid://bpkb31ivsl18l" path="res://assets/textures/card_ui/tc_button_discard_press.png" id="9_8wgg6"]
+[ext_resource type="Texture2D" uid="uid://bvxxd3rjxtlgl" path="res://assets/textures/card_ui/tc_button_discard_hover.png" id="10_xyumm"]
 
 [node name="Player" type="Node"]
 script = ExtResource("1_j3yra")
@@ -17,6 +20,7 @@ script = ExtResource("2_h4t6e")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -83,15 +87,49 @@ grow_vertical = 2
 text = "SELF"
 
 [node name="Stats" parent="CanvasLayer/HUD" instance=ExtResource("7_774ek")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 225.0
-offset_bottom = 64.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+offset_left = -112.5
+offset_top = -94.0
+offset_right = 112.5
+offset_bottom = -30.0
+
+[node name="DrawPile" type="Control" parent="CanvasLayer/HUD"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -416.0
+offset_right = 469.0
+grow_vertical = 0
+
+[node name="DiscardPile" type="Control" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -381.0
+offset_top = -640.0
+offset_right = 88.0002
+offset_bottom = -184.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+
+[node name="DiscardAll" type="TextureButton" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -553.0
+offset_top = -396.0
+grow_horizontal = 0
+grow_vertical = 0
+texture_normal = ExtResource("8_1eb0y")
+texture_pressed = ExtResource("9_8wgg6")
+texture_hover = ExtResource("10_xyumm")
+texture_focused = ExtResource("10_xyumm")

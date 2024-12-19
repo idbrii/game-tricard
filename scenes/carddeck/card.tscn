@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://12xcvgynuav6"]
+[gd_scene load_steps=12 format=3 uid="uid://12xcvgynuav6"]
 
 [ext_resource type="Script" path="res://code/cards/card.gd" id="1_7usar"]
 [ext_resource type="Texture2D" uid="uid://e3ic4n0reaxx" path="res://assets/textures/cardbase/T_Card_TriangleBG.png" id="2_lb1f7"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://hb82c1dbq2op" path="res://assets/textures/numbers/tcnumbers_02.png" id="8_jf7x7"]
 [ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="8_pyw7o"]
 [ext_resource type="Texture2D" uid="uid://db71r258xpdub" path="res://assets/textures/numbers/tcnumbers_03.png" id="9_1bhxd"]
+[ext_resource type="Texture2D" uid="uid://cmmjtcryrbmx5" path="res://assets/textures/cardbase/tc_card_back.png" id="11_qrx4l"]
 
 [node name="Card" type="Control" node_paths=PackedStringArray("chamber_labels")]
 custom_minimum_size = Vector2(750, 750)
@@ -231,3 +232,12 @@ offset_top = 224.704
 offset_right = 301.006
 offset_bottom = 292.464
 alignment = 1
+
+[node name="card_back" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 828.0
+offset_bottom = 759.0
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("11_qrx4l")
+stretch_mode = 5

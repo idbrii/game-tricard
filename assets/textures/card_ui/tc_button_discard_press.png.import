@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmmjtcryrbmx5"
-path="res://.godot/imported/tc_card_back.png-2a27f296a6966b7c21451a3c9b4d813f.ctex"
+uid="uid://bpkb31ivsl18l"
+path="res://.godot/imported/tc_button_discard_press.png-7d5edefbe36cb69bcab9aa8c89498930.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/tc_card_back.png"
-dest_files=["res://.godot/imported/tc_card_back.png-2a27f296a6966b7c21451a3c9b4d813f.ctex"]
+source_file="res://assets/textures/card_ui/tc_button_discard_press.png"
+dest_files=["res://.godot/imported/tc_button_discard_press.png-7d5edefbe36cb69bcab9aa8c89498930.ctex"]
 
 [params]
 
