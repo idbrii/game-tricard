@@ -201,6 +201,7 @@ script = ExtResource("6_fjk0c")
 barrel_pivot = NodePath("../..")
 
 [node name="card_art" type="TextureRect" parent="card_root"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

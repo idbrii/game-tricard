@@ -4,6 +4,7 @@ class_name Card
 @onready var barrel_root := $card_root/barrel_root
 @onready var click_area := $card_root/ClickArea
 @onready var actions_root := $"%card_actions"
+@onready var art : TextureRect = $"%card_art"
 
 
 var def : CardDef
@@ -27,6 +28,7 @@ func is_focused():
 
 func load_card(card_def: CardDef):
     chamber_values = card_def.chamber_values
+    art.texture = card_def.get_art()
     for item in card_def.actions:
         add_action(item)
 

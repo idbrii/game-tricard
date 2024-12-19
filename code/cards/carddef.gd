@@ -3,7 +3,7 @@ class_name CardDef
 
 @export var card_name := ""
 
-@export var art := CompressedTexture2D
+@export var art := Texture2D
 
 ## Does the card attack all enemies?
 @export var is_barrage := false
@@ -26,3 +26,8 @@ func _init(
     is_barrage = p_is_barrage
     actions = p_actions
     chamber_values = p_chamber_values
+
+func get_art() -> Texture2D:
+    # We can't just return art because for some reason that triggers this error:
+    # Parse Error: Cannot return value of type "GDScriptNativeClass" because the function return type is "Texture2D".
+    return load(art.resource_path)
