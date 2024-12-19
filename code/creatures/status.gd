@@ -1,6 +1,7 @@
 extends Node
 class_name Status
 
+signal blocked(amount)
 signal hurt(amount)
 signal die()
 
@@ -38,15 +39,21 @@ func _update_turns():
 
 
 func mod_health(amount):
-    # TODO: resolve block
+    if amount < 0 and block > 0:
+        var before = amount
+        var used_block = min(-amount, block)
+        amount += used_block
+        block -= used_block
+        blocked.emit(used_block)
+        _update_block()
+
     health += amount
+    _update_health()
+
     if health <= 0:
         die.emit()
     elif amount < 0:
         hurt.emit(amount)
-
-    _update_health()
-    _update_block()
 
 func mod_block(amount):
     block += amount
