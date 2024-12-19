@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://12xcvgynuav6"]
+[gd_scene load_steps=13 format=3 uid="uid://12xcvgynuav6"]
 
 [ext_resource type="Script" path="res://code/cards/card.gd" id="1_7usar"]
 [ext_resource type="Texture2D" uid="uid://e3ic4n0reaxx" path="res://assets/textures/cardbase/T_Card_TriangleBG.png" id="2_lb1f7"]
+[ext_resource type="BitMap" uid="uid://ciaapap56s3j2" path="res://assets/textures/cardbase/tc_card_mask.png" id="3_4ew0j"]
 [ext_resource type="Texture2D" uid="uid://c52beaybyt7ay" path="res://assets/textures/cardbase/T_Bullet_Wing.png" id="3_q4ssc"]
 [ext_resource type="Texture2D" uid="uid://b4ifu66hepwb" path="res://assets/textures/cardbase/T_Card_Barrel.png" id="4_mwufe"]
 [ext_resource type="Texture2D" uid="uid://cmb6r8shnjklr" path="res://assets/textures/cardbase/T_Bullet_Full.png" id="5_ply66"]
@@ -31,14 +32,17 @@ offset_right = 736.0
 offset_bottom = 727.0
 pivot_offset = Vector2(375, 750)
 
-[node name="ClickArea" type="Button" parent="card_root"]
+[node name="ClickArea" type="TextureButton" parent="card_root"]
 layout_mode = 0
 offset_left = -27.0
 offset_top = 16.5
 offset_right = 785.0
 offset_bottom = 741.5
-icon = ExtResource("2_lb1f7")
-flat = true
+texture_normal = ExtResource("2_lb1f7")
+texture_pressed = ExtResource("2_lb1f7")
+texture_hover = ExtResource("2_lb1f7")
+texture_click_mask = ExtResource("3_4ew0j")
+stretch_mode = 4
 
 [node name="wings" type="Control" parent="card_root"]
 layout_mode = 1
