@@ -23,9 +23,9 @@ func _ready():
     set_is_face_up(false)
 
 
-func set_is_face_up(is_face_up):
-    card_front.visible = is_face_up
-    card_back.visible = not is_face_up
+func set_is_face_up(want_face_up):
+    card_front.visible = want_face_up
+    card_back.visible = not want_face_up
 
 
 func is_face_up():
