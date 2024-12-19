@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyx7b6jhwlali"]
+[gd_scene load_steps=10 format=3 uid="uid://cyx7b6jhwlali"]
 
 [ext_resource type="Script" path="res://objects/enemy.gd" id="1_k030x"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_1u06i"]
 [ext_resource type="Material" uid="uid://bvprxsbpa0wra" path="res://misc/black.material" id="2_mlfy0"]
+[ext_resource type="Texture2D" uid="uid://bpfles3bmbxlu" path="res://assets/textures/icons/status_icons_health.png" id="4_57let"]
 [ext_resource type="PackedScene" uid="uid://jhcmmxlis00q" path="res://scenes/creatures/skull-cowboy.tscn" id="4_jkhu7"]
+[ext_resource type="Texture2D" uid="uid://kgqwociyoic6" path="res://assets/textures/icons/status_icons_turn.png" id="5_o38ic"]
+[ext_resource type="Texture2D" uid="uid://baciqafvs3ctw" path="res://assets/textures/icons/status_icons_block.png" id="6_pk0yh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e32k0"]
 size = Vector3(7.42755, 11.9218, 1)
@@ -27,16 +30,11 @@ material_override = ExtResource("2_mlfy0")
 mesh = SubResource("PlaneMesh_q6vd3")
 
 [node name="UI" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.3672, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.443401, 12.6239, 0)
 
-[node name="LabelTurn" type="Label3D" parent="UI"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.39717, -0.0195045, 0)
-double_sided = false
-render_priority = 10
-outline_render_priority = 9
-text = "Y"
-font_size = 72
-outline_size = 32
+[node name="IconHP" type="Sprite3D" parent="UI"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.46457, 0.64857, 0)
+texture = ExtResource("4_57let")
 
 [node name="LabelHP" type="Label3D" parent="UI"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.45473, 0.662457, 0)
@@ -44,16 +42,31 @@ render_priority = 10
 outline_render_priority = 9
 text = "N"
 font_size = 72
-outline_size = 32
+outline_size = 0
+
+[node name="IconTurn" type="Sprite3D" parent="UI"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 3.6428, -0.172952, 0)
+texture = ExtResource("5_o38ic")
+
+[node name="LabelTurn" type="Label3D" parent="UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.63498, -0.192456, 0)
+double_sided = false
+render_priority = 10
+outline_render_priority = 9
+text = "Y"
+font_size = 72
+outline_size = 0
+
+[node name="IconBlock" type="Sprite3D" parent="UI"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 4.3238, -1.2539, 0)
+texture = ExtResource("6_pk0yh")
 
 [node name="LabelBlock" type="Label3D" parent="UI"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.13769, -0.724795, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.32145, -1.25446, 0)
 render_priority = 10
 outline_render_priority = 9
 text = "X"
 font_size = 72
-outline_size = 32
-
-[node name="Sprite3D" type="Sprite3D" parent="UI"]
+outline_size = 0
 
 [node name="Model" parent="." instance=ExtResource("4_jkhu7")]
