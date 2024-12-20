@@ -1,9 +1,6 @@
 extends Node
 
 
-const Random = preload("res://code/util/random.gd")
-
-
 var unique_cards: Array[CardDef]
 @export var card_template: PackedScene
 
