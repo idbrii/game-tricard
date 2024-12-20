@@ -20,14 +20,7 @@ func spawn():
     await $Model/AnimationPlayer.animation_finished
 
 func updateLabels():
-    $UI/HP/Label.text = str(status.health)
-    $UI/Turn/Label.text = str(status.turns)
-    $UI/Block/Label.text = str(status.block)
-    $UI/Burn/Label.text = str(status.burn)
-    $UI/Poison/Label.text = str(status.poison)
-    $UI/Block.visible = status.block > 0
-    $UI/Burn.visible = status.burn > 0
-    $UI/Poison.visible = status.poison > 0
+    $UI.update_labels()
 
 func focus():
     $Model/AnimationPlayer.play("enemy_anim_highlightedloop")

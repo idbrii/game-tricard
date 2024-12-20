@@ -22,8 +22,7 @@ func _ready():
     InputFocus.gain_focus.connect(_on_card_selected)
 
 func update_status_labels():
-    $Stats/Health/Label.text = str(status.health)
-    $Stats/Block/Label.text = str(status.block)
+    $Stats.update_labels()
 
 func _on_died():
     update_status_labels()

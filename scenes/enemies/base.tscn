@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://k3mwrmymnp2n"]
+[gd_scene load_steps=13 format=3 uid="uid://k3mwrmymnp2n"]
 
 [ext_resource type="Script" path="res://code/creatures/enemy.gd" id="1_cm3xp"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_dod0e"]
+[ext_resource type="Script" path="res://code/creatures/ui_stats_labels.gd" id="3_174lc"]
 [ext_resource type="Texture2D" uid="uid://bpfles3bmbxlu" path="res://assets/textures/icons/status_icons_health.png" id="3_pvfym"]
 [ext_resource type="Texture2D" uid="uid://kgqwociyoic6" path="res://assets/textures/icons/status_icons_turn.png" id="4_71f7i"]
 [ext_resource type="Texture2D" uid="uid://baciqafvs3ctw" path="res://assets/textures/icons/status_icons_block.png" id="5_qa0ad"]
@@ -19,7 +20,14 @@ script = ExtResource("1_cm3xp")
 [node name="Status" type="Node" parent="."]
 script = ExtResource("2_dod0e")
 
-[node name="UI" type="Node3D" parent="."]
+[node name="UI" type="Node3D" parent="." node_paths=PackedStringArray("status", "hp", "turn", "block", "burn", "poison")]
+script = ExtResource("3_174lc")
+status = NodePath("../Status")
+hp = NodePath("HP")
+turn = NodePath("Turn")
+block = NodePath("Block")
+burn = NodePath("Burn")
+poison = NodePath("Poison")
 
 [node name="HP" type="Node3D" parent="UI"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21184, 12.9142, 0)
