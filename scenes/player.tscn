@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3itjkr7u7brk"]
+[gd_scene load_steps=21 format=3 uid="uid://c3itjkr7u7brk"]
 
 [ext_resource type="Script" path="res://code/creatures/player.gd" id="1_j3yra"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_h4t6e"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://baciqafvs3ctw" path="res://assets/textures/icons/status_icons_block.png" id="14_57tco"]
 [ext_resource type="Texture2D" uid="uid://nts6jkuw5wg4" path="res://assets/textures/icons/status_icons_burn.png" id="15_rdamu"]
 [ext_resource type="Texture2D" uid="uid://ds3e2tqg4kxjs" path="res://assets/textures/icons/status_icons_poison.png" id="16_k0eud"]
+[ext_resource type="Script" path="res://code/creatures/playersound.gd" id="18_nhbwr"]
+[ext_resource type="AudioStream" uid="uid://d1qjok8o4whbo" path="res://assets/audio/sfx/SFX_Player_SpittoonA.wav" id="19_bwqm7"]
+[ext_resource type="AudioStream" uid="uid://dwgyc0yvcf0ye" path="res://assets/audio/sfx/SFX_Player_SpittoonB.wav" id="20_n3obd"]
 
 [node name="Player" type="Node" node_paths=PackedStringArray("hand_neutral_pos")]
 script = ExtResource("1_j3yra")
@@ -344,3 +347,7 @@ grow_vertical = 2
 text = "9"
 label_settings = ExtResource("13_43dyf")
 metadata/_edit_lock_ = true
+
+[node name="Sound" type="Node" parent="."]
+script = ExtResource("18_nhbwr")
+spit = Array[AudioStream]([ExtResource("19_bwqm7"), ExtResource("20_n3obd")])
