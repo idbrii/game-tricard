@@ -96,16 +96,30 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "PLAY"
 
-[node name="CheatButton" type="Button" parent="CanvasLayer/HUD"]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
-offset_bottom = 133.0
+offset_left = -246.0
+offset_bottom = 63.0
 grow_horizontal = 0
+
+[node name="CheatButton" type="Button" parent="CanvasLayer/HUD/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 text = "Cheat"
+
+[node name="Control" type="Control" parent="CanvasLayer/HUD/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="GiveUpButton" type="Button" parent="CanvasLayer/HUD/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Give Up"
 
 [node name="DrawPile" type="Control" parent="CanvasLayer/HUD"]
 custom_minimum_size = Vector2(128, 128)
