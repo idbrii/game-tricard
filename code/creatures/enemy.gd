@@ -36,7 +36,7 @@ func unfocus():
     idle()
 
 func idle():
-    print("Playing IDLE")
+    #~ print("Playing IDLE")
     $Model/AnimationPlayer.stop()
     #$Model/AnimationPlayer.play("enemy_anim_idle")
     $Model/AnimationPlayer.play("RESET")
