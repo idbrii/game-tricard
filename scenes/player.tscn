@@ -60,17 +60,17 @@ dist_from_root = 700.0
 [node name="AttackButton" type="Button" parent="CanvasLayer/HUD"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -266.5
-offset_top = -63.0
-offset_right = 266.5
-offset_bottom = 63.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -593.0
+offset_top = -772.0
+offset_right = -60.0
+offset_bottom = -646.0
+grow_horizontal = 0
+grow_vertical = 0
 text = "PLAY"
 
 [node name="Stats" parent="CanvasLayer/HUD" instance=ExtResource("7_774ek")]

@@ -37,19 +37,21 @@ func idle():
     $Model/AnimationPlayer.play("enemy_anim_idle")
 
 func onDied():
-    prints(spawner, "died")
-    $Model/AnimationPlayer.play("enemy_anim_dead")
+    $Model/AnimationPlayer.play("enemy_anim_hurt")
     await $Model/AnimationPlayer.animation_finished
     updateLabels()
+    $Model/AnimationPlayer.play("enemy_anim_dead")
+    await $Model/AnimationPlayer.animation_finished
     disposed.emit(self)
+    prints(spawner, "died")
 
 func onHurt(_amount:int):
-    prints(spawner, "hurt")
     #$VFX/HeartBreak/AnimationPlayer.play("particle_play")
     $Model/AnimationPlayer.play("enemy_anim_hurt")
     await $Model/AnimationPlayer.animation_finished
     updateLabels()
     idle()
+    prints(spawner, "hurt")
 
 func onBlocked(_amount:int):
     updateLabels()

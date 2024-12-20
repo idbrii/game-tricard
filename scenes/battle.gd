@@ -28,7 +28,8 @@ var enemy_types:Array = [
     PrefabKillyote,
     PrefabSnake,
 ]
-var killCount:int
+var killCount:int = 0
+@export var reqKillCount:int = 5
 
 signal enemyPicked
 
@@ -71,7 +72,7 @@ func spawnEnemies():
         en.spawn()
         print("spawned enemy at ", n.name)
     # Special spawn boss logic
-    if killCount > 1 and !enemies.has($BossSpawnPoint.name):
+    if killCount >= reqKillCount and !enemies.has($BossSpawnPoint.name):
         var n:Node3D = $BossSpawnPoint
         var en:Enemy = PrefabBossilisk.instantiate()
         en.position = n.position

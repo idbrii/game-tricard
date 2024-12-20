@@ -55,20 +55,19 @@ func load_card(card_def: CardDef):
     art.texture = card_def.get_art()
     card_def.add_actions(actions_root)
 
-
-func play_card(actor, target):
+func play(actor, target):
     var power = chamber_values[upgrade_level]
     for action in actions_root.get_children():
         action.apply(actor, target, power)
+
+func inc_chamber():
     next_chamber()
     if upgrade_level == chamber_values.size():
         upgrade()
 
-
 func next_chamber():
     upgrade_level += 1
     barrel_root.rotation += TAU / 3
-
 
 func upgrade():
     # TODO: replace card with upgrade?

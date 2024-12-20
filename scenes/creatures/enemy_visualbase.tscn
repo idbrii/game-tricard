@@ -546,6 +546,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.08006, 1.14141e-08, 3.6792
 gi_mode = 2
 centered = false
 shaded = true
+alpha_cut = 1
 texture = ExtResource("1_0jw65")
 
 [node name="gun_location" type="Marker3D" parent="enemy_root/enemy_mainsprite"]
