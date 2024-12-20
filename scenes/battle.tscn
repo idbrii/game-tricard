@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8auld8b8c1b8"]
+[gd_scene load_steps=6 format=3 uid="uid://c8auld8b8c1b8"]
 
 [ext_resource type="Script" path="res://scenes/battle.gd" id="1_np3yy"]
 [ext_resource type="Script" path="res://code/camera.gd" id="2_jpeko"]
 [ext_resource type="PackedScene" uid="uid://duaopp0l0n4dv" path="res://scenes/stage-canyon.tscn" id="2_s08cu"]
 [ext_resource type="PackedScene" uid="uid://c3itjkr7u7brk" path="res://scenes/player.tscn" id="3_rojfr"]
+[ext_resource type="Script" path="res://code/winlose.gd" id="5_ub0hn"]
 
 [node name="Battle" type="Node3D"]
 script = ExtResource("1_np3yy")
@@ -32,3 +33,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5638, 0, 0)
 
 [node name="BossSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720758, 0, -5.20348)
+
+[node name="WinLose" type="Node" parent="." node_paths=PackedStringArray("player", "battle")]
+script = ExtResource("5_ub0hn")
+player = NodePath("../Player")
+battle = NodePath("..")

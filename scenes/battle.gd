@@ -41,6 +41,7 @@ var killCount:int = 0
 @export var reqKillCount:int = 5
 
 signal enemyPicked
+signal allEnemiesDefeated
 
 func _ready() -> void:
     mode = Mode.Intro
@@ -144,7 +145,8 @@ func _on_enemy_died(en:Enemy):
 func _on_enemy_disposable(en:Enemy):
     print("disposing enemy")
     remove_child(en)
-    # TODO if boss died then let's do game over!
+    if en.spawner == $BossSpawnPoint.name:
+        allEnemiesDefeated.emit()
 
 func getEnemyAtMouse(ray_len:int = 1000) -> Enemy:
     var space_state = get_world_3d().direct_space_state

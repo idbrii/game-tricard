@@ -7,7 +7,8 @@ class_name Player
 
 @onready var status := $Status as Status
 @onready var attack_btn := $"%AttackButton"
-@onready var cheat_btn := $"%CheatButton"
+@onready var cheat_upgrade_btn := $"%CheatButton"
+@onready var cheat_giveup_btn := $"%GiveUpButton"
 @onready var discard_btn := $"%HUD/DiscardAll"
 @onready var deck := $"%HUD/Deck"
 @onready var scene:Battle = self.get_parent()
@@ -24,7 +25,8 @@ func _ready():
     status.hurt.connect(_on_hurt)
     status.blocked_damage.connect(_on_block_damage)
     attack_btn.pressed.connect(_on_play_pressed)
-    cheat_btn.pressed.connect(_on_cheat_pressed)
+    cheat_upgrade_btn.pressed.connect(_on_cheat_upgrade_pressed)
+    cheat_giveup_btn.pressed.connect(_on_cheat_giveup_pressed)
     discard_btn.pressed.connect(_on_discard_pressed)
     scene.enemyPicked.connect(_on_enemyPicked)
     InputFocus.gain_focus.connect(_on_card_selected)
@@ -73,9 +75,13 @@ func get_current_card() -> Card:
     return InputFocus.get_focus() as Card
 
 
-func _on_cheat_pressed():
+func _on_cheat_upgrade_pressed():
     for card in deck.hand.get_children():
         card.upgrade()
+
+
+func _on_cheat_giveup_pressed():
+    status.mod_health(-100000)
 
 
 func _on_play_pressed():
