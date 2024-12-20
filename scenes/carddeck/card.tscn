@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://12xcvgynuav6"]
+[gd_scene load_steps=18 format=3 uid="uid://12xcvgynuav6"]
 
 [ext_resource type="Script" path="res://code/cards/card.gd" id="1_7usar"]
 [ext_resource type="Texture2D" uid="uid://e3ic4n0reaxx" path="res://assets/textures/cardbase/T_Card_TriangleBG.png" id="2_lb1f7"]
@@ -13,6 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="8_pyw7o"]
 [ext_resource type="Texture2D" uid="uid://db71r258xpdub" path="res://assets/textures/numbers/tcnumbers_03.png" id="9_1bhxd"]
 [ext_resource type="Texture2D" uid="uid://cmmjtcryrbmx5" path="res://assets/textures/cardbase/tc_card_back.png" id="11_qrx4l"]
+[ext_resource type="Script" path="res://code/creatures/audiofrombag.gd" id="14_rqfan"]
+[ext_resource type="AudioStream" uid="uid://cay1gjcv8pdee" path="res://assets/audio/sfx/SFX_Card_SpinA.wav" id="15_i4eht"]
+[ext_resource type="AudioStream" uid="uid://dw4t3xhf3oeoi" path="res://assets/audio/sfx/SFX_Card_SpinB.wav" id="16_1rbqo"]
+[ext_resource type="AudioStream" uid="uid://b6b41u38fq0y" path="res://assets/audio/sfx/SFX_Card_SpinC.wav" id="17_471gu"]
 
 [node name="Card" type="Control" node_paths=PackedStringArray("chambers")]
 custom_minimum_size = Vector2(750, 750)
@@ -258,3 +262,7 @@ scale = Vector2(0.54, 0.54)
 mouse_filter = 2
 texture = ExtResource("11_qrx4l")
 stretch_mode = 5
+
+[node name="SoundBag_upgrade" type="Node" parent="."]
+script = ExtResource("14_rqfan")
+sound_bag = Array[AudioStream]([ExtResource("15_i4eht"), ExtResource("16_1rbqo"), ExtResource("17_471gu")])

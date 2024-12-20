@@ -10,6 +10,7 @@ class_name Card
 @onready var click_area := $card_root/ClickArea
 @onready var actions_root := $"%card_actions"
 @onready var art: TextureRect = $"%card_art"
+@onready var upgrade_sound_bag := $SoundBag_upgrade
 
 var def: CardDef
 var times_used := 0
@@ -87,6 +88,7 @@ func next_chamber():
 
 func upgrade():
     upgrade_level += 1
+    upgrade_sound_bag.play_sound()
 
     # Chance to upgrade
     var upgrade_all = 0
