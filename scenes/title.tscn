@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgcmx1p8xkosx"]
+
+[ext_resource type="Script" path="res://code/title.gd" id="1_ci1mg"]
+[ext_resource type="PackedScene" uid="uid://duaopp0l0n4dv" path="res://scenes/stage-canyon.tscn" id="1_mtnlf"]
+[ext_resource type="Script" path="res://code/camera.gd" id="2_q5xou"]
+[ext_resource type="Texture2D" uid="uid://5q61t1spothu" path="res://assets/textures/title.png" id="3_5dmj7"]
+
+[node name="Title" type="Node3D"]
+script = ExtResource("1_ci1mg")
+
+[node name="StageCanyon" parent="." instance=ExtResource("1_mtnlf")]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.963738, 0.266851, 0, -0.266851, 0.963738, 0, 13.9973, 33.2329)
+current = true
+fov = 38.2
+script = ExtResource("2_q5xou")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.40587, 0)
+billboard = 1
+texture = ExtResource("3_5dmj7")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.28361, 3.12676)
+pixel_size = 0.0095
+billboard = 1
+double_sided = false
+alpha_cut = 2
+text = "Click to Continue"
+font_size = 100
+outline_size = 30

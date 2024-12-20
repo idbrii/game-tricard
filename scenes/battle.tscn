@@ -7,7 +7,6 @@
 
 [node name="Battle" type="Node3D"]
 script = ExtResource("1_np3yy")
-reqKillCount = 0
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.963738, 0.266851, 0, -0.266851, 0.963738, 0, 13.9973, 33.2329)
