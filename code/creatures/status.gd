@@ -1,10 +1,13 @@
 extends Node
 class_name Status
 
+signal heal(amount:int)
 signal hurt(amount:int)
 signal die()
 signal turned(current:int)
 signal blocked_damage(amount:int)
+signal burn_damage(amount:int)
+signal poison_damage(amount:int)
 
 @export var display_name:String
 ## Life force
@@ -34,10 +37,12 @@ func is_dead() -> bool:
 func end_turn() -> bool:
     var did_something := false
     if burn > 0:
+        burn_damage.emit(burn)
         mod_health(-burn)
         mod_burn(-1)
         did_something = true
     if poison > 0:
+        poison_damage.emit(poison)
         mod_health(-poison, true)
         mod_poison(-2)
         did_something = true
@@ -57,6 +62,9 @@ func mod_health(amount, ignore_block = false):
         die.emit()
     elif amount < 0:
         hurt.emit(amount)
+    elif amount > 0:
+        heal.emit(amount)
+
 
 func _mod_stat(stat, amount):
     stat += amount
