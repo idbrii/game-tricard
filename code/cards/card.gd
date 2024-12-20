@@ -104,8 +104,13 @@ func upgrade():
         upgrade_all = 1
 
     for i in range(chamber_values.size()):
-        chamber_values[i] += upgrade_all
         var chamber = chambers[i]
+
+        var v = chamber_values[i]
+        v += upgrade_all
+        v = min(chamber.NUMBERS.get_max_number(), v)
+        chamber_values[i] = v
+
         chamber.reload_bullet(chamber_values[i])
         await get_tree().create_timer(0.1).timeout
 

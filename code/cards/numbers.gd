@@ -12,3 +12,7 @@ func get_number(n: int) -> Texture2D:
     # We can't just return a texture because for some reason that triggers this error:
     # Parse Error: Cannot return value of type "GDScriptNativeClass" because the function return type is "Texture2D".
     return load(numbers[n].resource_path)
+
+
+func get_max_number():
+    return numbers.size() - 1
