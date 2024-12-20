@@ -266,3 +266,7 @@ stretch_mode = 5
 [node name="SoundBag_upgrade" type="Node" parent="."]
 script = ExtResource("14_rqfan")
 sound_bag = Array[AudioStream]([ExtResource("15_i4eht"), ExtResource("16_1rbqo"), ExtResource("17_471gu")])
+
+[node name="SoundBag_spin" type="Node" parent="."]
+script = ExtResource("14_rqfan")
+sound_bag = Array[AudioStream]([ExtResource("15_i4eht"), ExtResource("16_1rbqo"), ExtResource("17_471gu")])
