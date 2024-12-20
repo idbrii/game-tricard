@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://d371f0yrleduf"]
+
+[ext_resource type="Script" path="res://code/title.gd" id="1_ghqil"]
+[ext_resource type="PackedScene" uid="uid://duaopp0l0n4dv" path="res://scenes/stage-canyon.tscn" id="2_62hij"]
+[ext_resource type="Script" path="res://code/camera.gd" id="3_ghvvb"]
+[ext_resource type="Texture2D" uid="uid://cq14bbjhc3syd" path="res://assets/textures/tricard_builder_background_you_died.png" id="4_0taed"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b58sp"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("4_0taed")
+
+[sub_resource type="QuadMesh" id="QuadMesh_smr2m"]
+material = SubResource("StandardMaterial3D_b58sp")
+
+[node name="Title" type="Node3D"]
+script = ExtResource("1_ghqil")
+
+[node name="StageCanyon" parent="." instance=ExtResource("2_62hij")]
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.979925, -0.199368, 0, 0.199368, 0.979925, 0, 1.068, 30.2147)
+current = true
+fov = 19.9
+script = ExtResource("3_ghvvb")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.2, 2.393, 8.497)
+pixel_size = 0.0095
+billboard = 1
+double_sided = false
+alpha_cut = 2
+text = "Click to Continue"
+font_size = 100
+outline_size = 30
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(16.986, 0, 0, 0, 11.452, 0, 0, 0, 0.526, 0, 7.515, 0)
+mesh = SubResource("QuadMesh_smr2m")
