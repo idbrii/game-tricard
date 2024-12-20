@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c3itjkr7u7brk"]
+[gd_scene load_steps=18 format=3 uid="uid://c3itjkr7u7brk"]
 
 [ext_resource type="Script" path="res://code/creatures/player.gd" id="1_j3yra"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_h4t6e"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://code/creatures/ui_stats_labels.gd" id="11_2cw3i"]
 [ext_resource type="Script" path="res://code/common/bettertexturebutton.gd" id="11_5q8ej"]
 [ext_resource type="Texture2D" uid="uid://bpfles3bmbxlu" path="res://assets/textures/icons/status_icons_health.png" id="12_h08px"]
+[ext_resource type="Texture2D" uid="uid://cqm6wigsux7ef" path="res://assets/textures/card_ui/player_stats_bg.png" id="12_ljmd1"]
 [ext_resource type="LabelSettings" path="res://scenes/common/ui-label-settings.tres" id="13_43dyf"]
 [ext_resource type="Texture2D" uid="uid://baciqafvs3ctw" path="res://assets/textures/icons/status_icons_block.png" id="14_57tco"]
 [ext_resource type="Texture2D" uid="uid://nts6jkuw5wg4" path="res://assets/textures/icons/status_icons_burn.png" id="15_rdamu"]
@@ -142,13 +143,23 @@ block = NodePath("Block")
 burn = NodePath("Burn")
 poison = NodePath("Poison")
 
+[node name="TextureRect" type="TextureRect" parent="Stats"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 506.0
+offset_bottom = 506.0
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("12_ljmd1")
+stretch_mode = 4
+
 [node name="HP" type="Control" parent="Stats"]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 170.0
-offset_top = 100.0
-offset_right = 299.0
-offset_bottom = 226.0
+offset_left = 132.0
+offset_top = 76.0
+offset_right = 261.0
+offset_bottom = 202.0
 
 [node name="Icon" type="TextureRect" parent="Stats/HP"]
 layout_mode = 1
@@ -179,12 +190,13 @@ label_settings = ExtResource("13_43dyf")
 metadata/_edit_lock_ = true
 
 [node name="Block" type="Control" parent="Stats"]
+visible = false
 layout_mode = 1
 anchors_preset = 0
-offset_left = 64.0
-offset_top = 288.0
-offset_right = 193.0
-offset_bottom = 414.0
+offset_left = 54.0
+offset_top = 265.0
+offset_right = 183.0
+offset_bottom = 391.0
 
 [node name="Icon" type="TextureRect" parent="Stats/Block"]
 layout_mode = 1
@@ -220,10 +232,10 @@ anchor_left = 0.506
 anchor_top = 0.324
 anchor_right = 0.506
 anchor_bottom = 0.324
-offset_left = 22.064
-offset_top = -84.616
-offset_right = 151.064
-offset_bottom = 41.384
+offset_left = 5.06403
+offset_top = -111.616
+offset_right = 134.064
+offset_bottom = 14.384
 
 [node name="Icon" type="TextureRect" parent="Stats/Burn"]
 layout_mode = 1
@@ -259,10 +271,10 @@ anchor_left = 0.506
 anchor_top = 0.324
 anchor_right = 0.506
 anchor_bottom = 0.324
-offset_left = -93.936
-offset_top = 89.384
-offset_right = 35.064
-offset_bottom = 215.384
+offset_left = -85.936
+offset_top = 69.384
+offset_right = 43.064
+offset_bottom = 195.384
 
 [node name="Icon" type="TextureRect" parent="Stats/Poison"]
 layout_mode = 1
