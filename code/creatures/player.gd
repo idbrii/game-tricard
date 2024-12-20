@@ -84,16 +84,16 @@ func _play_card(card: Card, target):
     attack_btn.text = "Please Wait"
     scene.mode = Battle.Mode.PlayerTurn
     InputFocus.lock_input = true
-    InputFocus.set_focus(null)
     if card.def.is_barrage:
         var que = scene.enemies.values()
         for en:Enemy in que:
             card.play(self, en)
     else:
         card.play(self, target)
-    card.inc_chamber()
+    await card.next_chamber()
     await get_tree().create_timer(1.0).timeout
     await deck.discard_card_anim(card)
+    InputFocus.set_focus(null)
     await scene.startEnemyTurn(self)
     scene.mode = Battle.Mode.None
     attack_btn.text = "Pick Card"

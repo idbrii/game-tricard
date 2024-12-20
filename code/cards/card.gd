@@ -63,14 +63,23 @@ func play(actor, target):
     for action in actions_root.get_children():
         await action.apply(actor, target, power)
 
-func inc_chamber():
-    next_chamber()
-    if upgrade_level == chamber_values.size():
-        upgrade()
 
 func next_chamber():
     upgrade_level += 1
-    barrel_root.rotation += TAU / 3
+    var start = barrel_root.rotation
+    var dest = barrel_root.rotation + TAU / 3
+
+    # simple animation.
+    var anim_frames := 10
+    for i in range(anim_frames):
+        var r = lerp(start, dest, float(i) / anim_frames)
+        barrel_root.rotation = r
+        await get_tree().process_frame
+    barrel_root.rotation = dest
+
+    if upgrade_level == chamber_values.size():
+        upgrade()
+
 
 func upgrade():
     # TODO: replace card with upgrade?
