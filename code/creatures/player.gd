@@ -90,6 +90,7 @@ func _play_card(card: Card, target):
             card.play(self, en)
     else:
         card.play(self, target)
+    update_status_labels()
     await card.next_chamber()
     await get_tree().create_timer(1.0).timeout
     await deck.discard_card_anim(card)
