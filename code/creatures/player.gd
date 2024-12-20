@@ -16,8 +16,10 @@ func _ready():
     status.die.connect(_on_died)
     status.hurt.connect(_on_hurt)
     status.blocked.connect(_on_block)
-    attack_btn.pressed.connect(_on_attack_pressed)
+    attack_btn.pressed.connect(_on_play_pressed)
     discard_btn.pressed.connect(_on_discard_pressed)
+    scene.enemyPicked.connect(_on_enemyPicked)
+    InputFocus.gain_focus.connect(_on_card_selected)
 
 func update_status_labels():
     $Stats/Health/Label.text = str(status.health)
@@ -37,20 +39,41 @@ func _on_block(_amount:int):
     print("blocked")
     # TODO play screen animation
 
-func _on_attack_pressed():
-    if scene.mode != Battle.Mode.None:
-        return
 
-    var card := InputFocus.get_focus() as Card
+func _on_card_selected(_old_focus, new_focus):
+    if new_focus.requires_target():
+        attack_btn.text = "Select Target"
+        scene.mode = Battle.Mode.Select
+    else:
+        attack_btn.text = "Play Card"
+        scene.mode = Battle.Mode.None
+
+
+func _on_enemyPicked(target):
+    scene.mode = Battle.Mode.None
+    var card := get_current_card()
     if not card:
         return
 
-    var target = self
-    # Pick a target if needed
-    if card.requires_target():
-        attack_btn.text = "Select Target"
-        scene.mode = Battle.Mode.Select
-        target = await scene.enemyPicked
+    _play_card(card, target)
+
+
+func get_current_card() -> Card:
+    return InputFocus.get_focus() as Card
+
+
+func _on_play_pressed():
+    if scene.mode != Battle.Mode.None:
+        return
+
+    var card := get_current_card()
+    if not card:
+        return
+
+    _play_card(card, self)
+
+
+func _play_card(card: Card, target):
     prints("Playing card", card, "on", target)
     attack_btn.text = "Please Wait"
     scene.mode = Battle.Mode.PlayerTurn
