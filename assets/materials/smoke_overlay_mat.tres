@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bfivlfigsngaa"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dc85nuxhtlkx"]
 
 [ext_resource type="Shader" uid="uid://dg4i4f5jv5s7a" path="res://assets/materials/smoke_overlay_shader.tres" id="1_n01l1"]
 
