@@ -21,6 +21,12 @@ enum Mode {
 var mode:Mode
 var currentSelection:Enemy
 var enemies:Dictionary
+var enemyCooldown:Dictionary = {
+    "A": 1,
+    "B": 0,
+    "C": 2,
+    "BossSpawnPoint": 5,
+}
 var enemy_types:Array = [
     PrefabCowboy,
     PrefabGoblin,
@@ -29,6 +35,8 @@ var enemy_types:Array = [
     PrefabKillyote,
     PrefabSnake,
 ]
+var maxEnemiesOut:int = 1
+var maxSpawnPerRespawn:int = 1
 var killCount:int = 0
 @export var reqKillCount:int = 5
 
@@ -86,14 +94,23 @@ func spawnEnemies():
     randomize()
     var isBossOut = enemies.has($BossSpawnPoint.name)
     var shouldSpawnBoss = killCount >= reqKillCount and !isBossOut
+    var spawned:int = 0
+    var out:int = enemies.size()
     for n:Node3D in $SpawnPoints.get_children():
+        if out + spawned >= maxEnemiesOut:
+            break
         if enemies.has(n.name):
+            continue
+        if enemyCooldown[n.name] > 0:
             continue
         if n.name == "B" and (isBossOut or shouldSpawnBoss):
             continue
         var i:int = randi() % enemy_types.size()
         var type = enemy_types[i]
         spawn(type, n)
+        spawned += 1
+        if spawned >= maxSpawnPerRespawn:
+            break
     # Special spawn boss logic
     if shouldSpawnBoss:
         spawn(PrefabBossilisk, $BossSpawnPoint)
@@ -116,11 +133,18 @@ func _on_enemy_died(en:Enemy):
     print("deregistering enemy")
     killCount += 1
     enemies.erase(en.spawner)
-    # TODO if boss died then let's do game over!
+    maxSpawnPerRespawn = max(maxSpawnPerRespawn+1, 2)
+    maxEnemiesOut = max(maxEnemiesOut+1, 4)
+    for key in enemyCooldown:
+        var count:int = enemyCooldown[key]
+        enemyCooldown[key] = max(count-1, 0)
+    if enemyCooldown[en.spawner] == 0:
+        enemyCooldown[en.spawner] += 1
 
 func _on_enemy_disposable(en:Enemy):
     print("disposing enemy")
     remove_child(en)
+    # TODO if boss died then let's do game over!
 
 func getEnemyAtMouse(ray_len:int = 1000) -> Enemy:
     var space_state = get_world_3d().direct_space_state
