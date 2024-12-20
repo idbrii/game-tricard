@@ -45,8 +45,12 @@ func _on_card_selected(_old_focus, new_focus):
         attack_btn.text = "Select Target"
         scene.mode = Battle.Mode.Select
     else:
-        attack_btn.text = "Play Card"
-        scene.mode = Battle.Mode.None
+        if new_focus.def.is_barrage:
+            attack_btn.text = "Attack All"
+            scene.mode = Battle.Mode.SelectAll
+        else:
+            attack_btn.text = "Play Card"
+            scene.mode = Battle.Mode.None
 
 
 func _on_enemyPicked(target):
@@ -63,7 +67,7 @@ func get_current_card() -> Card:
 
 
 func _on_play_pressed():
-    if scene.mode != Battle.Mode.None:
+    if scene.mode != Battle.Mode.None and scene.mode != Battle.Mode.SelectAll:
         return
 
     var card := get_current_card()

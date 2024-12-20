@@ -13,6 +13,7 @@ enum Mode {
     None,
     Intro,
     Select,
+    SelectAll,
     PlayerTurn,
     EnemyTurn,
 }
@@ -46,6 +47,18 @@ func _process(_delta: float) -> void:
             mode = Mode.None
             set_enemy_focus(null)
             self.enemyPicked.emit(en)
+    elif mode == Mode.SelectAll:
+        var en = getEnemyAtMouse()
+        if en:
+            if Input.is_action_just_pressed("click"):
+                self.enemyPicked.emit(en)
+            else:
+                for victim: Enemy in enemies.values():
+                    victim.focus()
+        else:
+            for victim: Enemy in enemies.values():
+                victim.unfocus()
+
 
 func set_enemy_focus(en:Enemy):
     if en != currentSelection:
