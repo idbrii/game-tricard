@@ -88,7 +88,7 @@ func _play_card(card: Card, target):
     attack_btn.text = "Playing..."
     scene.mode = Battle.Mode.PlayerTurn
     # Don't set_waiting_for_enemy yet so our cards are still the focus.
-    InputFocus.lock_input = true
+    block_input(true)
     if card.def.is_barrage:
         var que = scene.enemies.values()
         for en:Enemy in que:
@@ -125,8 +125,13 @@ func draw_card(power):
     await get_tree().create_timer(0.4).timeout
 
 
+func block_input(should_block):
+    InputFocus.lock_input = should_block
+    discard_btn.disabled = should_block
+
+
 func set_waiting_for_enemy(is_waiting):
-    InputFocus.lock_input = is_waiting
+    block_input(is_waiting)
 
     var dest = hand_neutral_pos
     if is_waiting:
