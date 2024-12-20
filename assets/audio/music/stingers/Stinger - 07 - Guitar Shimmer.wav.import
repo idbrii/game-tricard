@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d4j7x4biv3m8e"
+path="res://.godot/imported/Stinger - 07 - Guitar Shimmer.wav-1e53e79dfb15df0a6fd59370a2df094d.sample"
+
+[deps]
+
+source_file="res://assets/audio/music/stingers/Stinger - 07 - Guitar Shimmer.wav"
+dest_files=["res://.godot/imported/Stinger - 07 - Guitar Shimmer.wav-1e53e79dfb15df0a6fd59370a2df094d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
