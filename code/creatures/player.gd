@@ -1,14 +1,16 @@
 extends Node
 class_name Player
 
+
+@export var hand_neutral_pos : Control
+
+
 @onready var status := $Status as Status
 @onready var attack_btn := $"%AttackButton"
 @onready var cheat_btn := $"%CheatButton"
 @onready var discard_btn := $"%HUD/DiscardAll"
 @onready var deck := $"%HUD/Deck"
 @onready var scene:Battle = self.get_parent()
-
-@onready var hand_neutral_pos = deck.hand.global_position
 
 
 func _ready():
@@ -148,7 +150,8 @@ func block_input(should_block):
 func set_waiting_for_enemy(is_waiting):
     block_input(is_waiting)
 
-    var dest = hand_neutral_pos
+    # widgets move when window is resized, so use a ref
+    var dest = hand_neutral_pos.global_position
     if is_waiting:
         dest += Vector2.DOWN * 200
 

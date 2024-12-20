@@ -18,8 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://nts6jkuw5wg4" path="res://assets/textures/icons/status_icons_burn.png" id="15_rdamu"]
 [ext_resource type="Texture2D" uid="uid://ds3e2tqg4kxjs" path="res://assets/textures/icons/status_icons_poison.png" id="16_k0eud"]
 
-[node name="Player" type="Node"]
+[node name="Player" type="Node" node_paths=PackedStringArray("hand_neutral_pos")]
 script = ExtResource("1_j3yra")
+hand_neutral_pos = NodePath("CanvasLayer/HUD/HandPositionReference")
 metadata/_edit_vertical_guides_ = [1956.0]
 
 [node name="Status" type="Node" parent="."]
@@ -62,6 +63,22 @@ size_flags_vertical = 8
 script = ExtResource("6_2m6ee")
 card_width = 750.0
 dist_from_root = 700.0
+
+[node name="HandPositionReference" type="Control" parent="CanvasLayer/HUD"]
+layout_mode = 1
+anchor_left = 0.509
+anchor_top = 1.0
+anchor_right = 0.509
+anchor_bottom = 1.0
+offset_left = -241.56
+offset_top = -591.0
+offset_right = 980.44
+offset_bottom = -366.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
 [node name="AttackButton" type="Button" parent="CanvasLayer/HUD"]
 unique_name_in_owner = true
