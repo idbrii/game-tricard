@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://k3mwrmymnp2n"]
+[gd_scene load_steps=21 format=3 uid="uid://k3mwrmymnp2n"]
 
 [ext_resource type="Script" path="res://code/creatures/enemy.gd" id="1_cm3xp"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_dod0e"]
@@ -12,12 +12,18 @@
 [ext_resource type="PackedScene" uid="uid://b2wsk5fyyp507" path="res://assets/vfx/vfx_guardgain.tscn" id="11_e7ooi"]
 [ext_resource type="PackedScene" uid="uid://cefmgg2voi2p5" path="res://assets/vfx/vfx_heartbreak.tscn" id="11_j6s4y"]
 [ext_resource type="PackedScene" uid="uid://ddmud8f7oysm3" path="res://assets/vfx/vfx_heartgain.tscn" id="12_6ht3u"]
+[ext_resource type="AudioStream" uid="uid://bdqjsbnxvn8x6" path="res://assets/audio/sfx/SFX_Armor_BreakB.wav" id="13_xofmd"]
+[ext_resource type="AudioStream" uid="uid://bn8qsorjp5jtt" path="res://assets/audio/sfx/SFX_Armor_GainB.wav" id="14_e2lqk"]
+[ext_resource type="AudioStream" uid="uid://dy4t7oey17fkr" path="res://assets/audio/sfx/SFX_Gun_FireA.wav" id="15_yk6th"]
+[ext_resource type="AudioStream" uid="uid://duh2yw204xx2u" path="res://assets/audio/sfx/SFX_HealB.wav" id="16_uur50"]
+[ext_resource type="AudioStream" uid="uid://byb01lsw6v47j" path="res://assets/audio/sfx/SFX_Status_BurnA.wav" id="17_bvnm0"]
+[ext_resource type="AudioStream" uid="uid://cg02nyugnd7jv" path="res://assets/audio/sfx/SFX_Status_PoisonA.wav" id="18_kiacf"]
+[ext_resource type="AudioStream" uid="uid://cga2rr20otu0" path="res://assets/audio/sfx/SFX_Enemy_DeathA.wav" id="19_5nkxw"]
+[ext_resource type="AudioStream" uid="uid://b2u4wiqu3x0w" path="res://assets/audio/sfx/SFX_Player_HurtB.wav" id="20_1bwev"]
 
-[node name="BaseEnemy" type="RigidBody3D" node_paths=PackedStringArray("actions")]
+[node name="BaseEnemy" type="RigidBody3D"]
 gravity_scale = 0.0
 script = ExtResource("1_cm3xp")
-thing = null
-actions = []
 
 [node name="Status" type="Node" parent="."]
 script = ExtResource("2_dod0e")
@@ -118,3 +124,29 @@ outline_size = 0
 [node name="HeartBreak" parent="VFX" instance=ExtResource("11_j6s4y")]
 
 [node name="HeartGain" parent="VFX" instance=ExtResource("12_6ht3u")]
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="ArmorBreak" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("13_xofmd")
+
+[node name="ArmorGain" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("14_e2lqk")
+
+[node name="Attack" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("15_yk6th")
+
+[node name="Heal" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("16_uur50")
+
+[node name="Burned" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("17_bvnm0")
+
+[node name="Poisoned" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("18_kiacf")
+
+[node name="Die" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("19_5nkxw")
+
+[node name="Hurt" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("20_1bwev")

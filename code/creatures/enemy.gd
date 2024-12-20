@@ -40,9 +40,11 @@ func idle():
 func onDied():
     died.emit(self)
     $Model/AnimationPlayer.play("enemy_anim_hurt")
+    $SFX/Hurt.play()
     await $Model/AnimationPlayer.animation_finished
     updateLabels()
     $Model/AnimationPlayer.play("enemy_anim_dead")
+    $SFX/Die.play()
     await $Model/AnimationPlayer.animation_finished
     disposable.emit(self)
     prints(spawner, "died")
@@ -50,6 +52,7 @@ func onDied():
 func onHurt(_amount:int):
     #$VFX/HeartBreak/AnimationPlayer.play("particle_play")
     $Model/AnimationPlayer.play("enemy_anim_hurt")
+    $SFX/Hurt.play()
     await $Model/AnimationPlayer.animation_finished
     updateLabels()
     idle()
@@ -59,6 +62,7 @@ func onBlocked(_amount:int):
     updateLabels()
     await get_tree().create_timer(0.1).timeout
     $VFX/GuardBreak/AnimationPlayer.play("particle_play")
+    $SFX/ArmorBreak.play()
     idle()
 
 func tick(player:Player):
@@ -83,19 +87,24 @@ func performAction(player:Player):
         prints(spawner, "using move", move)
         if move == Action.Move.Attack:
             $Model/AnimationPlayer.play("enemy_anim_fire")
+            $SFX/Attack.play()
             await $Model/AnimationPlayer.animation_finished
             player.status.mod_health(-action.power)
         elif move == Action.Move.Heal:
             status.mod_health(action.power)
+            $SFX/Heal.play()
             $VFX/HeartGain/AnimationPlayer.play("particle_play")
         elif move == Action.Move.Block:
             status.mod_block(action.power)
+            $SFX/ArmorGain.play()
             $VFX/GuardGain/AnimationPlayer.play("particle_play")
         elif move == Action.Move.Burn:
+            $SFX/Attack.play()
             $Model/AnimationPlayer.play("enemy_anim_fire")
             await $Model/AnimationPlayer.animation_finished
             player.status.mod_burn(action.power)
         elif move == Action.Move.Poison:
+            $SFX/Attack.play()
             $Model/AnimationPlayer.play("enemy_anim_fire")
             await $Model/AnimationPlayer.animation_finished
             player.status.mod_poison(action.power)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://705midrubrbn"]
+[gd_scene load_steps=6 format=3 uid="uid://705midrubrbn"]
 
 [ext_resource type="PackedScene" uid="uid://k3mwrmymnp2n" path="res://scenes/enemies/base.tscn" id="1_w1wu0"]
 [ext_resource type="Script" path="res://code/action.gd" id="2_bhhne"]
 [ext_resource type="PackedScene" uid="uid://b3uyfwmjggdv6" path="res://scenes/creatures/firebat.tscn" id="2_h5nlb"]
+[ext_resource type="AudioStream" uid="uid://cps7gjreeq1vk" path="res://assets/audio/sfx/SFX_Attack_MolotovA.wav" id="4_52sou"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xpxoj"]
 size = Vector3(9.22332, 7.68299, 1)
@@ -48,3 +49,6 @@ shape = SubResource("BoxShape3D_xpxoj")
 
 [node name="VFX" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758026, 7.54402, 0.753662)
+
+[node name="Attack" parent="SFX" index="2"]
+stream = ExtResource("4_52sou")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch68rkx3a4qpq"]
+[gd_scene load_steps=7 format=3 uid="uid://ch68rkx3a4qpq"]
 
 [ext_resource type="PackedScene" uid="uid://k3mwrmymnp2n" path="res://scenes/enemies/base.tscn" id="1_g6h56"]
 [ext_resource type="PackedScene" uid="uid://b2daxgg74owkb" path="res://scenes/creatures/bossilisk.tscn" id="2_jcrxl"]
 [ext_resource type="Script" path="res://code/action.gd" id="2_uc6hl"]
+[ext_resource type="AudioStream" uid="uid://uwucpwjaftwp" path="res://assets/audio/sfx/SFX_Attack_BiteA.wav" id="4_7aoby"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e32k0"]
 size = Vector3(4.2458, 3.86183, 1)
@@ -58,3 +59,6 @@ shape = SubResource("BoxShape3D_tyjk4")
 
 [node name="VFX" parent="." index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758026, 7.54402, 0.753662)
+
+[node name="Attack" parent="SFX" index="2"]
+stream = ExtResource("4_7aoby")
