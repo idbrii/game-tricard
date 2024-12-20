@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://buih3lx3ki84e"]
+
+[ext_resource type="AudioStream" uid="uid://vrhcifx3gjl3" path="res://assets/audio/music/Western Promises 111bpm.mp3" id="1_2vrhb"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_2vrhb")
+volume_db = -10.0
+autoplay = true

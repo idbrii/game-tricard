@@ -10,94 +10,94 @@ signal disposable(n)
 signal died(n)
 
 func _ready():
-	status.die.connect(onDied)
-	status.hurt.connect(onHurt)
-	status.blocked_damage.connect(onBlocked)
+    status.die.connect(onDied)
+    status.hurt.connect(onHurt)
+    status.blocked_damage.connect(onBlocked)
 
 func spawn():
-	actionIndex = actions.size()-1
-	status.reset()
-	updateLabels()
-	visible = true
-	$Model/AnimationPlayer.play("enemy_anim_appear")
-	await $Model/AnimationPlayer.animation_finished
+    actionIndex = actions.size()-1
+    status.reset()
+    updateLabels()
+    visible = true
+    $Model/AnimationPlayer.play("enemy_anim_appear")
+    await $Model/AnimationPlayer.animation_finished
 
 func updateLabels():
-	$UI.update_labels()
+    $UI.update_labels()
 
 func focus():
-	$Model/AnimationPlayer.play("enemy_anim_highlightedloop")
+    $Model/AnimationPlayer.play("enemy_anim_highlightedloop")
 
 func unfocus():
-	idle()
+    idle()
 
 func idle():
-	#~ print("Playing IDLE")
-	$Model/AnimationPlayer.stop()
-	$Model/AnimationPlayer.play("RESET")
-	$Model/AnimationPlayer.play("enemy_anim_idle")
+    #~ print("Playing IDLE")
+    $Model/AnimationPlayer.stop()
+    $Model/AnimationPlayer.play("RESET")
+    #$Model/AnimationPlayer.play("enemy_anim_idle")
 
 func onDied():
-	died.emit(self)
-	$Model/AnimationPlayer.play("enemy_anim_hurt")
-	await $Model/AnimationPlayer.animation_finished
-	updateLabels()
-	$Model/AnimationPlayer.play("enemy_anim_dead")
-	await $Model/AnimationPlayer.animation_finished
-	disposable.emit(self)
-	prints(spawner, "died")
+    died.emit(self)
+    $Model/AnimationPlayer.play("enemy_anim_hurt")
+    await $Model/AnimationPlayer.animation_finished
+    updateLabels()
+    $Model/AnimationPlayer.play("enemy_anim_dead")
+    await $Model/AnimationPlayer.animation_finished
+    disposable.emit(self)
+    prints(spawner, "died")
 
 func onHurt(_amount:int):
-	#$VFX/HeartBreak/AnimationPlayer.play("particle_play")
-	$Model/AnimationPlayer.play("enemy_anim_hurt")
-	await $Model/AnimationPlayer.animation_finished
-	updateLabels()
-	idle()
-	prints(spawner, "hurt")
+    #$VFX/HeartBreak/AnimationPlayer.play("particle_play")
+    $Model/AnimationPlayer.play("enemy_anim_hurt")
+    await $Model/AnimationPlayer.animation_finished
+    updateLabels()
+    idle()
+    prints(spawner, "hurt")
 
 func onBlocked(_amount:int):
-	updateLabels()
-	await get_tree().create_timer(0.1).timeout
-	$VFX/GuardBreak/AnimationPlayer.play("particle_play")
-	idle()
+    updateLabels()
+    await get_tree().create_timer(0.1).timeout
+    $VFX/GuardBreak/AnimationPlayer.play("particle_play")
+    idle()
 
 func tick(player:Player):
-	prints(spawner, "ticking")
-	await get_tree().create_timer(0.1).timeout
-	status.mod_turns(-1)
-	updateLabels()
-	if status.turns <= 0:
-		await performAction(player)
-		status.reset_turns()
-	updateLabels()
-	await get_tree().create_timer(0.1).timeout
-	status.end_turn()
-	updateLabels()
+    prints(spawner, "ticking")
+    await get_tree().create_timer(0.1).timeout
+    status.mod_turns(-1)
+    updateLabels()
+    if status.turns <= 0:
+        await performAction(player)
+        status.reset_turns()
+    updateLabels()
+    await get_tree().create_timer(0.1).timeout
+    status.end_turn()
+    updateLabels()
 
 func performAction(player:Player):
-	if actionIndex >= actions.size():
-		actionIndex = 0
-	var action:Action = actions[actionIndex]
-	prints(spawner, "executing action with power", action.power)
-	for move:Action.Move in action.moves:
-		prints(spawner, "using move", move)
-		if move == Action.Move.Attack:
-			$Model/AnimationPlayer.play("enemy_anim_fire")
-			await $Model/AnimationPlayer.animation_finished
-			player.status.mod_health(-action.power)
-		elif move == Action.Move.Heal:
-			status.mod_health(action.power)
-			$VFX/HeartGain/AnimationPlayer.play("particle_play")
-		elif move == Action.Move.Block:
-			status.mod_block(action.power)
-			$VFX/GuardGain/AnimationPlayer.play("particle_play")
-		elif move == Action.Move.Burn:
-			$Model/AnimationPlayer.play("enemy_anim_fire")
-			await $Model/AnimationPlayer.animation_finished
-			player.status.mod_burn(action.power)
-		elif move == Action.Move.Poison:
-			$Model/AnimationPlayer.play("enemy_anim_fire")
-			await $Model/AnimationPlayer.animation_finished
-			player.status.mod_poison(action.power)
-	idle()
-	actionIndex += 1
+    if actionIndex >= actions.size():
+        actionIndex = 0
+    var action:Action = actions[actionIndex]
+    prints(spawner, "executing action with power", action.power)
+    for move:Action.Move in action.moves:
+        prints(spawner, "using move", move)
+        if move == Action.Move.Attack:
+            $Model/AnimationPlayer.play("enemy_anim_fire")
+            await $Model/AnimationPlayer.animation_finished
+            player.status.mod_health(-action.power)
+        elif move == Action.Move.Heal:
+            status.mod_health(action.power)
+            $VFX/HeartGain/AnimationPlayer.play("particle_play")
+        elif move == Action.Move.Block:
+            status.mod_block(action.power)
+            $VFX/GuardGain/AnimationPlayer.play("particle_play")
+        elif move == Action.Move.Burn:
+            $Model/AnimationPlayer.play("enemy_anim_fire")
+            await $Model/AnimationPlayer.animation_finished
+            player.status.mod_burn(action.power)
+        elif move == Action.Move.Poison:
+            $Model/AnimationPlayer.play("enemy_anim_fire")
+            await $Model/AnimationPlayer.animation_finished
+            player.status.mod_poison(action.power)
+    idle()
+    actionIndex += 1
