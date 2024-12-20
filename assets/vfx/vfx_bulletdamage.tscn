@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvyortt5ux1ea"]
+[gd_scene load_steps=17 format=3 uid="uid://cvyortt5ux1ea"]
 
 [ext_resource type="Texture2D" uid="uid://c006jc4gxk7me" path="res://assets/textures/particles/T_BulletHole.png" id="1_wt8yx"]
 [ext_resource type="Texture2D" uid="uid://cvfp2dk8v4aef" path="res://assets/textures/particles/T_Radial DamageBurst.png" id="2_ahvxf"]
@@ -8,8 +8,9 @@
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
-shading_mode = 0
 albedo_texture = ExtResource("1_wt8yx")
+emission_enabled = true
+emission = Color(0.679747, 0.611178, 0, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_2v52j"]
 material = SubResource("StandardMaterial3D_g8jht")
@@ -52,6 +53,162 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 [sub_resource type="Gradient" id="Gradient_fiwlc"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
+[sub_resource type="Animation" id="Animation_wmbgj"]
+resource_name = "particle_play"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bullethole_mesh:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333, 0.466667, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.837394, 0.900872, 1), Vector3(1.41803, 1.54837, 1), Vector3(1.41803, 1.54837, 1), Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.102692, 0.153693, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bullethole_mesh:mesh")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0333333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("QuadMesh_2v52j"), SubResource("QuadMesh_2v52j"), SubResource("QuadMesh_2v52j"), SubResource("QuadMesh_2v52j")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bullethole_mesh:mesh:material:emission")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0.679747, 0.611178, 0, 1), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bullethole_mesh:mesh:material:shading_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.133333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.60732, 1.76737, 1), Vector3(4.80834, 5.12402, 1), Vector3(4.80834, 5.12402, 1), Vector3(0.702084, 0.808118, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles3D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_fqbxd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bullethole_mesh:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("bullethole_mesh:mesh:material:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.679747, 0.611178, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bullethole_mesh:mesh:material:shading_mode")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bullethole_mesh:mesh")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("QuadMesh_2v52j")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.80834, 5.12402, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles3D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sv67h"]
+_data = {
+"RESET": SubResource("Animation_fqbxd"),
+"particle_play": SubResource("Animation_wmbgj")
+}
+
 [node name="vfx_bulletdamage" type="Node3D"]
 
 [node name="bullethole_mesh" type="MeshInstance3D" parent="."]
@@ -89,3 +246,10 @@ scale_amount_max = 1.2
 scale_amount_curve = SubResource("Curve_ahu2f")
 color_ramp = SubResource("Gradient_v307m")
 color_initial_ramp = SubResource("Gradient_fiwlc")
+hue_variation_min = 0.1
+hue_variation_max = 0.2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sv67h")
+}
