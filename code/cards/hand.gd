@@ -22,11 +22,11 @@ func _process(_dt: float):
 
 
 func layout():
-    var count = get_child_count() - 1
+    var count = get_child_count()
 
     var total_angle = card_fan_angle_turns * TAU
     var angle_delta = total_angle / count
-    var angle_offset = -total_angle / 2.0
+    var angle_offset = -total_angle / 2.0 + angle_delta
 
     var pos_offset = dist_from_root + card_width
 
