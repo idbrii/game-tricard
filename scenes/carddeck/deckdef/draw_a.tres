@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://code/cards/action/draw.gd" id="1_ugtp0"]
 [ext_resource type="Script" path="res://code/cards/action/heal.gd" id="1_xlsgq"]
 [ext_resource type="Script" path="res://code/cards/action/block.gd" id="2_0tjpd"]
-[ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="2_y3w2n"]
+[ext_resource type="Texture2D" uid="uid://ds5yidctmcgvx" path="res://assets/textures/card_art/card_art_draw_1.png" id="3_ehj4c"]
 [ext_resource type="Script" path="res://code/cards/carddef.gd" id="3_uh54x"]
 [ext_resource type="Script" path="res://code/cards/action/damage.gd" id="5_5gvls"]
 
 [resource]
 script = ExtResource("3_uh54x")
 card_name = "Up Your Sleeve"
-art = ExtResource("2_y3w2n")
+art = ExtResource("3_ehj4c")
 is_barrage = false
 actions = Array[Script]([ExtResource("1_ugtp0"), ExtResource("2_0tjpd")])
 upgrade_actions = Array[Script]([ExtResource("1_xlsgq"), ExtResource("5_5gvls")])

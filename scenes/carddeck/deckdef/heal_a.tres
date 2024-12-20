@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://code/cards/action/heal.gd" id="1_3fwlo"]
 [ext_resource type="Script" path="res://code/cards/carddef.gd" id="1_a8ee6"]
-[ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="2_46ia6"]
+[ext_resource type="Texture2D" uid="uid://b4tyl4vfthpbl" path="res://assets/textures/card_art/card_art_heal_1.png" id="2_t5squ"]
 [ext_resource type="Script" path="res://code/cards/action/block.gd" id="4_j5pk4"]
 [ext_resource type="Script" path="res://code/cards/action/poison.gd" id="5_fhgei"]
 [ext_resource type="Script" path="res://code/cards/action/draw.gd" id="6_pfxvo"]
@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource("1_a8ee6")
 card_name = "A Good Sniff"
-art = ExtResource("2_46ia6")
+art = ExtResource("2_t5squ")
 is_barrage = false
 actions = Array[Script]([ExtResource("1_3fwlo")])
 upgrade_actions = Array[Script]([ExtResource("4_j5pk4"), ExtResource("5_fhgei"), ExtResource("1_3fwlo"), ExtResource("6_pfxvo")])
