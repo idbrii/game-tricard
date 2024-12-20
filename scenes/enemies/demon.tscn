@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://y1yj5bsm6nlo"]
+[gd_scene load_steps=4 format=3 uid="uid://y1yj5bsm6nlo"]
 
 [ext_resource type="PackedScene" uid="uid://k3mwrmymnp2n" path="res://scenes/enemies/base.tscn" id="1_oak7v"]
 [ext_resource type="PackedScene" uid="uid://b0i200j8st6s0" path="res://scenes/creatures/demon.tscn" id="2_2lqjh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d1mac"]
+size = Vector3(8.38408, 13.066, 1)
 
 [node name="Demon" instance=ExtResource("1_oak7v")]
 
@@ -11,10 +14,7 @@ maxTurns = 4
 maxHealth = 10
 maxBlocks = 2
 
-[node name="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4375, 5.95253, 0)
-
-[node name="UI" parent="." index="2"]
+[node name="UI" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.53741, 13.2333, 0)
 
 [node name="HP" parent="UI" index="0"]
@@ -32,7 +32,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3387, 0.748367, 0)
 [node name="Poison" parent="UI" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.51511, -0.0201321, 0)
 
-[node name="VFX" parent="." index="3"]
+[node name="VFX" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758026, 7.54402, 0.753662)
 
-[node name="Model" parent="." index="4" instance=ExtResource("2_2lqjh")]
+[node name="Model" parent="." index="3" instance=ExtResource("2_2lqjh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.905511, 6.93385, 0)
+shape = SubResource("BoxShape3D_d1mac")

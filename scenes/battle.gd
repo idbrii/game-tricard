@@ -41,20 +41,21 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     if mode == Mode.Select:
         var en = getEnemyAtMouse()
-        if en != null:
-            if en != currentSelection:
-                if currentSelection != null:
-                    currentSelection.unfocus()
-                en.focus()
-                currentSelection = en
-            if Input.is_action_just_pressed("click"):
-                currentSelection.unfocus()
-                currentSelection = null
-                mode = Mode.None
-                self.enemyPicked.emit(en)
-        elif currentSelection != null:
+        set_enemy_focus(en)
+        if en != null and Input.is_action_just_pressed("click"):
+            mode = Mode.None
+            set_enemy_focus(null)
+            self.enemyPicked.emit(en)
+
+func set_enemy_focus(en:Enemy):
+    if en != currentSelection:
+        if currentSelection != null:
             currentSelection.unfocus()
-            currentSelection = null
+            prints(currentSelection.name, "lost focus")
+        if en != null:
+            prints(en.name, "in focus")
+            en.focus()
+    currentSelection = en
 
 func spawn(type, n:Node3D):
     var en:Enemy = type.instantiate()
