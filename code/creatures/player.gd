@@ -7,6 +7,9 @@ class_name Player
 @onready var deck := $"%HUD/Deck"
 @onready var scene:Battle = self.get_parent()
 
+@onready var hand_neutral_pos = deck.hand.global_position
+
+
 func _ready():
     attack_btn.text = "Pick Card"
     status.maxHealth = 10
@@ -84,7 +87,7 @@ func _play_card(card: Card, target):
     prints("Playing card", card, "on", target)
     attack_btn.text = "Playing..."
     scene.mode = Battle.Mode.PlayerTurn
-    InputFocus.lock_input = true
+    set_waiting_for_enemy(true)
     if card.def.is_barrage:
         var que = scene.enemies.values()
         for en:Enemy in que:
@@ -100,21 +103,29 @@ func _play_card(card: Card, target):
     await scene.startEnemyTurn(self)
     scene.mode = Battle.Mode.None
     attack_btn.text = "Pick Card"
-    InputFocus.lock_input = false
+    set_waiting_for_enemy(false)
 
 
 func _on_discard_pressed():
     if InputFocus.lock_input:
         return
 
-    InputFocus.lock_input = true
+    set_waiting_for_enemy(true)
     deck.discard_all()
     await get_tree().create_timer(0.5).timeout
     deck.draw_cards(deck.hand_size)
     await scene.startEnemyTurn(self)
-    InputFocus.lock_input = false
+    set_waiting_for_enemy(false)
 
 
 func draw_card(power):
     await deck.draw_cards(power)
     await get_tree().create_timer(0.4).timeout
+
+
+func set_waiting_for_enemy(is_waiting):
+    InputFocus.lock_input = is_waiting
+    var pos = hand_neutral_pos
+    if is_waiting:
+        pos += Vector2.DOWN * 300
+    deck.hand.global_position = pos
