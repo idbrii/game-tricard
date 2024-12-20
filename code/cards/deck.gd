@@ -1,5 +1,9 @@
 extends Node
 
+
+const Random = preload("res://code/util/random.gd")
+
+
 var unique_cards: Array[CardDef]
 @export var card_template: PackedScene
 
@@ -64,7 +68,9 @@ func draw_cards(num_cards):
 
 
 func shuffle_discard():
-    for c in discard.get_children():
+    var children = discard.get_children()
+    children.shuffle()
+    for c in children:
         await animate_card_to_pile(c, draw, 5)
 
 
