@@ -67,6 +67,9 @@ func get_current_card() -> Card:
 
 
 func _on_play_pressed():
+    if InputFocus.lock_input:
+        return
+
     if scene.mode != Battle.Mode.None and scene.mode != Battle.Mode.SelectAll:
         return
 
@@ -81,6 +84,7 @@ func _play_card(card: Card, target):
     prints("Playing card", card, "on", target)
     attack_btn.text = "Please Wait"
     scene.mode = Battle.Mode.PlayerTurn
+    InputFocus.lock_input = true
     InputFocus.set_focus(null)
     if card.def.is_barrage:
         var que = scene.enemies.values()
@@ -93,9 +97,16 @@ func _play_card(card: Card, target):
     await scene.startEnemyTurn(self)
     scene.mode = Battle.Mode.None
     attack_btn.text = "Pick Card"
+    InputFocus.lock_input = false
+
 
 func _on_discard_pressed():
+    if InputFocus.lock_input:
+        return
+
+    InputFocus.lock_input = true
     deck.discard_all()
     await get_tree().create_timer(0.5).timeout
     deck.draw_cards(deck.hand_size)
     await scene.startEnemyTurn(self)
+    InputFocus.lock_input = false

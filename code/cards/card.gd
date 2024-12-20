@@ -37,6 +37,9 @@ func requires_target():
 
 
 func _on_pressed():
+    if InputFocus.lock_input:
+        return
+
     InputFocus.set_focus(self)
 
 

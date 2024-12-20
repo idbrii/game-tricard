@@ -5,6 +5,7 @@ signal lose_focus(old_focus, new_focus)
 signal gain_focus(old_focus, new_focus)
 
 var current_focus := Node
+var lock_input := false
 
 
 func set_focus(new_focus):
