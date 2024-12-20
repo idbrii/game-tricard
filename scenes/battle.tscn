@@ -1,106 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8auld8b8c1b8"]
+[gd_scene load_steps=5 format=3 uid="uid://c8auld8b8c1b8"]
 
 [ext_resource type="Script" path="res://scenes/battle.gd" id="1_np3yy"]
 [ext_resource type="Script" path="res://code/camera.gd" id="2_jpeko"]
 [ext_resource type="PackedScene" uid="uid://duaopp0l0n4dv" path="res://scenes/stage-canyon.tscn" id="2_s08cu"]
 [ext_resource type="PackedScene" uid="uid://c3itjkr7u7brk" path="res://scenes/player.tscn" id="3_rojfr"]
-[ext_resource type="PackedScene" uid="uid://caymaux5m0lw5" path="res://assets/nodes/titlecard_node.tscn" id="5_v3wnd"]
-
-[sub_resource type="Animation" id="Animation_vab3p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 17.5816, 29.2039)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.227249, 0.0150183, -0.00572181)]
-}
-
-[sub_resource type="Animation" id="Animation_vh4bk"]
-resource_name = "title_to_battlefield"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.83333),
-"transitions": PackedFloat32Array(0.517632, 0.25),
-"update": 0,
-"values": [Vector3(0, 31.0366, 22.1797), Vector3(0, 17.5816, 29.2039)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.83333),
-"transitions": PackedFloat32Array(0.517632, 0.25),
-"update": 0,
-"values": [Vector3(-0.0944987, 0.0356899, -0.000871053), Vector3(-0.227249, 0.0150183, -0.00572181)]
-}
-
-[sub_resource type="Animation" id="Animation_51rej"]
-resource_name = "camera_titlecard"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0.517632),
-"update": 0,
-"values": [Vector3(0, 31.0366, 22.1797)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0.517632),
-"update": 0,
-"values": [Vector3(-0.0944987, 0.0356899, -0.000871053)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ax0i"]
-_data = {
-"RESET": SubResource("Animation_vab3p"),
-"camera_titlecard": SubResource("Animation_51rej"),
-"title_to_battlefield": SubResource("Animation_vh4bk")
-}
 
 [node name="Battle" type="Node3D"]
 script = ExtResource("1_np3yy")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(0.99989, 0.00233772, 0.0146316, -0.00557467, 0.974274, 0.225298, -0.0137285, -0.225355, 0.97418, 0, 17.5816, 29.2039)
+transform = Transform3D(1, 0, 0, 0, 0.963738, 0.266851, 0, -0.266851, 0.963738, 0, 13.9973, 33.2329)
 current = true
 fov = 38.2
 script = ExtResource("2_jpeko")
@@ -123,11 +32,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5638, 0, 0)
 
 [node name="BossSpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720758, 0, -5.20348)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_7ax0i")
-}
-
-[node name="titlecard" parent="." instance=ExtResource("5_v3wnd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.415, -3.162, 26.743, 7.655)
