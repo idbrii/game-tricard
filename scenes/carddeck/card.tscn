@@ -238,13 +238,14 @@ pivot_offset = Vector2(174, 175)
 mouse_filter = 2
 texture = ExtResource("8_pyw7o")
 
-[node name="card_actions" type="HBoxContainer" parent="card_root/card_art"]
+[node name="card_actions" type="VFlowContainer" parent="card_root/card_art"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 45.0059
-offset_top = 224.704
-offset_right = 301.006
-offset_bottom = 292.464
+offset_left = 23.0
+offset_top = -3.0
+offset_right = 94.0
+offset_bottom = 148.0
+scale = Vector2(2.3, 2.3)
 alignment = 1
 
 [node name="card_back" type="TextureRect" parent="."]
