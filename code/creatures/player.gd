@@ -8,6 +8,7 @@ class_name Player
 @onready var scene:Battle = self.get_parent()
 
 func _ready():
+    attack_btn.text = "Pick Card"
     status.maxHealth = 10
     status.maxBlocks = 3
     status.reset()
@@ -48,7 +49,7 @@ func _on_card_selected(_old_focus, new_focus):
             attack_btn.text = "Attack All"
             scene.mode = Battle.Mode.SelectAll
         else:
-            attack_btn.text = "Play Card"
+            attack_btn.text = "Target Self"
             scene.mode = Battle.Mode.None
 
 
@@ -81,7 +82,7 @@ func _on_play_pressed():
 
 func _play_card(card: Card, target):
     prints("Playing card", card, "on", target)
-    attack_btn.text = "Please Wait"
+    attack_btn.text = "Playing..."
     scene.mode = Battle.Mode.PlayerTurn
     InputFocus.lock_input = true
     if card.def.is_barrage:
@@ -95,6 +96,7 @@ func _play_card(card: Card, target):
     await get_tree().create_timer(1.0).timeout
     await deck.discard_card_anim(card)
     InputFocus.set_focus(null)
+    attack_btn.text = "Enemy Turn"
     await scene.startEnemyTurn(self)
     scene.mode = Battle.Mode.None
     attack_btn.text = "Pick Card"
