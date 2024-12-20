@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://ptugdjrnnn0p"]
 
 [ext_resource type="PackedScene" uid="uid://k3mwrmymnp2n" path="res://scenes/enemies/base.tscn" id="1_wm2sf"]
-[ext_resource type="PackedScene" uid="uid://bomnj25fe8063" path="res://scenes/creatures/cowboy-tom.tscn" id="2_6e2k2"]
+[ext_resource type="PackedScene" uid="uid://bqgw71a4rhw5t" path="res://scenes/creatures/cowboy.tscn" id="2_813vl"]
 
 [node name="Cowboy" instance=ExtResource("1_wm2sf")]
 
 [node name="Status" parent="." index="0"]
+display_name = "Cowboy"
 health = 0
 maxTurns = 3
 maxHealth = 5
@@ -19,4 +20,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53313, 13.1404, 0)
 [node name="VFX" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758026, 7.54402, 0.753662)
 
-[node name="Model" parent="." index="4" instance=ExtResource("2_6e2k2")]
+[node name="Model" parent="." index="4" instance=ExtResource("2_813vl")]

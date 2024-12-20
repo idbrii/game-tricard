@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://705midrubrbn"]
+
+[ext_resource type="PackedScene" uid="uid://k3mwrmymnp2n" path="res://scenes/enemies/base.tscn" id="1_w1wu0"]
+[ext_resource type="PackedScene" uid="uid://b3uyfwmjggdv6" path="res://scenes/creatures/firebat.tscn" id="2_h5nlb"]
+
+[node name="FireBat" instance=ExtResource("1_w1wu0")]
+
+[node name="Status" parent="." index="0"]
+display_name = "FireBat"
+maxBlocks = 2
+
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4375, 5.95253, 0)
+
+[node name="UI" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00317466, 9.65194, 0)
+
+[node name="HP" parent="UI" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.33232, 0.670033, 0)
+
+[node name="Turn" parent="UI" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15563, 0.213298, 0)
+
+[node name="Block" parent="UI" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90289, -0.214489, 0)
+
+[node name="Burn" parent="UI" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.53839, 0.708353, 0)
+
+[node name="Poison" parent="UI" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.51511, -0.0201321, 0)
+
+[node name="VFX" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758026, 7.54402, 0.753662)
+
+[node name="Model" parent="." index="4" instance=ExtResource("2_h5nlb")]
