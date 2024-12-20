@@ -113,3 +113,8 @@ func _on_discard_pressed():
     deck.draw_cards(deck.hand_size)
     await scene.startEnemyTurn(self)
     InputFocus.lock_input = false
+
+
+func draw_card(power):
+    await deck.draw_cards(power)
+    await get_tree().create_timer(0.4).timeout
