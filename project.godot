@@ -14,8 +14,7 @@ config/name="Tricard"
 config/tags=PackedStringArray("created_by_me")
 run/main_scene="res://scenes/battle.tscn"
 config/features=PackedStringArray("4.3")
-config/icon="res://icon.png"
-config/windows_native_icon="res://icon.ico"
+config/icon="res://assets/textures/icons/icon_draw.png"
 
 [autoload]
 
