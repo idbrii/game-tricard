@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="CardDef" load_steps=4 format=3 uid="uid://bt3orkicewcl1"]
+[gd_resource type="Resource" script_class="CardDef" load_steps=7 format=3 uid="uid://bt3orkicewcl1"]
 
 [ext_resource type="Script" path="res://code/cards/action/block.gd" id="1_y1g2a"]
 [ext_resource type="Script" path="res://code/cards/carddef.gd" id="2_asmll"]
 [ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="2_sdtlu"]
+[ext_resource type="Script" path="res://code/cards/action/burn.gd" id="4_0c4sk"]
+[ext_resource type="Script" path="res://code/cards/action/damage.gd" id="5_c4hyh"]
+[ext_resource type="Script" path="res://code/cards/action/draw.gd" id="6_dq1kl"]
 
 [resource]
 script = ExtResource("2_asmll")
@@ -10,4 +13,5 @@ card_name = "Hunker Down"
 art = ExtResource("2_sdtlu")
 is_barrage = false
 actions = Array[Script]([ExtResource("1_y1g2a")])
+upgrade_actions = Array[Script]([ExtResource("4_0c4sk"), ExtResource("5_c4hyh"), ExtResource("6_dq1kl")])
 chamber_values = Array[int]([1, 1, 3])

@@ -13,6 +13,7 @@ var Barrage = preload("res://code/cards/action/barrage.gd")
 @export var is_barrage := false
 
 @export var actions: Array[Script]
+@export var upgrade_actions: Array[Script]
 
 ## Three values that are the power values on each chamber.
 @export var chamber_values: Array[int]
@@ -51,6 +52,16 @@ func add_actions(actions_root: Control):
     for action in actions:
         var a = action.new()
         actions_root.add_child(a)
+
+
+func add_upgrade_action(actions_root: Control):
+    if upgrade_actions.is_empty():
+        return
+
+    var idx = randi() % upgrade_actions.size()
+    var action = upgrade_actions[idx]
+    var a = action.new()
+    actions_root.add_child(a)
 
 
 func requires_target(actions_root: Control):

@@ -82,14 +82,37 @@ func next_chamber():
     barrel_root.rotation = dest
 
     if active_chamber == chamber_values.size():
-        upgrade()
+        await upgrade()
 
 
 func upgrade():
     upgrade_level += 1
+
+    # Chance to upgrade
+    var upgrade_all = 0
+    var roll = randf()
+    var give_action = false
+    if roll > 0.85 and upgrade_level > 1:
+        # Give all numbers a big boost.
+        upgrade_all = upgrade_level
+    elif roll > 0.4:
+        # Get a new action and minor number boost.
+        give_action = true
+        chamber_values[chamber_values.size() - 1] += 1
+    else:
+        # Give all numbers a boost.
+        upgrade_all = 1
+
     for i in range(chamber_values.size()):
-        chamber_values[i] += upgrade_level
+        chamber_values[i] += upgrade_all
         var chamber = chambers[i]
         chamber.reload_bullet(chamber_values[i])
         await get_tree().create_timer(0.1).timeout
+
+    if give_action:
+        def.add_upgrade_action(actions_root)
+        await get_tree().create_timer(1.2).timeout
+
     active_chamber = 0
+    # Delay enough for you to see what's new.
+    await get_tree().create_timer(0.5).timeout
