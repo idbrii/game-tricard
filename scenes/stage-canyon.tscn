@@ -84,6 +84,15 @@ transform = Transform3D(6.44625, 0, 0, 0, 6.44625, 0, 0, 0, 6.44625, 0, 0, 1.84)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="level_root"]
 transform = Transform3D(-0.656462, -0.679721, 0.327165, 0.580279, -0.73213, -0.356738, 0.48201, -0.044338, 0.875043, -2.27472, 2.30083, 0)
 
+[node name="DirectionalLight_Enemies" type="DirectionalLight3D" parent="level_root"]
+transform = Transform3D(0.15378, -0.0032563, 0.0201511, -0.00776514, 0.132297, 0.0806369, -0.0188778, -0.0809445, 0.130983, -2.27472, 2.30083, 0)
+layers = 2
+light_color = Color(0.999999, 0.802778, 0.756494, 1)
+light_energy = 1.5
+light_volumetric_fog_energy = 0.0
+light_bake_mode = 1
+light_cull_mask = 4294967294
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="level_root"]
 environment = SubResource("Environment_d1qp0")
 
