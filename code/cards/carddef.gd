@@ -1,6 +1,10 @@
 extends Resource
 class_name CardDef
 
+
+var Barrage = preload("res://code/cards/action/barrage.gd")
+
+
 @export var card_name := ""
 
 @export var art := Texture2D
@@ -41,6 +45,9 @@ func get_art() -> Texture2D:
 
 ## actions_root should probably be a HBoxContainer.
 func add_actions(actions_root: Control):
+    if is_barrage:
+        actions_root.add_child(Barrage.new())
+
     for action in actions:
         var a = action.new()
         actions_root.add_child(a)
