@@ -12,7 +12,8 @@ size = Vector3(5.8817, 6.93689, 1)
 
 [node name="Status" parent="." index="0"]
 display_name = "Killyote"
-maxHealth = 5
+maxTurns = 2
+maxHealth = 4
 
 [node name="Attack" type="Node" parent="Actions" index="0"]
 script = ExtResource("2_rr2wl")

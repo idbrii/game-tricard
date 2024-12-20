@@ -12,7 +12,7 @@ size = Vector3(9.22332, 7.68299, 1)
 
 [node name="Status" parent="." index="0"]
 display_name = "FireBat"
-maxHealth = 1
+maxHealth = 2
 maxBlocks = 2
 
 [node name="Attack" type="Node" parent="Actions" index="0"]

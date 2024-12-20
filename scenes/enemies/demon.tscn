@@ -12,7 +12,7 @@ size = Vector3(8.38408, 13.066, 1)
 [node name="Status" parent="." index="0"]
 display_name = "Demon"
 maxTurns = 4
-maxHealth = 10
+maxHealth = 6
 maxBlocks = 2
 
 [node name="Attack" type="Node" parent="Actions" index="0"]
