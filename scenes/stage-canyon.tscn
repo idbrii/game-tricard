@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://duaopp0l0n4dv"]
+[gd_scene load_steps=12 format=3 uid="uid://duaopp0l0n4dv"]
 
 [ext_resource type="PackedScene" uid="uid://b7y82g5oxkqut" path="res://assets/3d/ST_CanyonBG.fbx" id="2_b5l0y"]
+[ext_resource type="Texture2D" uid="uid://x1rbjq1grg5v" path="res://assets/textures/environment/env_props_cactus01.png" id="2_x8hs1"]
+[ext_resource type="Texture2D" uid="uid://cdveuxg6jpla" path="res://assets/textures/environment/env_props_cactus02.png" id="3_es8lu"]
+[ext_resource type="Texture2D" uid="uid://bir1qe2aotope" path="res://assets/textures/environment/env_props_cactus03.png" id="4_70euv"]
 
 [sub_resource type="Environment" id="Environment_d1qp0"]
 ssao_enabled = true
@@ -25,6 +28,30 @@ volumetric_fog_anisotropy = 0.82
 volumetric_fog_length = 40.82
 adjustment_enabled = true
 adjustment_contrast = 1.1
+
+[sub_resource type="QuadMesh" id="QuadMesh_3ej65"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3w5ju"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_x8hs1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_tukv3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_io30d"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("3_es8lu")
+
+[sub_resource type="QuadMesh" id="QuadMesh_anobj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_quusg"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("4_70euv")
 
 [node name="StageCanyon" type="Node3D"]
 
@@ -68,3 +95,19 @@ shadow_enabled = true
 distance_fade_begin = 0.0
 spot_range = 246.588
 spot_angle = 8.23087
+
+[node name="Cactus1" type="MeshInstance3D" parent="level_root"]
+transform = Transform3D(0.539846, 0, 0.406019, 0, 0.973943, 0, -0.332219, 0, 0.659768, -3.62165, 0.47827, -0.884408)
+ignore_occlusion_culling = true
+mesh = SubResource("QuadMesh_3ej65")
+surface_material_override/0 = SubResource("StandardMaterial3D_3w5ju")
+
+[node name="Cactus2" type="MeshInstance3D" parent="level_root"]
+transform = Transform3D(0.589201, 0, 0, 0, 0.645066, 0, 0, 0, 1, 1.19739, 0.389694, -2.65387)
+mesh = SubResource("QuadMesh_tukv3")
+surface_material_override/0 = SubResource("StandardMaterial3D_io30d")
+
+[node name="Cactus3" type="MeshInstance3D" parent="level_root"]
+transform = Transform3D(0.523356, 0, 0, 0, 0.419237, 0, 0, 0, 1, 2.76716, 0.208534, -0.513363)
+mesh = SubResource("QuadMesh_anobj")
+surface_material_override/0 = SubResource("StandardMaterial3D_quusg")
