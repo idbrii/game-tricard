@@ -50,11 +50,20 @@ func draw_cards(num_cards):
     for i in range(num_cards):
         var c = draw.get_child(0)
         if not c:
-            # TODO: Shuffle discard
-            break
+            await shuffle_discard()
+            await get_tree().create_timer(0.2).timeout
+            c = draw.get_child(0)
+            if not c:
+                break
+
         draw.remove_child(c)
         hand.add_child(c)
         c.set_is_face_up(true)
+
+
+func shuffle_discard():
+    for c in discard.get_children():
+        await animate_card_to_pile(c, draw, 5)
 
 
 func discard_all():
@@ -63,21 +72,26 @@ func discard_all():
 
 
 func discard_card_anim(c: Card, anim_frames: int = 10):
+    await animate_card_to_pile(c, discard, anim_frames)
+
+
+func animate_card_to_pile(c: Card, pile: Node, anim_frames: int):
     hand.pause_layout = true
 
     var start = c.global_position
-    var dest = discard.global_position
+    var dest = pile.global_position
     for i in range(anim_frames):
         var pos = lerp(start, dest, float(i) / anim_frames)
         c.global_position = pos
         await get_tree().process_frame
 
     hand.pause_layout = false
-    discard_card(c)
+    move_to_pile(c, pile)
 
 
-func discard_card(c: Card):
-    hand.remove_child(c)
-    discard.add_child(c)
+func move_to_pile(c: Card, pile: Node):
+    var p = c.get_parent()
+    p.remove_child(c)
+    pile.add_child(c)
 
     c.set_is_face_up(false)
