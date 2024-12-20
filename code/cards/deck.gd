@@ -58,6 +58,8 @@ func draw_cards(num_cards):
 
         draw.remove_child(c)
         hand.add_child(c)
+        # Add to left side of hand.
+        hand.move_child(c, 0)
         c.set_is_face_up(true)
 
 
