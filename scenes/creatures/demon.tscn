@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0i200j8st6s0"]
 
-[ext_resource type="PackedScene" uid="uid://cqd0voam7vmge" path="res://code/creatures/enemy_visualbase.tscn" id="1_at8xu"]
+[ext_resource type="PackedScene" uid="uid://bfalruxucjf0p" path="res://scenes/creatures/enemy_visualbase.tscn" id="1_at8xu"]
 [ext_resource type="Texture2D" uid="uid://vcjre6psk646" path="res://assets/textures/characters/tc_enemy_demon.png" id="2_drp51"]
 
 [node name="enemy_visualbase" instance=ExtResource("1_at8xu")]

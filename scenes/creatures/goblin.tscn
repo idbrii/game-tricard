@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://evlua20rikm5"]
 
-[ext_resource type="PackedScene" uid="uid://cqd0voam7vmge" path="res://code/creatures/enemy_visualbase.tscn" id="1_4a8sp"]
+[ext_resource type="PackedScene" uid="uid://bfalruxucjf0p" path="res://scenes/creatures/enemy_visualbase.tscn" id="1_4a8sp"]
 [ext_resource type="Texture2D" uid="uid://cnpikelo2m2sr" path="res://assets/textures/characters/tc_enemy_goblin.png" id="2_i6s0t"]
 
 [node name="enemy_visualbase" instance=ExtResource("1_4a8sp")]

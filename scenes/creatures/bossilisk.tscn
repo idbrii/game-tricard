@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2daxgg74owkb"]
 
-[ext_resource type="PackedScene" uid="uid://cqd0voam7vmge" path="res://code/creatures/enemy_visualbase.tscn" id="1_5qn63"]
+[ext_resource type="PackedScene" uid="uid://bfalruxucjf0p" path="res://scenes/creatures/enemy_visualbase.tscn" id="1_5qn63"]
 [ext_resource type="Texture2D" uid="uid://d02gxkx1mq6i2" path="res://assets/textures/characters/tc_enemy_bossilisk.png" id="2_ypvrh"]
 
 [node name="enemy_visualbase" instance=ExtResource("1_5qn63")]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://clv0x2fs0h0eg"]
 
-[ext_resource type="PackedScene" uid="uid://cqd0voam7vmge" path="res://code/creatures/enemy_visualbase.tscn" id="1_f4bu2"]
+[ext_resource type="PackedScene" uid="uid://bfalruxucjf0p" path="res://scenes/creatures/enemy_visualbase.tscn" id="1_f4bu2"]
 [ext_resource type="Texture2D" uid="uid://dcenx3kvb0vqo" path="res://assets/textures/characters/tc_enemy_killyote.png" id="2_24fwl"]
 
 [node name="enemy_visualbase" instance=ExtResource("1_f4bu2")]

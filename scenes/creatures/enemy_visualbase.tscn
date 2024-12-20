@@ -1,9 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqd0voam7vmge"]
+[gd_scene load_steps=14 format=3 uid="uid://bfalruxucjf0p"]
 
 [ext_resource type="Texture2D" uid="uid://ca3t2rev2wvo" path="res://assets/textures/characters/tc_enemy_gunslinger.png" id="1_0jw65"]
-[ext_resource type="Script" path="res://code/creatures/creature.gd" id="1_jcodj"]
 [ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_1j4k3"]
-[ext_resource type="Script" path="res://code/creatures/status.gd" id="4_jwo6d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnoub"]
 transparency = 1
@@ -354,6 +352,46 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1), Color(3.94672e-06, 0.539055, 0.827526, 1), Color(3.93391e-06, 0.539055, 0.827526, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_xurlk"]
+resource_name = "enemy_anim_heal"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy_root:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.266667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 0.554784),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.0367, 1, 1), Vector3(1.0367, 1, 1), Vector3(1.01223, 1, 1), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enemy_root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 0.965936),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.0873647, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("enemy_root/enemy_mainsprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.17826, 0.603928, 0.303288, 1), Color(0.243153, 0.605565, 1.15514e-06, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_kf157"]
 resource_name = "enemy_anim_highlightedloop"
 length = 1.6
@@ -486,46 +524,6 @@ tracks/4/keys = {
 resource_name = "enemy_anim_idle"
 length = 0.2
 
-[sub_resource type="Animation" id="Animation_xurlk"]
-resource_name = "enemy_anim_heal"
-length = 0.9
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("enemy_root:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.266667, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 0.554784),
-"update": 0,
-"values": [Vector3(1, 1, 1), Vector3(1.0367, 1, 1), Vector3(1.0367, 1, 1), Vector3(1.01223, 1, 1), Vector3(1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("enemy_root:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.666667),
-"transitions": PackedFloat32Array(1, 1, 0.965936),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.0873647, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("enemy_root/enemy_mainsprite:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.17826, 0.603928, 0.303288, 1), Color(0.243153, 0.605565, 1.15514e-06, 1), Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ndbw6"]
 _data = {
 "RESET": SubResource("Animation_mpsn4"),
@@ -540,7 +538,6 @@ _data = {
 }
 
 [node name="enemy_visualbase" type="Node3D"]
-script = ExtResource("1_jcodj")
 
 [node name="enemy_root" type="Marker3D" parent="."]
 
@@ -574,6 +571,3 @@ texture = ExtResource("2_1j4k3")
 libraries = {
 "": SubResource("AnimationLibrary_ndbw6")
 }
-
-[node name="Status" type="Node" parent="."]
-script = ExtResource("4_jwo6d")

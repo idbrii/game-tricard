@@ -1,8 +1,5 @@
-[gd_scene load_steps=2 format=3 uid="uid://1yll1nfkot1c"]
+[gd_scene load_steps=2 format=3 uid="uid://bqgw71a4rhw5t"]
 
-[ext_resource type="PackedScene" uid="uid://cqd0voam7vmge" path="res://assets/nodes/enemy_base.tscn" id="1_aj0nc"]
+[ext_resource type="PackedScene" uid="uid://bfalruxucjf0p" path="res://scenes/creatures/enemy_visualbase.tscn" id="1_yrkf5"]
 
-[node name="Cowboy" instance=ExtResource("1_aj0nc")]
-
-[node name="Status" parent="." index="2"]
-health = 10
+[node name="enemy_visualbase" instance=ExtResource("1_yrkf5")]
