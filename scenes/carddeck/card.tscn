@@ -246,6 +246,7 @@ offset_top = -3.0
 offset_right = 94.0
 offset_bottom = 148.0
 scale = Vector2(2.3, 2.3)
+mouse_filter = 2
 alignment = 1
 
 [node name="card_back" type="TextureRect" parent="."]
@@ -254,5 +255,6 @@ layout_mode = 0
 offset_right = 828.0
 offset_bottom = 759.0
 scale = Vector2(0.54, 0.54)
+mouse_filter = 2
 texture = ExtResource("11_qrx4l")
 stretch_mode = 5
