@@ -87,7 +87,8 @@ func _play_card(card: Card, target):
     prints("Playing card", card, "on", target)
     attack_btn.text = "Playing..."
     scene.mode = Battle.Mode.PlayerTurn
-    set_waiting_for_enemy(true)
+    # Don't set_waiting_for_enemy yet so our cards are still the focus.
+    InputFocus.lock_input = true
     if card.def.is_barrage:
         var que = scene.enemies.values()
         for en:Enemy in que:
@@ -100,22 +101,23 @@ func _play_card(card: Card, target):
     await deck.discard_card_anim(card)
     InputFocus.set_focus(null)
     attack_btn.text = "Enemy Turn"
+    await set_waiting_for_enemy(true)
     await scene.startEnemyTurn(self)
     scene.mode = Battle.Mode.None
     attack_btn.text = "Pick Card"
-    set_waiting_for_enemy(false)
+    await set_waiting_for_enemy(false)
 
 
 func _on_discard_pressed():
     if InputFocus.lock_input:
         return
 
-    set_waiting_for_enemy(true)
+    await set_waiting_for_enemy(true)
     deck.discard_all()
     await get_tree().create_timer(0.5).timeout
     deck.draw_cards(deck.hand_size)
     await scene.startEnemyTurn(self)
-    set_waiting_for_enemy(false)
+    await set_waiting_for_enemy(false)
 
 
 func draw_card(power):
@@ -125,7 +127,15 @@ func draw_card(power):
 
 func set_waiting_for_enemy(is_waiting):
     InputFocus.lock_input = is_waiting
-    var pos = hand_neutral_pos
+
+    var dest = hand_neutral_pos
     if is_waiting:
-        pos += Vector2.DOWN * 300
-    deck.hand.global_position = pos
+        dest += Vector2.DOWN * 200
+
+    var start = deck.hand.global_position
+    var anim_frames := 4
+    for i in range(anim_frames):
+        var pos = lerp(start, dest, float(i) / anim_frames)
+        deck.hand.global_position = pos
+        await get_tree().process_frame
+    deck.hand.global_position = dest
