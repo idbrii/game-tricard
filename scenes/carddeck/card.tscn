@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://12xcvgynuav6"]
+[gd_scene load_steps=22 format=3 uid="uid://12xcvgynuav6"]
 
 [ext_resource type="Script" path="res://code/cards/card.gd" id="1_7usar"]
 [ext_resource type="Texture2D" uid="uid://e3ic4n0reaxx" path="res://assets/textures/cardbase/T_Card_TriangleBG.png" id="2_lb1f7"]
@@ -17,6 +17,10 @@
 [ext_resource type="AudioStream" uid="uid://cay1gjcv8pdee" path="res://assets/audio/sfx/SFX_Card_SpinA.wav" id="15_i4eht"]
 [ext_resource type="AudioStream" uid="uid://dw4t3xhf3oeoi" path="res://assets/audio/sfx/SFX_Card_SpinB.wav" id="16_1rbqo"]
 [ext_resource type="AudioStream" uid="uid://b6b41u38fq0y" path="res://assets/audio/sfx/SFX_Card_SpinC.wav" id="17_471gu"]
+[ext_resource type="AudioStream" uid="uid://dy4t7oey17fkr" path="res://assets/audio/sfx/SFX_Gun_FireA.wav" id="18_kljkt"]
+[ext_resource type="AudioStream" uid="uid://box2fubbsitl4" path="res://assets/audio/sfx/SFX_Gun_FireB.wav" id="19_1sgfk"]
+[ext_resource type="AudioStream" uid="uid://c3e7ro877qpc3" path="res://assets/audio/sfx/SFX_Gun_FireC.wav" id="20_k8q85"]
+[ext_resource type="AudioStream" uid="uid://7e6memy4isrs" path="res://assets/audio/sfx/SFX_Gun_FireD.wav" id="21_ydsfu"]
 
 [node name="Card" type="Control" node_paths=PackedStringArray("chambers")]
 custom_minimum_size = Vector2(750, 750)
@@ -270,3 +274,7 @@ sound_bag = Array[AudioStream]([ExtResource("15_i4eht"), ExtResource("16_1rbqo")
 [node name="SoundBag_spin" type="Node" parent="."]
 script = ExtResource("14_rqfan")
 sound_bag = Array[AudioStream]([ExtResource("15_i4eht"), ExtResource("16_1rbqo"), ExtResource("17_471gu")])
+
+[node name="SoundBag_firegun" type="Node" parent="."]
+script = ExtResource("14_rqfan")
+sound_bag = Array[AudioStream]([ExtResource("18_kljkt"), ExtResource("19_1sgfk"), ExtResource("20_k8q85"), ExtResource("21_ydsfu")])
