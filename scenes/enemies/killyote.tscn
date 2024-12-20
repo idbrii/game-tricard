@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c66p3540fdriw"]
+[gd_scene load_steps=6 format=3 uid="uid://c66p3540fdriw"]
 
 [ext_resource type="PackedScene" uid="uid://k3mwrmymnp2n" path="res://scenes/enemies/base.tscn" id="1_yulak"]
 [ext_resource type="Script" path="res://code/action.gd" id="2_rr2wl"]
 [ext_resource type="PackedScene" uid="uid://clv0x2fs0h0eg" path="res://scenes/creatures/killyote.tscn" id="2_xw5yl"]
+[ext_resource type="AudioStream" uid="uid://uwucpwjaftwp" path="res://assets/audio/sfx/SFX_Attack_BiteA.wav" id="4_4lea4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cmmds"]
 size = Vector3(5.8817, 6.93689, 1)
@@ -37,3 +38,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.73988, 7.33086, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050261, 3.57533, 0)
 shape = SubResource("BoxShape3D_cmmds")
+
+[node name="Attack" parent="SFX" index="2"]
+stream = ExtResource("4_4lea4")

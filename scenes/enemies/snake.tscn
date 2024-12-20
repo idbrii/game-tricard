@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3vtjjp0g7t13"]
+[gd_scene load_steps=6 format=3 uid="uid://d3vtjjp0g7t13"]
 
 [ext_resource type="PackedScene" uid="uid://k3mwrmymnp2n" path="res://scenes/enemies/base.tscn" id="1_j4tpn"]
 [ext_resource type="Script" path="res://code/action.gd" id="2_pdm7i"]
 [ext_resource type="PackedScene" uid="uid://p7oc8py3e0eq" path="res://scenes/creatures/snake.tscn" id="2_s00i5"]
+[ext_resource type="AudioStream" uid="uid://kffb6ndqd5nl" path="res://assets/audio/sfx/SFX_Attack_KnifeA.wav" id="4_l21va"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rj0ka"]
 size = Vector3(4.99644, 11.2717, 1)
@@ -34,3 +35,6 @@ shape = SubResource("BoxShape3D_rj0ka")
 
 [node name="VFX" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758026, 7.54402, 0.753662)
+
+[node name="Attack" parent="SFX" index="2"]
+stream = ExtResource("4_l21va")
