@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://kxyh2tomthen"]
+[gd_scene load_steps=18 format=3 uid="uid://dubclyf6676n0"]
 
 [ext_resource type="Texture2D" uid="uid://cpmr6hir56bgt" path="res://assets/textures/tc_introstudiologo_sky.png" id="1_l3e07"]
+[ext_resource type="Script" path="res://code/title.gd" id="1_rd0j7"]
 [ext_resource type="Texture2D" uid="uid://d08o8mrcnm4xn" path="res://assets/textures/tc_introstudiologo_logo.png" id="2_006e5"]
 [ext_resource type="Texture2D" uid="uid://cjaew6tkovsd5" path="res://assets/textures/tc_introstudiologo_tricard.png" id="3_3l6dv"]
 [ext_resource type="AudioStream" uid="uid://bppgctuj0k42k" path="res://assets/audio/music/stingers/Stinger - 01 - Whistle & Guitar.wav" id="4_gew6w"]
@@ -52,6 +53,45 @@ adjustment_contrast = 1.05
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_supet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackCard:mesh:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_p3of7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackCard:mesh:material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_u57fx"]
 resource_name = "intro"
@@ -108,45 +148,6 @@ tracks/3/keys = {
 }
 tracks/3/use_blend = true
 
-[sub_resource type="Animation" id="Animation_supet"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BlackCard:mesh:material")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("StandardMaterial3D_p3of7")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BlackCard:mesh:material:albedo_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Camera3D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hig32"]
 _data = {
 "RESET": SubResource("Animation_supet"),
@@ -157,6 +158,7 @@ _data = {
 material = SubResource("StandardMaterial3D_p3of7")
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_rd0j7")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1.48603, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.12776)
