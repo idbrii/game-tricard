@@ -111,7 +111,7 @@ func upgrade():
 
     if give_action:
         def.add_upgrade_action(actions_root)
-        await get_tree().create_timer(1.2).timeout
+        await get_tree().create_timer(0.8).timeout
 
     active_chamber = 0
     # Delay enough for you to see what's new.
