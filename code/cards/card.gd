@@ -49,12 +49,11 @@ func is_focused():
 
 
 func load_card(card_def: CardDef):
-    var numbers = load("res://scenes/numbers.tres")
-    chamber_values = card_def.chamber_values
+    chamber_values = card_def.chamber_values.duplicate()
     for i in chamber_values.size():
+        var chamber = chambers[i]
         var v = chamber_values[i]
-        var label = chambers[i].number
-        label.texture = numbers.get_number(v)
+        chamber.reload_bullet(v)
 
     art.texture = card_def.get_art()
     card_def.add_actions(actions_root)
@@ -87,7 +86,10 @@ func next_chamber():
 
 
 func upgrade():
-    # TODO: replace card with upgrade?
-    # maybe call load_card with the upgrade card.
-    active_chamber = 0
     upgrade_level += 1
+    for i in range(chamber_values.size()):
+        chamber_values[i] += upgrade_level
+        var chamber = chambers[i]
+        chamber.reload_bullet(chamber_values[i])
+        await get_tree().create_timer(0.1).timeout
+    active_chamber = 0

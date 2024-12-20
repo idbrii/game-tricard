@@ -11,6 +11,8 @@ func fire_bullet():
     texture = spent
 
 
-func reload_bullet():
+func reload_bullet(value: int):
+    var numbers = load("res://scenes/numbers.tres")
+    number.texture = numbers.get_number(value)
     number.visible = true
     texture = loaded
