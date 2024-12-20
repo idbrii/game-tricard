@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch3x7u557fyak"
-path.s3tc="res://.godot/imported/env_props_tumbleweed.png-0b8208db2fcfd67d107a984de3198d43.s3tc.ctex"
+uid="uid://cv1xg15qo37nn"
+path="res://.godot/imported/icon_burn.png-beb87b9bc994b1785702f217c31edb40.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/particles/env_props_tumbleweed.png"
-dest_files=["res://.godot/imported/env_props_tumbleweed.png-0b8208db2fcfd67d107a984de3198d43.s3tc.ctex"]
+source_file="res://assets/textures/icons/icon_burn.png"
+dest_files=["res://.godot/imported/icon_burn.png-beb87b9bc994b1785702f217c31edb40.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
