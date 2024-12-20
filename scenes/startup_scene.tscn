@@ -1,0 +1,198 @@
+[gd_scene load_steps=17 format=3 uid="uid://kxyh2tomthen"]
+
+[ext_resource type="Texture2D" uid="uid://cpmr6hir56bgt" path="res://assets/textures/tc_introstudiologo_sky.png" id="1_l3e07"]
+[ext_resource type="Texture2D" uid="uid://d08o8mrcnm4xn" path="res://assets/textures/tc_introstudiologo_logo.png" id="2_006e5"]
+[ext_resource type="Texture2D" uid="uid://cjaew6tkovsd5" path="res://assets/textures/tc_introstudiologo_tricard.png" id="3_3l6dv"]
+[ext_resource type="AudioStream" uid="uid://bppgctuj0k42k" path="res://assets/audio/music/stingers/Stinger - 01 - Whistle & Guitar.wav" id="4_gew6w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ethe"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_l3e07")
+
+[sub_resource type="QuadMesh" id="QuadMesh_lsv2n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4457"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("2_006e5")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ek6jj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jejoq"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("3_3l6dv")
+
+[sub_resource type="QuadMesh" id="QuadMesh_futf5"]
+
+[sub_resource type="Environment" id="Environment_trawg"]
+background_energy_multiplier = 0.0
+ambient_light_energy = 0.26
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.17
+glow_strength = 0.66
+glow_bloom = 0.08
+glow_blend_mode = 0
+glow_hdr_threshold = 0.54
+glow_hdr_scale = 0.0
+glow_map_strength = 0.0
+adjustment_enabled = true
+adjustment_brightness = 0.95
+adjustment_contrast = 1.05
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3of7"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_u57fx"]
+resource_name = "intro"
+length = 7.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackCard:mesh:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_p3of7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackCard:mesh:material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333, 3.73333, 5.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.2)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 1.25215,
+"start_offset": 0.216589,
+"stream": ExtResource("4_gew6w")
+}],
+"times": PackedFloat32Array(0.0666667)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_supet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackCard:mesh:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_p3of7")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackCard:mesh:material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hig32"]
+_data = {
+"RESET": SubResource("Animation_supet"),
+"intro": SubResource("Animation_u57fx")
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_rtrid"]
+material = SubResource("StandardMaterial3D_p3of7")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1.48603, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.12776)
+
+[node name="Sky" type="MeshInstance3D" parent="Marker3D"]
+transform = Transform3D(4.2, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, -1.15433)
+material_override = SubResource("StandardMaterial3D_7ethe")
+mesh = SubResource("QuadMesh_lsv2n")
+skeleton = NodePath("../../Camera3D")
+
+[node name="Logo" type="MeshInstance3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014, -0.009, 0.227)
+material_override = SubResource("StandardMaterial3D_c4457")
+mesh = SubResource("QuadMesh_ek6jj")
+skeleton = NodePath("../../Camera3D")
+
+[node name="Tricard" type="MeshInstance3D" parent="Marker3D"]
+transform = Transform3D(1.20312, 0, 0, 0, 1.20312, 0, 0, 0, 1, 0.02, -0.03, 0.129)
+material_override = SubResource("StandardMaterial3D_jejoq")
+mesh = SubResource("QuadMesh_futf5")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_trawg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hig32")
+}
+
+[node name="BlackCard" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.36248, 0, 0, 0, 1.40039, 0, 0, 0, 1, 0, 0, -0.461944)
+mesh = SubResource("QuadMesh_rtrid")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -6.0
+max_distance = 20000.0
