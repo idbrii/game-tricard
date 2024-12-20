@@ -8,7 +8,7 @@ var unique_cards: Array[CardDef]
 @onready var draw := $"%HUD/DrawPile"
 @onready var discard := $"%HUD/DiscardPile"
 
-var deck_size := 16
+var deck_size := 11
 var hand_size := 5
 
 
