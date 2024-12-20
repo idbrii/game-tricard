@@ -12,7 +12,8 @@ albedo_texture = ExtResource("2_keeh8")
 [node name="Title" instance=ExtResource("1_p6r8y")]
 
 [node name="Label3D" parent="." index="2"]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.655, 2.308, 8.497)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.16, 2.308, 8.497)
+text = "Click to Retry"
 
 [node name="titlecard" parent="." index="3"]
 visible = false
