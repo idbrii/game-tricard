@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bfalruxucjf0p"]
+[gd_scene load_steps=15 format=3 uid="uid://bfalruxucjf0p"]
 
 [ext_resource type="Texture2D" uid="uid://ca3t2rev2wvo" path="res://assets/textures/characters/tc_enemy_gunslinger.png" id="1_0jw65"]
 [ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_1j4k3"]
+[ext_resource type="AudioStream" uid="uid://cga2rr20otu0" path="res://assets/audio/sfx/SFX_Enemy_DeathA.wav" id="3_ljhto"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnoub"]
 transparency = 1
@@ -186,7 +187,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_73j11"]
 resource_name = "enemy_anim_dead"
-length = 1.2
+length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -247,6 +248,21 @@ tracks/4/keys = {
 "update": 1,
 "values": [false, false, true, false, true, false]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_ljhto")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_bxdmq"]
 resource_name = "enemy_anim_fire"
@@ -573,3 +589,6 @@ texture = ExtResource("2_1j4k3")
 libraries = {
 "": SubResource("AnimationLibrary_ndbw6")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+max_distance = 20000.0
