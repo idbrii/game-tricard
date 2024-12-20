@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bfivlfigsngaa"]
+
+[ext_resource type="Shader" uid="uid://dg4i4f5jv5s7a" path="res://assets/materials/smoke_overlay_shader.tres" id="1_n01l1"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_n01l1")
+shader_parameter/SmokeColor = Color(0.959736, 0.497602, 0.177975, 1)
+shader_parameter/X_Tiling = 2.0
+shader_parameter/SmokeSpeed = 0.5
