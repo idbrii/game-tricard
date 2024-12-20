@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://jhcmmxlis00q"]
+[gd_scene load_steps=12 format=3 uid="uid://bomnj25fe8063"]
 
-[ext_resource type="Texture2D" uid="uid://ca3t2rev2wvo" path="res://assets/textures/characters/tc_enemy_gunslinger.png" id="1_xilni"]
-[ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_6k02w"]
+[ext_resource type="Texture2D" uid="uid://ca3t2rev2wvo" path="res://assets/textures/characters/tc_enemy_gunslinger.png" id="1_02jik"]
+[ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_0o66l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnoub"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
-albedo_texture = ExtResource("2_6k02w")
+albedo_texture = ExtResource("2_0o66l")
 
 [sub_resource type="Animation" id="Animation_mpsn4"]
 length = 0.001
@@ -130,6 +130,58 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_igo0d"]
+resource_name = "enemy_anim_appear"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy_root:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(0.116629),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enemy_root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.733333, 1.3),
+"transitions": PackedFloat32Array(1, 0.239877, 1.31951, 0.116629),
+"update": 0,
+"values": [Vector3(-1.60476, 0, 0), Vector3(0.292744, 0, 0), Vector3(-0.121677, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("enemy_root:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.433333, 1.3),
+"transitions": PackedFloat32Array(1, 0.116629, 1, 0.116629),
+"update": 0,
+"values": [Vector3(1, 0.691233, 0.989509), Vector3(1.07668, 1.05918, 0.982164), Vector3(1.10874, 0.9944, 0.986496), Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("enemy_root/enemy_mainsprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_73j11"]
@@ -260,6 +312,70 @@ tracks/4/keys = {
 "values": [Vector3(2.03562, 1.94899, 1), Vector3(3.5257, 3.50338, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_kf157"]
+resource_name = "enemy_anim_highlightedloop"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy_root:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.26667, 2.5),
+"transitions": PackedFloat32Array(2.2974, 0.659754, 0.353554),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.03056, 1.01466, 1), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enemy_root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(2.2974, 0.353554),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("enemy_root/enemy_mainsprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.53333, 2.5),
+"transitions": PackedFloat32Array(2.2974, 0.659754, 0.659754, 0.353554),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.818334, 0.818335, 1.54018e-06, 1), Color(0.818334, 0.818335, 1.54018e-06, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("enemy_root/enemy_mainsprite:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.26667, 2.5),
+"transitions": PackedFloat32Array(2.2974, 0.659754, 0.353554),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0243361), Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("enemy_root/enemy_mainsprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.26667, 2.5),
+"transitions": PackedFloat32Array(2.2974, 0.659754, 0.353554),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1.00615, 1), Vector3(1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_4hnro"]
 resource_name = "enemy_anim_hurt"
 length = 0.4
@@ -324,12 +440,19 @@ tracks/4/keys = {
 "values": [false, true, false]
 }
 
+[sub_resource type="Animation" id="Animation_bgbpl"]
+resource_name = "enemy_anim_idle"
+length = 0.2
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ndbw6"]
 _data = {
 "RESET": SubResource("Animation_mpsn4"),
+"enemy_anim_appear": SubResource("Animation_igo0d"),
 "enemy_anim_dead": SubResource("Animation_73j11"),
 "enemy_anim_fire": SubResource("Animation_bxdmq"),
-"enemy_anim_hurt": SubResource("Animation_4hnro")
+"enemy_anim_highlightedloop": SubResource("Animation_kf157"),
+"enemy_anim_hurt": SubResource("Animation_4hnro"),
+"enemy_anim_idle": SubResource("Animation_bgbpl")
 }
 
 [node name="Cowboy" type="Node3D"]
@@ -341,7 +464,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.08006, 1.14141e-08, 3.6792
 gi_mode = 2
 centered = false
 shaded = true
-texture = ExtResource("1_xilni")
+texture = ExtResource("1_02jik")
 
 [node name="gun_location" type="Marker3D" parent="enemy_root/enemy_mainsprite"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.67588, 8.06731, 9.53674e-07)
@@ -360,7 +483,7 @@ sorting_offset = 10.0
 material_override = SubResource("StandardMaterial3D_wnoub")
 cast_shadow = 0
 gi_mode = 0
-texture = ExtResource("2_6k02w")
+texture = ExtResource("2_0o66l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

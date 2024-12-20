@@ -6,6 +6,7 @@ signal die()
 signal turned(current:int)
 signal blocked(amount:int)
 
+@export var display_name:String
 ## Life force
 @export var health := 100
 ## Prevent this much damage

@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://k3mwrmymnp2n"]
+
+[ext_resource type="Script" path="res://code/creatures/enemy.gd" id="1_cm3xp"]
+[ext_resource type="Script" path="res://code/creatures/status.gd" id="2_dod0e"]
+[ext_resource type="Texture2D" uid="uid://bpfles3bmbxlu" path="res://assets/textures/icons/status_icons_health.png" id="3_pvfym"]
+[ext_resource type="Texture2D" uid="uid://kgqwociyoic6" path="res://assets/textures/icons/status_icons_turn.png" id="4_71f7i"]
+[ext_resource type="Texture2D" uid="uid://baciqafvs3ctw" path="res://assets/textures/icons/status_icons_block.png" id="5_qa0ad"]
+[ext_resource type="Texture2D" uid="uid://nts6jkuw5wg4" path="res://assets/textures/icons/status_icons_burn.png" id="6_easdy"]
+[ext_resource type="Texture2D" uid="uid://ds3e2tqg4kxjs" path="res://assets/textures/icons/status_icons_poison.png" id="7_nfkn5"]
+[ext_resource type="PackedScene" uid="uid://d15ajm84qnqro" path="res://assets/vfx/vfx_guardbreak.tscn" id="9_uqf8y"]
+[ext_resource type="PackedScene" uid="uid://b2wsk5fyyp507" path="res://assets/vfx/vfx_guardgain.tscn" id="11_e7ooi"]
+[ext_resource type="PackedScene" uid="uid://cefmgg2voi2p5" path="res://assets/vfx/vfx_heartbreak.tscn" id="11_j6s4y"]
+[ext_resource type="PackedScene" uid="uid://ddmud8f7oysm3" path="res://assets/vfx/vfx_heartgain.tscn" id="12_6ht3u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e32k0"]
+size = Vector3(7.42755, 11.6307, 1)
+
+[node name="BaseEnemy" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_cm3xp")
+
+[node name="Status" type="Node" parent="."]
+script = ExtResource("2_dod0e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4375, 6.09808, 0)
+shape = SubResource("BoxShape3D_e32k0")
+
+[node name="UI" type="Node3D" parent="."]
+
+[node name="HP" type="Node3D" parent="UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21184, 12.9142, 0)
+
+[node name="Icon" type="Sprite3D" parent="UI/HP"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+texture = ExtResource("3_pvfym")
+
+[node name="Label" type="Label3D" parent="UI/HP"]
+render_priority = 10
+outline_render_priority = 9
+text = "N"
+font_size = 72
+outline_size = 0
+
+[node name="Turn" type="Node3D" parent="UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53651, 11.9834, 0)
+
+[node name="Icon" type="Sprite3D" parent="UI/Turn"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+texture = ExtResource("4_71f7i")
+
+[node name="Label" type="Label3D" parent="UI/Turn"]
+double_sided = false
+render_priority = 10
+outline_render_priority = 9
+text = "Y"
+font_size = 72
+outline_size = 0
+
+[node name="Block" type="Node3D" parent="UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22337, 10.7353, 0)
+
+[node name="Icon" type="Sprite3D" parent="UI/Block"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+texture = ExtResource("5_qa0ad")
+
+[node name="Label" type="Label3D" parent="UI/Block"]
+render_priority = 10
+outline_render_priority = 9
+text = "X"
+font_size = 72
+outline_size = 0
+
+[node name="Burn" type="Node3D" parent="UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77775, 12.8586, 0)
+
+[node name="Icon" type="Sprite3D" parent="UI/Burn"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+texture = ExtResource("6_easdy")
+
+[node name="Label" type="Label3D" parent="UI/Burn"]
+render_priority = 10
+outline_render_priority = 9
+text = "X"
+font_size = 72
+outline_size = 0
+
+[node name="Poison" type="Node3D" parent="UI"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95416, 12.0901, 0)
+
+[node name="Icon" type="Sprite3D" parent="UI/Poison"]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+texture = ExtResource("7_nfkn5")
+
+[node name="Label" type="Label3D" parent="UI/Poison"]
+render_priority = 10
+outline_render_priority = 9
+text = "X"
+font_size = 72
+outline_size = 0
+
+[node name="VFX" type="Node3D" parent="."]
+
+[node name="GuardGain" parent="VFX" instance=ExtResource("11_e7ooi")]
+
+[node name="GuardBreak" parent="VFX" instance=ExtResource("9_uqf8y")]
+
+[node name="HeartBreak" parent="VFX" instance=ExtResource("11_j6s4y")]
+
+[node name="HeartGain" parent="VFX" instance=ExtResource("12_6ht3u")]
