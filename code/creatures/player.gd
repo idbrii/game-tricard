@@ -115,6 +115,11 @@ func _on_discard_pressed():
 
 
 func end_turn():
+    update_status_labels()
+    if status.end_turn():
+        update_status_labels()
+        # Make sure player sees their stats tick down.
+        await get_tree().create_timer(0.5).timeout
     InputFocus.set_focus(null)
     attack_btn.text = "Enemy Turn"
     await scene.startEnemyTurn(self)

@@ -30,13 +30,19 @@ func reset():
 func is_dead() -> bool:
     return health <= 0
 
-func end_turn():
+
+func end_turn() -> bool:
+    var did_something := false
     if burn > 0:
         mod_health(-burn)
         mod_burn(-1)
+        did_something = true
     if poison > 0:
         mod_health(-poison, true)
         mod_poison(-2)
+        did_something = true
+    return did_something
+
 
 func mod_health(amount, ignore_block = false):
     prints("do dmg!", amount)
