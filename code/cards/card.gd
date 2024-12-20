@@ -1,7 +1,7 @@
 extends Control
 class_name Card
 
-@export var chamber_labels: Array[Control] = []
+@export var chambers: Array[Control] = []
 
 @onready var card_front: Control = $card_root
 @onready var card_back: Control = $card_back
@@ -14,6 +14,7 @@ class_name Card
 var def: CardDef
 var times_used := 0
 var upgrade_level := 0
+var active_chamber := 0
 var chamber_values: Array[int] = []
 
 
@@ -52,20 +53,24 @@ func load_card(card_def: CardDef):
     chamber_values = card_def.chamber_values
     for i in chamber_values.size():
         var v = chamber_values[i]
-        var label = chamber_labels[i]
+        var label = chambers[i].number
         label.texture = numbers.get_number(v)
 
     art.texture = card_def.get_art()
     card_def.add_actions(actions_root)
 
 func play(actor, target):
-    var power = chamber_values[upgrade_level]
+    var power = chamber_values[active_chamber]
     for action in actions_root.get_children():
         await action.apply(actor, target, power)
 
 
 func next_chamber():
-    upgrade_level += 1
+    var chamber = chambers[active_chamber]
+    chamber.fire_bullet()
+    await get_tree().create_timer(0.9).timeout
+
+    active_chamber += 1
     var start = barrel_root.rotation
     var dest = barrel_root.rotation + TAU / 3
 
@@ -77,11 +82,12 @@ func next_chamber():
         await get_tree().process_frame
     barrel_root.rotation = dest
 
-    if upgrade_level == chamber_values.size():
+    if active_chamber == chamber_values.size():
         upgrade()
 
 
 func upgrade():
     # TODO: replace card with upgrade?
     # maybe call load_card with the upgrade card.
-    upgrade_level = 0
+    active_chamber = 0
+    upgrade_level += 1

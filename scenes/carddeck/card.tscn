@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://12xcvgynuav6"]
+[gd_scene load_steps=14 format=3 uid="uid://12xcvgynuav6"]
 
 [ext_resource type="Script" path="res://code/cards/card.gd" id="1_7usar"]
 [ext_resource type="Texture2D" uid="uid://e3ic4n0reaxx" path="res://assets/textures/cardbase/T_Card_TriangleBG.png" id="2_lb1f7"]
@@ -8,12 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cmb6r8shnjklr" path="res://assets/textures/cardbase/T_Bullet_Full.png" id="5_ply66"]
 [ext_resource type="Script" path="res://code/cards/always_up.gd" id="6_fjk0c"]
 [ext_resource type="Texture2D" uid="uid://1o5lfsu1fw5k" path="res://assets/textures/numbers/tcnumbers_01.png" id="7_6wvox"]
+[ext_resource type="Script" path="res://code/cards/chamber.gd" id="7_jhgdt"]
 [ext_resource type="Texture2D" uid="uid://hb82c1dbq2op" path="res://assets/textures/numbers/tcnumbers_02.png" id="8_jf7x7"]
 [ext_resource type="Texture2D" uid="uid://daa7cbgl3cd7" path="res://assets/textures/cardbase/T_Card_CenterArt.png" id="8_pyw7o"]
 [ext_resource type="Texture2D" uid="uid://db71r258xpdub" path="res://assets/textures/numbers/tcnumbers_03.png" id="9_1bhxd"]
 [ext_resource type="Texture2D" uid="uid://cmmjtcryrbmx5" path="res://assets/textures/cardbase/tc_card_back.png" id="11_qrx4l"]
 
-[node name="Card" type="Control" node_paths=PackedStringArray("chamber_labels")]
+[node name="Card" type="Control" node_paths=PackedStringArray("chambers")]
 custom_minimum_size = Vector2(750, 750)
 layout_mode = 3
 anchors_preset = 0
@@ -21,7 +22,7 @@ offset_right = 750.0
 offset_bottom = 750.0
 pivot_offset = Vector2(375, 750)
 script = ExtResource("1_7usar")
-chamber_labels = [NodePath("card_root/barrel_root/chamber_00/chambernumber_00"), NodePath("card_root/barrel_root/chamber_01/chambernumber_01"), NodePath("card_root/barrel_root/chamber_02/chambernumber_02")]
+chambers = [NodePath("card_root/barrel_root/chamber_00"), NodePath("card_root/barrel_root/chamber_01"), NodePath("card_root/barrel_root/chamber_02")]
 
 [node name="card_root" type="Control" parent="."]
 layout_mode = 3
@@ -134,6 +135,7 @@ offset_bottom = -94.445
 pivot_offset = Vector2(101, 101)
 mouse_filter = 2
 texture = ExtResource("5_ply66")
+script = ExtResource("7_jhgdt")
 
 [node name="chambernumber_00" type="TextureRect" parent="card_root/barrel_root/chamber_00" node_paths=PackedStringArray("barrel_pivot")]
 self_modulate = Color(0, 0, 0, 1)
@@ -164,6 +166,7 @@ offset_bottom = 318.51
 pivot_offset = Vector2(101, 101)
 mouse_filter = 2
 texture = ExtResource("5_ply66")
+script = ExtResource("7_jhgdt")
 
 [node name="chambernumber_01" type="TextureRect" parent="card_root/barrel_root/chamber_01" node_paths=PackedStringArray("barrel_pivot")]
 self_modulate = Color(0, 0, 0, 1)
@@ -194,6 +197,7 @@ offset_bottom = 318.2
 pivot_offset = Vector2(101, 101)
 mouse_filter = 2
 texture = ExtResource("5_ply66")
+script = ExtResource("7_jhgdt")
 
 [node name="chambernumber_02" type="TextureRect" parent="card_root/barrel_root/chamber_02" node_paths=PackedStringArray("barrel_pivot")]
 self_modulate = Color(0, 0, 0, 1)
