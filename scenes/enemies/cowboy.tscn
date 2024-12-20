@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ptugdjrnnn0p"]
+[gd_scene load_steps=5 format=3 uid="uid://ptugdjrnnn0p"]
 
 [ext_resource type="PackedScene" uid="uid://k3mwrmymnp2n" path="res://scenes/enemies/base.tscn" id="1_wm2sf"]
 [ext_resource type="PackedScene" uid="uid://bqgw71a4rhw5t" path="res://scenes/creatures/cowboy.tscn" id="2_813vl"]
+[ext_resource type="Script" path="res://code/action.gd" id="2_w7u0a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r231g"]
 size = Vector3(4.2458, 10.9131, 1)
@@ -13,14 +14,30 @@ display_name = "Cowboy"
 maxTurns = 3
 maxHealth = 5
 
+[node name="Attack" type="Node" parent="Actions" index="0"]
+script = ExtResource("2_w7u0a")
+moves = Array[int]([0])
+
+[node name="AttackBlock" type="Node" parent="Actions" index="1"]
+script = ExtResource("2_w7u0a")
+moves = Array[int]([0, 1])
+
+[node name="SuperAttack" type="Node" parent="Actions" index="2"]
+script = ExtResource("2_w7u0a")
+power = 2
+moves = Array[int]([0])
+
 [node name="HP" parent="UI" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53313, 13.1404, 0)
 
-[node name="VFX" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758026, 7.54402, 0.753662)
+[node name="Turn" parent="UI" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.51136, 12.3337, 0)
 
 [node name="Model" parent="." index="3" instance=ExtResource("2_813vl")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748867, 6.20857, 0)
 shape = SubResource("BoxShape3D_r231g")
+
+[node name="VFX" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758026, 7.54402, 0.753662)

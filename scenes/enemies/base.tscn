@@ -13,12 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://cefmgg2voi2p5" path="res://assets/vfx/vfx_heartbreak.tscn" id="11_j6s4y"]
 [ext_resource type="PackedScene" uid="uid://ddmud8f7oysm3" path="res://assets/vfx/vfx_heartgain.tscn" id="12_6ht3u"]
 
-[node name="BaseEnemy" type="RigidBody3D"]
+[node name="BaseEnemy" type="RigidBody3D" node_paths=PackedStringArray("actions")]
 gravity_scale = 0.0
 script = ExtResource("1_cm3xp")
+thing = null
+actions = []
 
 [node name="Status" type="Node" parent="."]
 script = ExtResource("2_dod0e")
+
+[node name="Actions" type="Node" parent="."]
 
 [node name="UI" type="Node3D" parent="." node_paths=PackedStringArray("status", "hp", "turn", "block", "burn", "poison")]
 script = ExtResource("3_174lc")
