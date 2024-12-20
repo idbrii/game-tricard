@@ -2,23 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgf2qcv3hdypl"
-path="res://.godot/imported/ST_CanyonBG_2.png-b1145fdeba0b1e5e02bbaf2faa39e063.ctex"
+uid="uid://dahyomd650mok"
+path.s3tc="res://.godot/imported/ST_CanyonBG_6.png-10edb1d6f7c0b3d41eada330783caf2a.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={
-"md5": "9ab03c9a8934d7c5b1640f0681ee48c3"
+"md5": "50f80d1d95c94472553b66082ec77b56"
 }
 
 [deps]
 
-source_file="res://assets/3d/ST_CanyonBG_2.png"
-dest_files=["res://.godot/imported/ST_CanyonBG_2.png-b1145fdeba0b1e5e02bbaf2faa39e063.ctex"]
+source_file="res://assets/3d/ST_CanyonBG_6.png"
+dest_files=["res://.godot/imported/ST_CanyonBG_6.png-10edb1d6f7c0b3d41eada330783caf2a.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -34,4 +35,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0
