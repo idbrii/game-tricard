@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8auld8b8c1b8"]
+[gd_scene load_steps=5 format=3 uid="uid://c8auld8b8c1b8"]
 
 [ext_resource type="Script" path="res://scenes/battle.gd" id="1_np3yy"]
+[ext_resource type="Script" path="res://code/camera.gd" id="2_jpeko"]
 [ext_resource type="PackedScene" uid="uid://duaopp0l0n4dv" path="res://scenes/stage-canyon.tscn" id="2_s08cu"]
 [ext_resource type="PackedScene" uid="uid://c3itjkr7u7brk" path="res://scenes/player.tscn" id="3_rojfr"]
 
 [node name="Battle" type="Node3D"]
 script = ExtResource("1_np3yy")
+reqKillCount = 0
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.963738, 0.266851, 0, -0.266851, 0.963738, 0, 13.9973, 33.2329)
 current = true
 fov = 38.2
+script = ExtResource("2_jpeko")
 
 [node name="Stage" parent="." instance=ExtResource("2_s08cu")]
 
@@ -20,13 +23,13 @@ unique_name_in_owner = true
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="A" type="Node3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1496, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2647, 0, 0)
 
 [node name="B" type="Node3D" parent="SpawnPoints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0344524, 0, 0)
 
 [node name="C" type="Node3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3964, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5638, 0, 0)
 
 [node name="BossSpawnPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720758, 0, -8.15232)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720758, 0, -5.20348)

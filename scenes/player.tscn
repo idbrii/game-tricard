@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3itjkr7u7brk"]
+[gd_scene load_steps=15 format=3 uid="uid://c3itjkr7u7brk"]
 
 [ext_resource type="Script" path="res://code/creatures/player.gd" id="1_j3yra"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_h4t6e"]
@@ -6,14 +6,18 @@
 [ext_resource type="Script" path="res://code/cards/deck.gd" id="4_fojud"]
 [ext_resource type="PackedScene" uid="uid://12xcvgynuav6" path="res://scenes/carddeck/card.tscn" id="5_nrki5"]
 [ext_resource type="Script" path="res://code/cards/hand.gd" id="6_2m6ee"]
-[ext_resource type="PackedScene" uid="uid://dl6hn1xmgjcer" path="res://scenes/ui_stats.tscn" id="7_774ek"]
 [ext_resource type="Texture2D" uid="uid://dj603rpe8sqad" path="res://assets/textures/card_ui/tc_button_discard.png" id="8_1eb0y"]
 [ext_resource type="Texture2D" uid="uid://bpkb31ivsl18l" path="res://assets/textures/card_ui/tc_button_discard_press.png" id="9_8wgg6"]
 [ext_resource type="Texture2D" uid="uid://bvxxd3rjxtlgl" path="res://assets/textures/card_ui/tc_button_discard_hover.png" id="10_xyumm"]
 [ext_resource type="Script" path="res://code/common/bettertexturebutton.gd" id="11_5q8ej"]
+[ext_resource type="Texture2D" uid="uid://bpfles3bmbxlu" path="res://assets/textures/icons/status_icons_health.png" id="12_h08px"]
+[ext_resource type="LabelSettings" uid="uid://ckekpsvsuc8cu" path="res://scenes/common/ui-label-settings.tres" id="13_43dyf"]
+[ext_resource type="Texture2D" uid="uid://baciqafvs3ctw" path="res://assets/textures/icons/status_icons_block.png" id="14_57tco"]
+[ext_resource type="Texture2D" uid="uid://nts6jkuw5wg4" path="res://assets/textures/icons/status_icons_burn.png" id="15_rdamu"]
 
 [node name="Player" type="Node"]
 script = ExtResource("1_j3yra")
+metadata/_edit_vertical_guides_ = [1956.0]
 
 [node name="Status" type="Node" parent="."]
 script = ExtResource("2_h4t6e")
@@ -39,15 +43,14 @@ hand = NodePath("../Hand")
 
 [node name="Hand" type="Control" parent="CanvasLayer/HUD"]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchor_left = 0.509
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 0.509
 anchor_bottom = 1.0
-offset_left = -167.0
-offset_top = -587.0
-offset_right = -167.0
-offset_bottom = -587.0
+offset_left = -241.56
+offset_top = -698.0
+offset_right = 980.44
+offset_bottom = -473.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.6, 0.6)
@@ -60,25 +63,18 @@ dist_from_root = 700.0
 [node name="AttackButton" type="Button" parent="CanvasLayer/HUD"]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.51
 anchor_top = 1.0
-anchor_right = 1.0
+anchor_right = 0.51
 anchor_bottom = 1.0
-offset_left = -593.0
-offset_top = -772.0
-offset_right = -60.0
-offset_bottom = -646.0
+offset_left = -159.4
+offset_top = -166.0
+offset_right = 154.6
+offset_bottom = -48.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "PLAY"
-
-[node name="Stats" parent="CanvasLayer/HUD" instance=ExtResource("7_774ek")]
-layout_mode = 1
-offset_left = -112.5
-offset_top = -94.0
-offset_right = 112.5
-offset_bottom = -30.0
 
 [node name="DrawPile" type="Control" parent="CanvasLayer/HUD"]
 custom_minimum_size = Vector2(128, 128)
@@ -128,3 +124,121 @@ texture_normal = ExtResource("8_1eb0y")
 texture_pressed = ExtResource("9_8wgg6")
 texture_hover = ExtResource("10_xyumm")
 script = ExtResource("11_5q8ej")
+
+[node name="Stats" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 659.0
+offset_bottom = 685.0
+
+[node name="Health" type="Control" parent="Stats"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 170.0
+offset_top = 100.0
+offset_right = 299.0
+offset_bottom = 226.0
+
+[node name="Icon" type="TextureRect" parent="Stats/Health"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_h08px")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Stats/Health"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -11.5
+offset_right = 14.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "9
+"
+label_settings = ExtResource("13_43dyf")
+metadata/_edit_lock_ = true
+
+[node name="Block" type="Control" parent="Stats"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 64.0
+offset_top = 288.0
+offset_right = 193.0
+offset_bottom = 414.0
+
+[node name="Icon" type="TextureRect" parent="Stats/Block"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_57tco")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Stats/Block"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -11.5
+offset_right = 14.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "9"
+label_settings = ExtResource("13_43dyf")
+metadata/_edit_lock_ = true
+
+[node name="Burn" type="Control" parent="Stats"]
+visible = false
+layout_mode = 1
+anchor_left = 0.506
+anchor_top = 0.324
+anchor_right = 0.506
+anchor_bottom = 0.324
+offset_left = -293.844
+offset_top = -40.096
+offset_right = -164.844
+offset_bottom = 85.904
+
+[node name="Icon" type="TextureRect" parent="Stats/Burn"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_rdamu")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Stats/Burn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -11.5
+offset_right = 14.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "9"
+label_settings = ExtResource("13_43dyf")
+metadata/_edit_lock_ = true

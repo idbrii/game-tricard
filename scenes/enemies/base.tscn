@@ -33,6 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.21184, 12.9142, 0)
 
 [node name="Icon" type="Sprite3D" parent="UI/HP"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+billboard = 1
 texture = ExtResource("3_pvfym")
 
 [node name="Label" type="Label3D" parent="UI/HP"]
@@ -47,6 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53651, 11.9834, 0)
 
 [node name="Icon" type="Sprite3D" parent="UI/Turn"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+billboard = 1
 texture = ExtResource("4_71f7i")
 
 [node name="Label" type="Label3D" parent="UI/Turn"]
@@ -62,6 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22337, 10.7353, 0)
 
 [node name="Icon" type="Sprite3D" parent="UI/Block"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+billboard = 1
 texture = ExtResource("5_qa0ad")
 
 [node name="Label" type="Label3D" parent="UI/Block"]
@@ -76,6 +79,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77775, 12.8586, 0)
 
 [node name="Icon" type="Sprite3D" parent="UI/Burn"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+billboard = 1
 texture = ExtResource("6_easdy")
 
 [node name="Label" type="Label3D" parent="UI/Burn"]
@@ -90,6 +94,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.95416, 12.0901, 0)
 
 [node name="Icon" type="Sprite3D" parent="UI/Poison"]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+billboard = 1
 texture = ExtResource("7_nfkn5")
 
 [node name="Label" type="Label3D" parent="UI/Poison"]

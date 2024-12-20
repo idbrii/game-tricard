@@ -39,8 +39,9 @@ func end_turn():
         mod_poison(-2)
 
 func mod_health(amount, ignore_block = false):
-    if not ignore_block and amount < 0 and block > 0:
-        var before = amount
+    prints("do dmg!", amount)
+    if !ignore_block and amount < 0 and block > 0:
+        print("blocking")
         var used_block = min(-amount, block)
         amount += used_block
         block -= used_block

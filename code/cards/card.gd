@@ -58,7 +58,7 @@ func load_card(card_def: CardDef):
 func play(actor, target):
     var power = chamber_values[upgrade_level]
     for action in actions_root.get_children():
-        action.apply(actor, target, power)
+        await action.apply(actor, target, power)
 
 func inc_chamber():
     next_chamber()

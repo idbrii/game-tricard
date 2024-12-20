@@ -4,7 +4,8 @@ class_name Enemy
 var spawner:String
 @onready var status := $Status as Status
 
-signal disposed
+signal disposable(n)
+signal died(n)
 
 func _ready():
     status.die.connect(onDied)
@@ -14,6 +15,7 @@ func _ready():
 func spawn():
     status.reset()
     updateLabels()
+    visible = true
     $Model/AnimationPlayer.play("enemy_anim_appear")
     await $Model/AnimationPlayer.animation_finished
 
@@ -37,12 +39,13 @@ func idle():
     $Model/AnimationPlayer.play("enemy_anim_idle")
 
 func onDied():
+    died.emit(self)
     $Model/AnimationPlayer.play("enemy_anim_hurt")
     await $Model/AnimationPlayer.animation_finished
     updateLabels()
     $Model/AnimationPlayer.play("enemy_anim_dead")
     await $Model/AnimationPlayer.animation_finished
-    disposed.emit(self)
+    disposable.emit(self)
     prints(spawner, "died")
 
 func onHurt(_amount:int):
@@ -74,5 +77,6 @@ func performAction(player:Player):
     prints(spawner, "doing action")
     $Model/AnimationPlayer.play("enemy_anim_fire")
     await $Model/AnimationPlayer.animation_finished
-    player.status.mod_health(-10) # TODO get strength stat
+    # TODO get strength stat
+    player.status.mod_health(-1)
     idle()

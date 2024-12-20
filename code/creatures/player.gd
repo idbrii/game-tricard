@@ -8,10 +8,34 @@ class_name Player
 @onready var scene:Battle = self.get_parent()
 
 func _ready():
+	status.maxHealth = 10
+	status.maxBlocks = 3
+	status.reset()
+	update_status_labels()
 	scene.mode = Battle.Mode.None
+	status.die.connect(_on_died)
+	status.hurt.connect(_on_hurt)
+	status.blocked.connect(_on_block)
 	attack_btn.pressed.connect(_on_attack_pressed)
 	discard_btn.pressed.connect(_on_discard_pressed)
 
+func update_status_labels():
+	$Stats/Health/Label.text = str(status.health)
+	$Stats/Block/Label.text = str(status.block)
+
+func _on_died():
+	update_status_labels()
+	scene.get_node("Camera").shake()
+	# TODO trigger game over!
+
+func _on_hurt(_amount:int):
+	update_status_labels()
+	scene.get_node("Camera").shake()
+
+func _on_block(_amount:int):
+	update_status_labels()
+	print("blocked")
+	# TODO play screen animation
 
 func _on_attack_pressed():
 	if scene.mode != Battle.Mode.None:
@@ -36,8 +60,9 @@ func _on_attack_pressed():
 	else:
 		card.play(self, target)
 	card.inc_chamber()
-	await get_tree().create_timer(0.6).timeout
+	await get_tree().create_timer(1.0).timeout
 	await scene.startEnemyTurn(self)
+	scene.mode = Battle.Mode.None
 
 func _on_discard_pressed():
 	deck.discard_all()

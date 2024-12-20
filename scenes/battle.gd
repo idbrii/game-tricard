@@ -56,32 +56,33 @@ func _process(_delta: float) -> void:
             currentSelection.unfocus()
             currentSelection = null
 
+func spawn(type, n:Node3D):
+    var en:Enemy = type.instantiate()
+    en.position = n.position
+    en.spawner = n.name
+    en.disposable.connect(_on_enemy_disposable)
+    en.died.connect(_on_enemy_died)
+    en.visible = false
+    enemies[n.name] = en
+    add_child(en)
+    en.spawn()
+    print("spawned enemy at ", n.name)
+
 func spawnEnemies():
     randomize()
+    var isBossOut = enemies.has($BossSpawnPoint.name)
+    var shouldSpawnBoss = killCount >= reqKillCount and !isBossOut
     for n:Node3D in $SpawnPoints.get_children():
         if enemies.has(n.name):
             continue
+        if n.name == "B" and (isBossOut or shouldSpawnBoss):
+            continue
         var i:int = randi() % enemy_types.size()
         var type = enemy_types[i]
-        var en:Enemy = type.instantiate()
-        en.position = n.position
-        en.spawner = n.name
-        en.disposed.connect(onEnemyDisposed)
-        enemies[n.name] = en
-        add_child(en)
-        en.spawn()
-        print("spawned enemy at ", n.name)
+        spawn(type, n)
     # Special spawn boss logic
-    if killCount >= reqKillCount and !enemies.has($BossSpawnPoint.name):
-        var n:Node3D = $BossSpawnPoint
-        var en:Enemy = PrefabBossilisk.instantiate()
-        en.position = n.position
-        en.spawner = n.name
-        en.disposed.connect(onEnemyDisposed)
-        enemies[n.name] = en
-        add_child(en)
-        en.spawn()
-
+    if shouldSpawnBoss:
+        spawn(PrefabBossilisk, $BossSpawnPoint)
 
 func selectEnemy():
     mode = Mode.Select
@@ -93,18 +94,23 @@ func startEnemyTurn(player:Player):
         if n.status.is_dead():
             continue
         await n.tick(player)
+    await get_tree().create_timer(0.2).timeout
     await spawnEnemies()
     mode = Mode.None
 
-func onEnemyDisposed(en:Enemy):
+func _on_enemy_died(en:Enemy):
+    print("deregistering enemy")
     killCount += 1
     enemies.erase(en.spawner)
-    remove_child(en)
     # TODO if boss died then let's do game over!
+
+func _on_enemy_disposable(en:Enemy):
+    print("disposing enemy")
+    remove_child(en)
 
 func getEnemyAtMouse(ray_len:int = 1000) -> Enemy:
     var space_state = get_world_3d().direct_space_state
-    var cam = $Camera3D
+    var cam = $Camera
     var mousepos = get_viewport().get_mouse_position()
     var origin = cam.project_ray_origin(mousepos)
     var end = origin + cam.project_ray_normal(mousepos) * ray_len
