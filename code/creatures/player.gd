@@ -99,13 +99,8 @@ func _play_card(card: Card, target):
     await card.next_chamber()
     await get_tree().create_timer(0.5).timeout
     await deck.discard_card_anim(card)
-    InputFocus.set_focus(null)
-    attack_btn.text = "Enemy Turn"
     await set_waiting_for_enemy(true)
-    await scene.startEnemyTurn(self)
-    scene.mode = Battle.Mode.None
-    attack_btn.text = "Pick Card"
-    await set_waiting_for_enemy(false)
+    await end_turn()
 
 
 func _on_discard_pressed():
@@ -116,7 +111,15 @@ func _on_discard_pressed():
     deck.discard_all()
     await get_tree().create_timer(0.5).timeout
     deck.draw_cards(deck.hand_size)
+    await end_turn()
+
+
+func end_turn():
+    InputFocus.set_focus(null)
+    attack_btn.text = "Enemy Turn"
     await scene.startEnemyTurn(self)
+    scene.mode = Battle.Mode.None
+    attack_btn.text = "Pick Card"
     await set_waiting_for_enemy(false)
 
 
