@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgcmx1p8xkosx"]
+[gd_scene load_steps=8 format=3 uid="uid://cgcmx1p8xkosx"]
 
 [ext_resource type="Script" path="res://code/title.gd" id="1_ci1mg"]
 [ext_resource type="PackedScene" uid="uid://duaopp0l0n4dv" path="res://scenes/stage-canyon.tscn" id="1_mtnlf"]
 [ext_resource type="Script" path="res://code/camera.gd" id="2_q5xou"]
 [ext_resource type="PackedScene" uid="uid://caymaux5m0lw5" path="res://assets/nodes/titlecard_node.tscn" id="4_ri7n0"]
+[ext_resource type="Texture2D" uid="uid://cq14bbjhc3syd" path="res://assets/textures/tricard_builder_background_you_died.png" id="5_wi1lw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b58sp"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("5_wi1lw")
+
+[sub_resource type="QuadMesh" id="QuadMesh_br16q"]
+material = SubResource("StandardMaterial3D_b58sp")
 
 [node name="Title" type="Node3D"]
 script = ExtResource("1_ci1mg")
@@ -28,3 +39,8 @@ outline_size = 30
 
 [node name="titlecard" parent="." instance=ExtResource("4_ri7n0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.288, 3.353, 5.099)
+
+[node name="GameOverCard" type="MeshInstance3D" parent="."]
+transform = Transform3D(16.986, 0, 0, 0, 11.452, 0, 0, 0, 0.526, 0, 7.515, 0)
+visible = false
+mesh = SubResource("QuadMesh_br16q")

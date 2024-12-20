@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca06rjugkgpt6"]
+
+[ext_resource type="PackedScene" uid="uid://cgcmx1p8xkosx" path="res://scenes/title.tscn" id="1_88t1s"]
+
+[node name="Title" instance=ExtResource("1_88t1s")]
+
+[node name="Label3D" parent="." index="2"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.655, 2.308, 8.497)
+
+[node name="titlecard" parent="." index="3"]
+visible = false
+
+[node name="GameOverCard" parent="." index="4"]
+transform = Transform3D(18.8, 0, 0, 0, 11.5, 0, 0, 0, 4.791, 0, 7.515, 0)
+visible = true
