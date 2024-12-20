@@ -15,7 +15,7 @@ func _ready():
     scene.mode = Battle.Mode.None
     status.die.connect(_on_died)
     status.hurt.connect(_on_hurt)
-    status.blocked.connect(_on_block)
+    status.blocked_damage.connect(_on_block_damage)
     attack_btn.pressed.connect(_on_play_pressed)
     discard_btn.pressed.connect(_on_discard_pressed)
     scene.enemyPicked.connect(_on_enemyPicked)
@@ -33,9 +33,9 @@ func _on_hurt(_amount:int):
     update_status_labels()
     scene.get_node("Camera").shake()
 
-func _on_block(_amount:int):
+func _on_block_damage(_amount:int):
     update_status_labels()
-    print("blocked")
+    print("blocked_damage")
     # TODO play screen animation
 
 

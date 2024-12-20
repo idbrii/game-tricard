@@ -4,7 +4,7 @@ class_name Status
 signal hurt(amount:int)
 signal die()
 signal turned(current:int)
-signal blocked(amount:int)
+signal blocked_damage(amount:int)
 
 @export var display_name:String
 ## Life force
@@ -45,7 +45,7 @@ func mod_health(amount, ignore_block = false):
         var used_block = min(-amount, block)
         amount += used_block
         block -= used_block
-        blocked.emit(used_block)
+        blocked_damage.emit(used_block)
     health += amount
     if health <= 0:
         die.emit()

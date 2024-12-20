@@ -10,7 +10,7 @@ signal died(n)
 func _ready():
     status.die.connect(onDied)
     status.hurt.connect(onHurt)
-    status.blocked.connect(onBlocked)
+    status.blocked_damage.connect(onBlocked)
 
 func spawn():
     status.reset()
