@@ -69,3 +69,6 @@ func _on_attack_pressed():
 
 func _on_discard_pressed():
     deck.discard_all()
+    await get_tree().create_timer(0.5).timeout
+    deck.draw_cards(deck.hand_size)
+    await scene.startEnemyTurn(self)
