@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c3itjkr7u7brk"]
+[gd_scene load_steps=33 format=3 uid="uid://c3itjkr7u7brk"]
 
 [ext_resource type="Script" path="res://code/creatures/player.gd" id="1_j3yra"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_h4t6e"]
@@ -30,6 +30,8 @@
 [ext_resource type="AudioStream" uid="uid://bavihtcbpkluu" path="res://assets/audio/sfx/SFX_Status_BurnB.wav" id="28_qrc74"]
 [ext_resource type="AudioStream" uid="uid://cgd871dihhgwe" path="res://assets/audio/sfx/SFX_Player_HurtA.wav" id="29_6hyde"]
 [ext_resource type="AudioStream" uid="uid://b2u4wiqu3x0w" path="res://assets/audio/sfx/SFX_Player_HurtB.wav" id="30_18l4r"]
+[ext_resource type="AudioStream" uid="uid://bimt66rw2kxhx" path="res://assets/audio/sfx/SFX_HealA.wav" id="31_ys72x"]
+[ext_resource type="AudioStream" uid="uid://duh2yw204xx2u" path="res://assets/audio/sfx/SFX_HealB.wav" id="32_tavkm"]
 
 [node name="Player" type="Node" node_paths=PackedStringArray("hand_neutral_pos")]
 script = ExtResource("1_j3yra")
@@ -368,3 +370,4 @@ spit = Array[AudioStream]([ExtResource("19_bwqm7"), ExtResource("20_n3obd")])
 poison = Array[AudioStream]([ExtResource("25_ur2de"), ExtResource("26_psf67")])
 burn = Array[AudioStream]([ExtResource("27_chy3r"), ExtResource("28_qrc74")])
 hurt = Array[AudioStream]([ExtResource("29_6hyde"), ExtResource("30_18l4r")])
+heal = Array[AudioStream]([ExtResource("31_ys72x"), ExtResource("32_tavkm")])
