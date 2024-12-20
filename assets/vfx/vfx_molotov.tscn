@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://dxb5aspi63ia8"]
+[gd_scene load_steps=16 format=3 uid="uid://dxb5aspi63ia8"]
 
 [ext_resource type="Texture2D" uid="uid://jpk30iimtnl8" path="res://assets/textures/particles/fx_molotov01.png" id="1_28tpl"]
 [ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_0bs4x"]
 [ext_resource type="Texture2D" uid="uid://bheqblf0qmb0n" path="res://assets/textures/particles/fx_molotov02.png" id="3_mt0nx"]
+[ext_resource type="AudioStream" uid="uid://cps7gjreeq1vk" path="res://assets/audio/sfx/SFX_Attack_MolotovA.wav" id="4_c47vm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6x1u"]
 transparency = 1
@@ -109,6 +110,7 @@ albedo_texture = ExtResource("3_mt0nx")
 
 [sub_resource type="Animation" id="Animation_b0num"]
 resource_name = "particle_play"
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -169,6 +171,21 @@ tracks/4/keys = {
 "update": 0,
 "values": [20.0, 0.0]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_c47vm")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c37b7"]
 _data = {
@@ -235,3 +252,5 @@ anim_speed_max = 9.76
 libraries = {
 "": SubResource("AnimationLibrary_c37b7")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

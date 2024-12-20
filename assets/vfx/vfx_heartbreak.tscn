@@ -168,6 +168,17 @@ tracks/4/keys = {
 "update": 0,
 "values": [20.0, 0.0]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c37b7"]
 _data = {
@@ -230,3 +241,5 @@ anim_speed_max = 9.76
 libraries = {
 "": SubResource("AnimationLibrary_c37b7")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

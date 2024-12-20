@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://d15ajm84qnqro"]
+[gd_scene load_steps=16 format=3 uid="uid://d15ajm84qnqro"]
 
 [ext_resource type="Texture2D" uid="uid://thrrparcgjv3" path="res://assets/textures/particles/fx_guard02.png" id="1_jquyv"]
 [ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_t7xo0"]
 [ext_resource type="Texture2D" uid="uid://bn7ciik1tddxu" path="res://assets/textures/particles/fx_guard01.png" id="3_kkhsd"]
+[ext_resource type="AudioStream" uid="uid://bb5d62mix4isj" path="res://assets/audio/sfx/SFX_Armor_BreakA.wav" id="4_j3858"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d6x1u"]
 transparency = 1
@@ -13,7 +14,7 @@ albedo_texture = ExtResource("1_jquyv")
 
 [sub_resource type="QuadMesh" id="QuadMesh_i5cn4"]
 material = SubResource("StandardMaterial3D_d6x1u")
-size = Vector2(0.2, 0.2)
+size = Vector2(0.2, 0.27)
 
 [sub_resource type="Curve" id="Curve_mdk5g"]
 _data = [Vector2(0.00647948, 0.00347292), 0.0, 4.47954, 0, 0, Vector2(0.261339, 0.692012), 0.0, 0.0, 0, 0, Vector2(0.492441, 0.694917), 0.0414767, 2.14022, 0, 0, Vector2(0.860691, 1), 0.0, 0.0, 0, 0]
@@ -100,6 +101,17 @@ tracks/4/keys = {
 "update": 0,
 "values": [20.0]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/5/use_blend = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7kni6"]
 transparency = 1
@@ -108,6 +120,7 @@ albedo_texture = ExtResource("3_kkhsd")
 
 [sub_resource type="Animation" id="Animation_b0num"]
 resource_name = "particle_play"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -168,6 +181,21 @@ tracks/4/keys = {
 "update": 0,
 "values": [20.0, 0.0]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_j3858")
+}],
+"times": PackedFloat32Array(0.4)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c37b7"]
 _data = {
@@ -232,3 +260,7 @@ anim_speed_max = 9.76
 libraries = {
 "": SubResource("AnimationLibrary_c37b7")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -6.0
+max_distance = 20000.0

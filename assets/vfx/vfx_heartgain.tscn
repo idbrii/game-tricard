@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://ddmud8f7oysm3"]
+[gd_scene load_steps=14 format=3 uid="uid://ddmud8f7oysm3"]
 
 [ext_resource type="Texture2D" uid="uid://cw22lpgddfvwb" path="res://assets/textures/particles/fx_heal01.png" id="1_c0e6a"]
 [ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="3_ftj4y"]
+[ext_resource type="AudioStream" uid="uid://bimt66rw2kxhx" path="res://assets/audio/sfx/SFX_HealA.wav" id="3_o68do"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_df4wa"]
 transparency = 1
@@ -109,6 +110,17 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_b0num"]
 resource_name = "particle_play"
@@ -185,6 +197,21 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(0, 1, 0.368627, 1), Color(1, 1, 1, 1), Color(0.657216, 0.809771, 0.691262, 1), Color(1, 1, 1, 0)]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_o68do")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c37b7"]
 _data = {
@@ -250,3 +277,7 @@ anim_speed_max = 9.76
 libraries = {
 "": SubResource("AnimationLibrary_c37b7")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -4.0
+max_distance = 20000.0
