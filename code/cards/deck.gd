@@ -61,6 +61,7 @@ func draw_cards(num_cards):
         hand.add_child(c)
         # Add to left side of hand.
         hand.move_child(c, 0)
+        $Sound_Draw.play_sound()
         c.set_is_face_up(true)
 
 

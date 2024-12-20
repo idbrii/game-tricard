@@ -1,4 +1,5 @@
 extends Node
+class_name AudioFromBag
 
 @export var sound_bag : Array[AudioStream]
 

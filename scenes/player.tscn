@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c3itjkr7u7brk"]
+[gd_scene load_steps=25 format=3 uid="uid://c3itjkr7u7brk"]
 
 [ext_resource type="Script" path="res://code/creatures/player.gd" id="1_j3yra"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="2_h4t6e"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://code/cards/deck.gd" id="4_fojud"]
 [ext_resource type="PackedScene" uid="uid://12xcvgynuav6" path="res://scenes/carddeck/card.tscn" id="5_nrki5"]
 [ext_resource type="Script" path="res://code/cards/hand.gd" id="6_2m6ee"]
+[ext_resource type="Script" path="res://code/creatures/audiofrombag.gd" id="6_l0pct"]
 [ext_resource type="Texture2D" uid="uid://dj603rpe8sqad" path="res://assets/textures/card_ui/tc_button_discard.png" id="8_1eb0y"]
 [ext_resource type="Texture2D" uid="uid://bpkb31ivsl18l" path="res://assets/textures/card_ui/tc_button_discard_press.png" id="9_8wgg6"]
 [ext_resource type="Texture2D" uid="uid://bvxxd3rjxtlgl" path="res://assets/textures/card_ui/tc_button_discard_hover.png" id="10_xyumm"]
@@ -20,6 +21,9 @@
 [ext_resource type="Script" path="res://code/creatures/playersound.gd" id="18_nhbwr"]
 [ext_resource type="AudioStream" uid="uid://d1qjok8o4whbo" path="res://assets/audio/sfx/SFX_Player_SpittoonA.wav" id="19_bwqm7"]
 [ext_resource type="AudioStream" uid="uid://dwgyc0yvcf0ye" path="res://assets/audio/sfx/SFX_Player_SpittoonB.wav" id="20_n3obd"]
+[ext_resource type="AudioStream" uid="uid://7eyn0gmnokfm" path="res://assets/audio/sfx/SFX_Card_DrawA.wav" id="21_mojai"]
+[ext_resource type="AudioStream" uid="uid://c1a8b1sierrg" path="res://assets/audio/sfx/SFX_Card_DrawB.wav" id="22_l4b30"]
+[ext_resource type="AudioStream" uid="uid://2lql6uth52sf" path="res://assets/audio/sfx/SFX_Card_DrawC.wav" id="23_gns65"]
 
 [node name="Player" type="Node" node_paths=PackedStringArray("hand_neutral_pos")]
 script = ExtResource("1_j3yra")
@@ -47,6 +51,10 @@ theme = ExtResource("3_01oue")
 script = ExtResource("4_fojud")
 card_template = ExtResource("5_nrki5")
 hand = NodePath("../Hand")
+
+[node name="Sound_Draw" type="Node" parent="CanvasLayer/HUD/Deck"]
+script = ExtResource("6_l0pct")
+sound_bag = Array[AudioStream]([ExtResource("21_mojai"), ExtResource("22_l4b30"), ExtResource("23_gns65")])
 
 [node name="Hand" type="Control" parent="CanvasLayer/HUD"]
 layout_mode = 1
