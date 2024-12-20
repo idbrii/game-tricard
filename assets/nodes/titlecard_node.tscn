@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://caymaux5m0lw5"]
+
+[ext_resource type="Texture2D" uid="uid://b2x4btwyb7fgg" path="res://assets/textures/tc_title_screen_cape.png" id="1_827l4"]
+[ext_resource type="Texture2D" uid="uid://dkqlw4us00b25" path="res://assets/textures/tc_title_screen_hero.png" id="2_np32i"]
+[ext_resource type="Texture2D" uid="uid://drrvnsx2fl3em" path="res://assets/textures/tc_title_screen_words.png" id="3_t42e1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0xwd"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_827l4")
+
+[sub_resource type="QuadMesh" id="QuadMesh_a0dkk"]
+material = SubResource("StandardMaterial3D_j0xwd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mn747"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("2_np32i")
+
+[sub_resource type="QuadMesh" id="QuadMesh_q1y1k"]
+material = SubResource("StandardMaterial3D_mn747")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwv8m"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("3_t42e1")
+
+[sub_resource type="QuadMesh" id="QuadMesh_6ygm8"]
+material = SubResource("StandardMaterial3D_jwv8m")
+
+[node name="titlecard" type="Node3D"]
+
+[node name="FlamingCape" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.58281, 0, 0, 0, 6.21541, 0, 0, 0, 0.999999, 2.35268, 2.33243, 0)
+mesh = SubResource("QuadMesh_a0dkk")
+
+[node name="Cowboy" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.22018, 0, 0, 0, 8.06654, 0, 0, 0, 1, -0.368557, 1.91063, 0.271892)
+mesh = SubResource("QuadMesh_q1y1k")
+
+[node name="Title" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.86487, 0, 0, 0, 4.26925, 0, 0, 0, 1, 3.98752, 4.79318, 1.06218)
+mesh = SubResource("QuadMesh_6ygm8")

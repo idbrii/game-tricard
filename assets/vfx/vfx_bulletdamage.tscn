@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://cvyortt5ux1ea"]
+
+[ext_resource type="Texture2D" uid="uid://c006jc4gxk7me" path="res://assets/textures/particles/T_BulletHole.png" id="1_wt8yx"]
+[ext_resource type="Texture2D" uid="uid://cvfp2dk8v4aef" path="res://assets/textures/particles/T_Radial DamageBurst.png" id="2_ahvxf"]
+[ext_resource type="Texture2D" uid="uid://ce8vcbu6en0bg" path="res://assets/textures/particles/T_DamageParticle.png" id="3_wf6n3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8jht"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_texture = ExtResource("1_wt8yx")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2v52j"]
+material = SubResource("StandardMaterial3D_g8jht")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qke7f"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 1
+shading_mode = 0
+albedo_texture = ExtResource("2_ahvxf")
+
+[sub_resource type="QuadMesh" id="QuadMesh_f3nna"]
+material = SubResource("StandardMaterial3D_qke7f")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iku83"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+blend_mode = 1
+shading_mode = 0
+albedo_texture = ExtResource("3_wf6n3")
+
+[sub_resource type="QuadMesh" id="QuadMesh_i2el8"]
+material = SubResource("StandardMaterial3D_iku83")
+size = Vector2(1, 2)
+
+[sub_resource type="Curve" id="Curve_jwun2"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 28.862), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_ahu2f"]
+_data = [Vector2(0, 0.024213), 0.0, 0.0, 0, 0, Vector2(0.110759, 0.905569), 5.55028, 5.55028, 0, 0, Vector2(0.325949, 0.708838), -0.32553, -0.32553, 0, 0, Vector2(1, 0.535714), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Gradient" id="Gradient_v307m"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_fiwlc"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="vfx_bulletdamage" type="Node3D"]
+
+[node name="bullethole_mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0244009, 0.0236239, 0.191061)
+mesh = SubResource("QuadMesh_2v52j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.80834, 0, 0, 0, 5.12402, 0, 0, 0, 1, 0.0244009, 0.0236239, -0.0117815)
+mesh = SubResource("QuadMesh_f3nna")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000114441, 0.0080843, -0.00226212)
+emitting = false
+amount = 14
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.96
+mesh = SubResource("QuadMesh_i2el8")
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 1)
+spread = 176.3
+flatness = 0.5
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.75
+initial_velocity_max = 10.65
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+orbit_velocity_curve = null
+damping_min = 1.0
+damping_max = 1.0
+damping_curve = SubResource("Curve_jwun2")
+scale_amount_min = 0.8
+scale_amount_max = 1.2
+scale_amount_curve = SubResource("Curve_ahu2f")
+color_ramp = SubResource("Gradient_v307m")
+color_initial_ramp = SubResource("Gradient_fiwlc")
