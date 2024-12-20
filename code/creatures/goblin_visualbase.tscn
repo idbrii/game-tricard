@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://evlua20rikm5"]
+
+[ext_resource type="PackedScene" uid="uid://cqd0voam7vmge" path="res://code/creatures/enemy_visualbase.tscn" id="1_4a8sp"]
+[ext_resource type="Texture2D" uid="uid://cnpikelo2m2sr" path="res://assets/textures/characters/tc_enemy_goblin.png" id="2_i6s0t"]
+
+[node name="enemy_visualbase" instance=ExtResource("1_4a8sp")]
+
+[node name="enemy_mainsprite" parent="enemy_root" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46822, 1.14141e-08, 3.67921e-08)
+texture = ExtResource("2_i6s0t")
+
+[node name="gun_location" parent="enemy_root/enemy_mainsprite" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.06148, 4.09355, 9.53674e-07)

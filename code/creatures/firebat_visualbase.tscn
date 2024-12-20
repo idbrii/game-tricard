@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3uyfwmjggdv6"]
+
+[ext_resource type="PackedScene" uid="uid://cqd0voam7vmge" path="res://code/creatures/enemy_visualbase.tscn" id="1_nint6"]
+[ext_resource type="Texture2D" uid="uid://c4ptdd8ta5t7l" path="res://assets/textures/characters/tc_enemy_firebat.png" id="2_hbit2"]
+
+[node name="enemy_visualbase" instance=ExtResource("1_nint6")]
+
+[node name="enemy_mainsprite" parent="enemy_root" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04328, 1.39316, 3.67921e-08)
+texture = ExtResource("2_hbit2")
+
+[node name="gun_location" parent="enemy_root/enemy_mainsprite" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.05854, 1.88747, 9.53674e-07)

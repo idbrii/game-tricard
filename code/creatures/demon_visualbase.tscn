@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0i200j8st6s0"]
+
+[ext_resource type="PackedScene" uid="uid://cqd0voam7vmge" path="res://code/creatures/enemy_visualbase.tscn" id="1_at8xu"]
+[ext_resource type="Texture2D" uid="uid://vcjre6psk646" path="res://assets/textures/characters/tc_enemy_demon.png" id="2_drp51"]
+
+[node name="enemy_visualbase" instance=ExtResource("1_at8xu")]
+
+[node name="enemy_mainsprite" parent="enemy_root" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60129, 1.14141e-08, 3.67921e-08)
+texture = ExtResource("2_drp51")
+
+[node name="gun_location" parent="enemy_root/enemy_mainsprite" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.876224, 6.28392, 9.53674e-07)

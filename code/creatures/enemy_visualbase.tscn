@@ -1,30 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://cqd0voam7vmge"]
+[gd_scene load_steps=16 format=3 uid="uid://cqd0voam7vmge"]
 
 [ext_resource type="Texture2D" uid="uid://ca3t2rev2wvo" path="res://assets/textures/characters/tc_enemy_gunslinger.png" id="1_0jw65"]
 [ext_resource type="Script" path="res://code/creatures/creature.gd" id="1_jcodj"]
 [ext_resource type="Texture2D" uid="uid://dy8g5yojgs6qh" path="res://assets/textures/icons/icon_dmg.png" id="2_1j4k3"]
-[ext_resource type="Texture2D" uid="uid://iu8d2hnip14p" path="res://assets/textures/icons/icon_heal.png" id="4_8ep2s"]
 [ext_resource type="Script" path="res://code/creatures/status.gd" id="4_jwo6d"]
-[ext_resource type="Theme" uid="uid://cb7775rienopg" path="res://assets/theme_hud.tres" id="4_rt5dg"]
-[ext_resource type="Texture2D" uid="uid://8omskisvw082" path="res://assets/textures/icons/icon_block.png" id="5_bq5oe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wnoub"]
 transparency = 1
 blend_mode = 1
 shading_mode = 0
 albedo_texture = ExtResource("2_1j4k3")
-
-[sub_resource type="QuadMesh" id="QuadMesh_xv412"]
-size = Vector2(4, 4)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_uxfif"]
-viewport_path = NodePath("enemy_root/enemy_UI/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wnh3"]
-resource_local_to_scene = true
-transparency = 1
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_uxfif")
 
 [sub_resource type="Animation" id="Animation_mpsn4"]
 length = 0.001
@@ -329,9 +314,9 @@ tracks/4/keys = {
 "values": [Vector3(2.03562, 1.94899, 1), Vector3(3.5257, 3.50338, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_kf157"]
-resource_name = "enemy_anim_highlightedloop"
-length = 2.5
+[sub_resource type="Animation" id="Animation_nrybl"]
+resource_name = "enemy_anim_guard"
+length = 0.9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -339,7 +324,47 @@ tracks/0/path = NodePath("enemy_root:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.26667, 2.5),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.266667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 0.554784),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.0367, 1, 1), Vector3(1.0367, 1, 1), Vector3(1.01223, 1, 1), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enemy_root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 0.329877),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.102782, 0, 0), Vector3(0.102782, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("enemy_root/enemy_mainsprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(3.94672e-06, 0.539055, 0.827526, 1), Color(3.93391e-06, 0.539055, 0.827526, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kf157"]
+resource_name = "enemy_anim_highlightedloop"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy_root:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733337, 1.43333),
 "transitions": PackedFloat32Array(2.2974, 0.659754, 0.353554),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(1.03056, 1.01466, 1), Vector3(1, 1, 1)]
@@ -351,7 +376,7 @@ tracks/1/path = NodePath("enemy_root:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 1.43333),
 "transitions": PackedFloat32Array(2.2974, 0.353554),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0)]
@@ -363,7 +388,7 @@ tracks/2/path = NodePath("enemy_root/enemy_mainsprite:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.8, 1.53333, 2.5),
+"times": PackedFloat32Array(0, 0.266667, 0.866667, 1.43333),
 "transitions": PackedFloat32Array(2.2974, 0.659754, 0.659754, 0.353554),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.818334, 0.818335, 1.54018e-06, 1), Color(0.818334, 0.818335, 1.54018e-06, 1), Color(1, 1, 1, 1)]
@@ -375,7 +400,7 @@ tracks/3/path = NodePath("enemy_root/enemy_mainsprite:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.26667, 2.5),
+"times": PackedFloat32Array(0, 0.733337, 1.43333),
 "transitions": PackedFloat32Array(2.2974, 0.659754, 0.353554),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, 0.0243361), Vector3(0, 0, 0)]
@@ -387,7 +412,7 @@ tracks/4/path = NodePath("enemy_root/enemy_mainsprite:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.26667, 2.5),
+"times": PackedFloat32Array(0, 0.733337, 1.43333),
 "transitions": PackedFloat32Array(2.2974, 0.659754, 0.353554),
 "update": 0,
 "values": [Vector3(1, 1, 1), Vector3(1, 1.00615, 1), Vector3(1, 1, 1)]
@@ -461,18 +486,60 @@ tracks/4/keys = {
 resource_name = "enemy_anim_idle"
 length = 0.2
 
+[sub_resource type="Animation" id="Animation_xurlk"]
+resource_name = "enemy_anim_heal"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enemy_root:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.266667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 0.554784),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.0367, 1, 1), Vector3(1.0367, 1, 1), Vector3(1.01223, 1, 1), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enemy_root:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 0.965936),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.0873647, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("enemy_root/enemy_mainsprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.17826, 0.603928, 0.303288, 1), Color(0.243153, 0.605565, 1.15514e-06, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ndbw6"]
 _data = {
 "RESET": SubResource("Animation_mpsn4"),
 "enemy_anim_appear": SubResource("Animation_igo0d"),
 "enemy_anim_dead": SubResource("Animation_73j11"),
 "enemy_anim_fire": SubResource("Animation_bxdmq"),
+"enemy_anim_guard": SubResource("Animation_nrybl"),
+"enemy_anim_heal": SubResource("Animation_xurlk"),
 "enemy_anim_highlightedloop": SubResource("Animation_kf157"),
 "enemy_anim_hurt": SubResource("Animation_4hnro"),
 "enemy_anim_idle": SubResource("Animation_bgbpl")
 }
 
-[node name="enemy_base" type="Node3D"]
+[node name="enemy_visualbase" type="Node3D"]
 script = ExtResource("1_jcodj")
 
 [node name="enemy_root" type="Marker3D" parent="."]
@@ -502,70 +569,6 @@ material_override = SubResource("StandardMaterial3D_wnoub")
 cast_shadow = 0
 gi_mode = 0
 texture = ExtResource("2_1j4k3")
-
-[node name="enemy_UI" type="Marker3D" parent="enemy_root"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.803, 12.026, 0)
-
-[node name="Label3D" type="Label3D" parent="enemy_root/enemy_UI"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51, 0)
-visible = false
-pixel_size = 0.031
-text = "The Enemy"
-
-[node name="SubViewport" type="SubViewport" parent="enemy_root/enemy_UI"]
-transparent_bg = true
-gui_embed_subwindows = true
-size = Vector2i(256, 256)
-render_target_update_mode = 4
-
-[node name="Control" type="Control" parent="enemy_root/enemy_UI/SubViewport"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_rt5dg")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="enemy_root/enemy_UI/SubViewport/Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer"]
-layout_mode = 2
-text = "The Enemy"
-
-[node name="Stats" type="HBoxContainer" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Icon" type="TextureRect" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
-layout_mode = 2
-texture = ExtResource("4_8ep2s")
-stretch_mode = 5
-
-[node name="Health" type="Label" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
-layout_mode = 2
-text = "100"
-
-[node name="padding" type="Control" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-
-[node name="Icon2" type="TextureRect" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
-layout_mode = 2
-texture = ExtResource("5_bq5oe")
-stretch_mode = 5
-
-[node name="Block" type="Label" parent="enemy_root/enemy_UI/SubViewport/Control/VBoxContainer/Stats"]
-layout_mode = 2
-text = "0"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="enemy_root/enemy_UI"]
-mesh = SubResource("QuadMesh_xv412")
-surface_material_override/0 = SubResource("StandardMaterial3D_5wnh3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
