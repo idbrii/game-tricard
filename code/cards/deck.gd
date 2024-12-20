@@ -59,6 +59,25 @@ func draw_cards(num_cards):
 
 func discard_all():
     for c in hand.get_children():
-        c.set_is_face_up(false)
-        hand.remove_child(c)
-        discard.add_child(c)
+        await discard_card_anim(c, 2)
+
+
+func discard_card_anim(c: Card, anim_frames: int = 10):
+    hand.pause_layout = true
+
+    var start = c.global_position
+    var dest = discard.global_position
+    for i in range(anim_frames):
+        var pos = lerp(start, dest, float(i) / anim_frames)
+        c.global_position = pos
+        await get_tree().process_frame
+
+    hand.pause_layout = false
+    discard_card(c)
+
+
+func discard_card(c: Card):
+    hand.remove_child(c)
+    discard.add_child(c)
+
+    c.set_is_face_up(false)

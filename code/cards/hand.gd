@@ -13,12 +13,12 @@ extends Control
 @export_range(0.0, 3.0) var selected_offset_multiplier := 1.4
 
 
+var pause_layout := false
+
+
 func _process(_dt: float):
-    layout()
-
-
-func add_card(card):
-    layout()
+    if not pause_layout:
+        layout()
 
 
 func layout():

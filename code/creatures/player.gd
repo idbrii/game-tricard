@@ -94,6 +94,7 @@ func _play_card(card: Card, target):
         card.play(self, target)
     card.inc_chamber()
     await get_tree().create_timer(1.0).timeout
+    await deck.discard_card_anim(card)
     await scene.startEnemyTurn(self)
     scene.mode = Battle.Mode.None
     attack_btn.text = "Pick Card"
