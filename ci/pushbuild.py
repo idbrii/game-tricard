@@ -8,7 +8,7 @@ from pathlib import Path
 import git
 
 # Configuration
-project = "TODO"
+project = "spectral-slinger"
 itch_project = f"idbrii/{project}"
 export_path = Path("C:/code/builds/") / project
 
