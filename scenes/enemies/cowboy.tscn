@@ -7,7 +7,6 @@
 
 [node name="Status" parent="." index="0"]
 display_name = "Cowboy"
-health = 0
 maxTurns = 3
 maxHealth = 5
 

@@ -68,17 +68,3 @@ shadow_enabled = true
 distance_fade_begin = 0.0
 spot_range = 246.588
 spot_angle = 8.23087
-
-[node name="SpawnPoints" type="Node" parent="."]
-
-[node name="A" type="Node3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.97152, 0, 0)
-
-[node name="B" type="Node3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0344524, 0, 0)
-
-[node name="C" type="Node3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.28205, 0, 0)
-
-[node name="D" type="Node3D" parent="SpawnPoints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720758, 0, -6.25989)

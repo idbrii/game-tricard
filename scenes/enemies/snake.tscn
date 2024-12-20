@@ -9,7 +9,6 @@
 display_name = "Snake"
 poison = 1
 maxTurns = 2
-maxHealth = 3
 
 [node name="CollisionShape3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4375, 5.95253, 0)

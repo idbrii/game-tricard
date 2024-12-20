@@ -1,7 +1,13 @@
 extends Node3D
 class_name Battle
 
-var EnemyPrefab = preload("res://scenes/enemies/cowboy.tscn")
+var PrefabCowboy = preload("res://scenes/enemies/cowboy.tscn")
+var PrefabGoblin = preload("res://scenes/enemies/goblin.tscn")
+var PrefabDemon = preload("res://scenes/enemies/demon.tscn")
+var PrefabFireBat = preload("res://scenes/enemies/firebat.tscn")
+var PrefabKillyote = preload("res://scenes/enemies/killyote.tscn")
+var PrefabSnake = preload("res://scenes/enemies/snake.tscn")
+var PrefabBossilisk = preload("res://scenes/enemies/bossilisk.tscn")
 
 enum Mode {
     None,
@@ -14,6 +20,15 @@ enum Mode {
 var mode:Mode
 var currentSelection:Enemy
 var enemies:Dictionary
+var enemy_types:Array = [
+    PrefabCowboy,
+    PrefabGoblin,
+    PrefabDemon,
+    PrefabFireBat,
+    PrefabKillyote,
+    PrefabSnake,
+]
+var killCount:int
 
 signal enemyPicked
 
@@ -22,7 +37,7 @@ func _ready() -> void:
     await spawnEnemies()
     mode = Mode.None
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
     if mode == Mode.Select:
         var en = getEnemyAtMouse()
         if en != null:
@@ -41,11 +56,13 @@ func _process(delta: float) -> void:
             currentSelection = null
 
 func spawnEnemies():
-    # TODO pick which enemy to spawn
-    for n:Node3D in $Stage/SpawnPoints.get_children():
+    randomize()
+    for n:Node3D in $SpawnPoints.get_children():
         if enemies.has(n.name):
             continue
-        var en:Enemy = EnemyPrefab.instantiate()
+        var i:int = randi() % enemy_types.size()
+        var type = enemy_types[i]
+        var en:Enemy = type.instantiate()
         en.position = n.position
         en.spawner = n.name
         en.disposed.connect(onEnemyDisposed)
@@ -53,6 +70,17 @@ func spawnEnemies():
         add_child(en)
         en.spawn()
         print("spawned enemy at ", n.name)
+    # Special spawn boss logic
+    if killCount > 1 and !enemies.has($BossSpawnPoint.name):
+        var n:Node3D = $BossSpawnPoint
+        var en:Enemy = PrefabBossilisk.instantiate()
+        en.position = n.position
+        en.spawner = n.name
+        en.disposed.connect(onEnemyDisposed)
+        enemies[n.name] = en
+        add_child(en)
+        en.spawn()
+
 
 func selectEnemy():
     mode = Mode.Select
@@ -68,8 +96,10 @@ func startEnemyTurn(player:Player):
     mode = Mode.None
 
 func onEnemyDisposed(en:Enemy):
+    killCount += 1
     enemies.erase(en.spawner)
     remove_child(en)
+    # TODO if boss died then let's do game over!
 
 func getEnemyAtMouse(ray_len:int = 1000) -> Enemy:
     var space_state = get_world_3d().direct_space_state

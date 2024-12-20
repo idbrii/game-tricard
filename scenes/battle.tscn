@@ -8,7 +8,7 @@
 script = ExtResource("1_np3yy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195, 0, 7, 27.345)
+transform = Transform3D(1, 0, 0, 0, 0.963738, 0.266851, 0, -0.266851, 0.963738, 0, 13.9973, 33.2329)
 current = true
 fov = 38.2
 
@@ -16,3 +16,17 @@ fov = 38.2
 
 [node name="Player" parent="." instance=ExtResource("3_rojfr")]
 unique_name_in_owner = true
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="A" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1496, 0, 0)
+
+[node name="B" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0344524, 0, 0)
+
+[node name="C" type="Node3D" parent="SpawnPoints"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3964, 0, 0)
+
+[node name="BossSpawnPoint" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0720758, 0, -8.15232)
