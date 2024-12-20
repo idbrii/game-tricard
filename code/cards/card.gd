@@ -59,6 +59,11 @@ func load_card(card_def: CardDef):
     card_def.add_actions(actions_root)
 
 func play(actor, target):
+    if def.is_barrage or def.requires_target(actions_root):
+        $SoundBag_firegun.play_sound()
+    else:
+        $SoundBag_playself.play_sound()
+
     var power = chamber_values[active_chamber]
     for action in actions_root.get_children():
         await action.apply(actor, target, power)

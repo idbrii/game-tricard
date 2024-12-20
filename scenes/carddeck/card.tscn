@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://12xcvgynuav6"]
+[gd_scene load_steps=28 format=3 uid="uid://12xcvgynuav6"]
 
 [ext_resource type="Script" path="res://code/cards/card.gd" id="1_7usar"]
 [ext_resource type="Texture2D" uid="uid://e3ic4n0reaxx" path="res://assets/textures/cardbase/T_Card_TriangleBG.png" id="2_lb1f7"]
@@ -17,6 +17,16 @@
 [ext_resource type="AudioStream" uid="uid://cay1gjcv8pdee" path="res://assets/audio/sfx/SFX_Card_SpinA.wav" id="15_i4eht"]
 [ext_resource type="AudioStream" uid="uid://dw4t3xhf3oeoi" path="res://assets/audio/sfx/SFX_Card_SpinB.wav" id="16_1rbqo"]
 [ext_resource type="AudioStream" uid="uid://b6b41u38fq0y" path="res://assets/audio/sfx/SFX_Card_SpinC.wav" id="17_471gu"]
+[ext_resource type="AudioStream" uid="uid://dy4t7oey17fkr" path="res://assets/audio/sfx/SFX_Gun_FireA.wav" id="18_kljkt"]
+[ext_resource type="AudioStream" uid="uid://box2fubbsitl4" path="res://assets/audio/sfx/SFX_Gun_FireB.wav" id="19_1sgfk"]
+[ext_resource type="AudioStream" uid="uid://c3e7ro877qpc3" path="res://assets/audio/sfx/SFX_Gun_FireC.wav" id="20_k8q85"]
+[ext_resource type="AudioStream" uid="uid://7e6memy4isrs" path="res://assets/audio/sfx/SFX_Gun_FireD.wav" id="21_ydsfu"]
+[ext_resource type="AudioStream" uid="uid://l81n4hov56sc" path="res://assets/audio/sfx/SFX_Card_HandlingA.wav" id="22_thgfd"]
+[ext_resource type="AudioStream" uid="uid://dcmkgo0d1o786" path="res://assets/audio/sfx/SFX_Card_HandlingB.wav" id="23_sbkxt"]
+[ext_resource type="AudioStream" uid="uid://dle7kunfdmxoh" path="res://assets/audio/sfx/SFX_Card_HandlingC.wav" id="24_3bgv4"]
+[ext_resource type="AudioStream" uid="uid://dbgur0e68pmxa" path="res://assets/audio/sfx/SFX_Card_HandlingD.wav" id="25_x37u1"]
+[ext_resource type="AudioStream" uid="uid://dyl38yewsdx82" path="res://assets/audio/sfx/SFX_Card_HandlingE.wav" id="26_uynyp"]
+[ext_resource type="AudioStream" uid="uid://dyyaba0w0mxnu" path="res://assets/audio/sfx/SFX_Card_HandlingF.wav" id="27_q4lu0"]
 
 [node name="Card" type="Control" node_paths=PackedStringArray("chambers")]
 custom_minimum_size = Vector2(750, 750)
@@ -270,3 +280,11 @@ sound_bag = Array[AudioStream]([ExtResource("15_i4eht"), ExtResource("16_1rbqo")
 [node name="SoundBag_spin" type="Node" parent="."]
 script = ExtResource("14_rqfan")
 sound_bag = Array[AudioStream]([ExtResource("15_i4eht"), ExtResource("16_1rbqo"), ExtResource("17_471gu")])
+
+[node name="SoundBag_firegun" type="Node" parent="."]
+script = ExtResource("14_rqfan")
+sound_bag = Array[AudioStream]([ExtResource("18_kljkt"), ExtResource("19_1sgfk"), ExtResource("20_k8q85"), ExtResource("21_ydsfu")])
+
+[node name="SoundBag_playself" type="Node" parent="."]
+script = ExtResource("14_rqfan")
+sound_bag = Array[AudioStream]([ExtResource("22_thgfd"), ExtResource("23_sbkxt"), ExtResource("24_3bgv4"), ExtResource("25_x37u1"), ExtResource("26_uynyp"), ExtResource("27_q4lu0")])
