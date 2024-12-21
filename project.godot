@@ -19,7 +19,6 @@ config/icon="res://assets/textures/icons/icon_draw.png"
 [autoload]
 
 InputFocus="*res://code/cards/input_focus.gd"
-DebugDraw2D="*res://addons/debugdraw2d/DebugDraw2D.gd"
 Musician="*res://code/cards/musician.gd"
 
 [display]
