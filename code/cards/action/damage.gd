@@ -10,3 +10,7 @@ func apply(_actor: Node, target: Node, power: int):
 
 func get_target_type() -> CardDef.Target:
     return CardDef.Target.OPPONENT
+
+
+func get_action_name():
+    return "Damage"

@@ -22,15 +22,15 @@ func _ready():
 
 
 func load_card_defs(path: String) -> Array[CardDef]:
-    var file_paths: Array[CardDef] = []
+    var defs: Array[CardDef] = []
     var dir = DirAccess.open(path)
     dir.list_dir_begin()
     var file_name = dir.get_next()
     while file_name != "":
         var file_path = path + "/" + file_name
-        file_paths.append(ResourceLoader.load(file_path) as CardDef)
+        defs.append(ResourceLoader.load(file_path) as CardDef)
         file_name = dir.get_next()
-    return file_paths
+    return defs
 
 
 func generate_deck(num_cards):
