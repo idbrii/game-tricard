@@ -28,6 +28,7 @@ func load_card_defs(path: String) -> Array[CardDef]:
     var file_name = dir.get_next()
     while file_name != "":
         var file_path = path + "/" + file_name
+        file_path = file_path.replace(".remap", "")
         defs.append(ResourceLoader.load(file_path) as CardDef)
         file_name = dir.get_next()
     return defs
