@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://code/common/bettertexturebutton.gd" id="11_5q8ej"]
 [ext_resource type="Texture2D" uid="uid://bpfles3bmbxlu" path="res://assets/textures/icons/status_icons_health.png" id="12_h08px"]
 [ext_resource type="Texture2D" uid="uid://cqm6wigsux7ef" path="res://assets/textures/card_ui/player_stats_bg.png" id="12_ljmd1"]
-[ext_resource type="LabelSettings" uid="uid://ckekpsvsuc8cu" path="res://scenes/common/ui-label-settings.tres" id="13_43dyf"]
+[ext_resource type="LabelSettings" path="res://scenes/common/ui-label-settings.tres" id="13_43dyf"]
 [ext_resource type="Texture2D" uid="uid://baciqafvs3ctw" path="res://assets/textures/icons/status_icons_block.png" id="14_57tco"]
 [ext_resource type="Texture2D" uid="uid://nts6jkuw5wg4" path="res://assets/textures/icons/status_icons_burn.png" id="15_rdamu"]
 [ext_resource type="Texture2D" uid="uid://ds3e2tqg4kxjs" path="res://assets/textures/icons/status_icons_poison.png" id="16_k0eud"]
