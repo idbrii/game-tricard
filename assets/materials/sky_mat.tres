@@ -1,8 +1,8 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bwqeals5vwbpx"]
 
-[ext_resource type="Texture2D" uid="uid://ydk8ss7rbuvt" path="res://assets/textures/environment/ST_CanyonBG_2.png" id="1_62gjw"]
+[ext_resource type="Texture2D" uid="uid://cenapggv6j72n" path="res://assets/3d/ST_CanyonBG_3.png" id="1_bofei"]
 
 [resource]
 shading_mode = 0
 disable_fog = true
-albedo_texture = ExtResource("1_62gjw")
+albedo_texture = ExtResource("1_bofei")
