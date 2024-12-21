@@ -112,4 +112,4 @@ version_path = project_root / "ci/version.json"
 version = parse_and_build_version(version_path, project_root)
 
 build_platform("web", export_path, "index.html")
-build_platform("win", export_path, project + ".exe")
+#~ build_platform("win", export_path, project + ".exe")
