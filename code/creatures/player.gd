@@ -125,7 +125,7 @@ func _on_discard_pressed():
     await set_waiting_for_enemy(true)
     deck.discard_all()
     await get_tree().create_timer(0.5).timeout
-    deck.draw_cards(deck.hand_size)
+    await deck.draw_cards(deck.hand_size)
     await end_turn()
 
 

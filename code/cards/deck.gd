@@ -48,6 +48,10 @@ func add_card(card_def):
 
 
 func draw_cards(num_cards):
+    var duration = 4
+    if num_cards < 3:
+        duration = 9
+
     for i in range(num_cards):
         var c = draw.get_child(0)
         if not c:
@@ -57,12 +61,11 @@ func draw_cards(num_cards):
             if not c:
                 break
 
-        draw.remove_child(c)
-        hand.add_child(c)
+        $Sound_Draw.play_sound()
+        await animate_card_to_pile(c, hand, duration)
+        c.set_is_face_up(true)
         # Add to left side of hand.
         hand.move_child(c, 0)
-        $Sound_Draw.play_sound()
-        c.set_is_face_up(true)
 
 
 func shuffle_discard():
@@ -82,7 +85,9 @@ func discard_card_anim(c: Card, anim_frames: int = 10):
 
 
 func animate_card_to_pile(c: Card, pile: Node, anim_frames: int):
-    hand.pause_layout = true
+    var src_pile = c.get_parent()
+    src_pile.pause_layout = true
+    pile.pause_layout = true
 
     var start = c.global_position
     var dest = pile.global_position
@@ -91,7 +96,8 @@ func animate_card_to_pile(c: Card, pile: Node, anim_frames: int):
         c.global_position = pos
         await get_tree().process_frame
 
-    hand.pause_layout = false
+    src_pile.pause_layout = false
+    pile.pause_layout = false
     move_to_pile(c, pile)
 
 
