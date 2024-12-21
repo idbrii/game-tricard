@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3y6ohroxdypk"]
+[gd_scene load_steps=5 format=3 uid="uid://d3y6ohroxdypk"]
 
 [ext_resource type="PackedScene" uid="uid://cgcmx1p8xkosx" path="res://scenes/title.tscn" id="1_p6r8y"]
 [ext_resource type="Texture2D" uid="uid://co5ae81y8xul6" path="res://assets/textures/tricard_builder_background_you_win.png" id="2_keeh8"]
+[ext_resource type="AudioStream" uid="uid://tcll1bdnsqml" path="res://assets/audio/music/stingers/Stinger - 03 - Snare.wav" id="3_vj2kl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xqbbv"]
 transparency = 2
@@ -22,3 +23,7 @@ visible = false
 transform = Transform3D(18.74, 0, 0, 0, 11.5813, -0.903144, 0, 2.0421, 5.12199, 0.3, 7.6, 0)
 visible = true
 material_override = SubResource("StandardMaterial3D_xqbbv")
+
+[node name="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("3_vj2kl")
+autoplay = true

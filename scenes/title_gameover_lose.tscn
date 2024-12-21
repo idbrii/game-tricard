@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca06rjugkgpt6"]
+[gd_scene load_steps=3 format=3 uid="uid://ca06rjugkgpt6"]
 
 [ext_resource type="PackedScene" uid="uid://cgcmx1p8xkosx" path="res://scenes/title.tscn" id="1_88t1s"]
+[ext_resource type="AudioStream" uid="uid://d4j7x4biv3m8e" path="res://assets/audio/music/stingers/Stinger - 07 - Guitar Shimmer.wav" id="2_5t1a3"]
 
 [node name="Title" instance=ExtResource("1_88t1s")]
 
@@ -14,3 +15,7 @@ visible = false
 [node name="GameOverCard" parent="." index="4"]
 transform = Transform3D(19.5, 0, 0, 0, 11.7, 0, 0, 0, 4.791, 0, 7.515, 0)
 visible = true
+
+[node name="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("2_5t1a3")
+autoplay = true

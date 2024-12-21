@@ -44,3 +44,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.288, 3.353, 5.099)
 transform = Transform3D(16.986, 0, 0, 0, 11.452, 0, 0, 0, 0.526, 0, 7.515, 0)
 visible = false
 mesh = SubResource("QuadMesh_br16q")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
