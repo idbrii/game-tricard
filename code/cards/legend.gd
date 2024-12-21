@@ -23,6 +23,7 @@ func load_action_defs(path: String):
     var file_name = dir.get_next()
     while file_name != "":
         var file_path = path + "/" + file_name
+        file_path = file_path.replace(".remap", "")
         defs.append(ResourceLoader.load(file_path))
         file_name = dir.get_next()
     return defs
