@@ -39,6 +39,7 @@ var maxEnemiesOut: int = 1
 var maxSpawnPerRespawn: int = 1
 var killCount: int = 0
 @export var reqKillCount: int = 5
+var has_spawned_boss := false
 
 signal enemyPicked
 signal allEnemiesDefeated
@@ -97,8 +98,8 @@ func spawn(type, n: Node3D):
 
 func spawnEnemies():
     randomize()
-    var isBossOut = enemies.has($BossSpawnPoint.name)
-    var shouldSpawnBoss = killCount >= reqKillCount and !isBossOut
+    has_spawned_boss = has_spawned_boss or enemies.has($BossSpawnPoint.name)
+    var shouldSpawnBoss = killCount >= reqKillCount and !has_spawned_boss
     var spawned: int = 0
     var out: int = enemies.size()
     for n: Node3D in $SpawnPoints.get_children():
@@ -108,7 +109,7 @@ func spawnEnemies():
             continue
         if enemyCooldown[n.name] > 0:
             continue
-        if n.name == "B" and (isBossOut or shouldSpawnBoss):
+        if n.name == "B" and (has_spawned_boss or shouldSpawnBoss):
             continue
         var i: int = randi() % enemy_types.size()
         var type = enemy_types[i]
