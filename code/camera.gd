@@ -10,7 +10,7 @@ func shake():
         var offset = Vector3(
             randf_range(-magnitude, magnitude),
             randf_range(-magnitude, magnitude),
-            0.0
+            0.0,
         )
         self.transform.origin = initial_transform.origin + offset
         elapsed_time += get_process_delta_time()
