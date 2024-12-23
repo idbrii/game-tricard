@@ -80,7 +80,7 @@ func tick(player: Player):
     await get_tree().create_timer(0.1).timeout
     status.mod_turns(-1)
     updateLabels()
-    if status.turns <= 0:
+    if status.turns <= 0 and status.health > 0:
         await performAction(player)
         status.reset_turns()
     updateLabels()
