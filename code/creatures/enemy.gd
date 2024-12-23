@@ -44,25 +44,29 @@ func idle():
     #$Model/AnimationPlayer.play("enemy_anim_idle")
 
 
-func onDied():
-    died.emit(self)
-    $Model/AnimationPlayer.play("enemy_anim_hurt")
-    $SFX/Hurt.play()
-    await $Model/AnimationPlayer.animation_finished
-    updateLabels()
-    $Model/AnimationPlayer.play("enemy_anim_dead")
-    $SFX/Die.play()
-    await $Model/AnimationPlayer.animation_finished
-    disposable.emit(self)
-    prints(spawner, "died")
-
-
-func onHurt(_amount: int):
+func _play_hurt():
     #$VFX/HeartBreak/AnimationPlayer.play("particle_play")
     $Model/AnimationPlayer.play("enemy_anim_hurt")
     $SFX/Hurt.play()
     await $Model/AnimationPlayer.animation_finished
     updateLabels()
+
+
+func onDied():
+    died.emit(self)
+    await _play_hurt()
+    $Model/AnimationPlayer.play("enemy_anim_dead")
+    $SFX/Die.play()
+    await get_tree().create_timer(0.3).timeout
+    $UI.visible = false
+    if $Model/AnimationPlayer.is_playing():
+        await $Model/AnimationPlayer.animation_finished
+    disposable.emit(self)
+    prints(spawner, "died")
+
+
+func onHurt(_amount: int):
+    await _play_hurt()
     idle()
     prints(spawner, "hurt")
 
