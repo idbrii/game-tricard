@@ -166,7 +166,7 @@ func set_waiting_for_enemy(is_waiting):
     # widgets move when window is resized, so use a ref
     var dest = hand_neutral_pos.global_position
     if is_waiting:
-        dest += Vector2.DOWN * 200
+        dest += Vector2.DOWN * 150
 
     var start = deck.hand.global_position
     var anim_frames := 4
