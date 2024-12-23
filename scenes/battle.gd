@@ -155,6 +155,10 @@ func _on_enemy_disposable(en: Enemy):
     print("disposing enemy")
     remove_child(en)
     if en.spawner == $BossSpawnPoint.name:
+        # Kill all remaining enemies.
+        for victim: Enemy in enemies.values():
+            victim.status.mod_health(-1000)
+    if has_spawned_boss and enemies.is_empty():
         allEnemiesDefeated.emit()
 
 
