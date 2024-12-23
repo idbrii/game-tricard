@@ -40,6 +40,7 @@ var maxSpawnPerRespawn: int = 1
 var killCount: int = 0
 @export var reqKillCount: int = 5
 var has_spawned_boss := false
+var has_pending_click := false
 
 signal enemyPicked
 signal allEnemiesDefeated
@@ -55,14 +56,14 @@ func _process(_delta: float) -> void:
     if mode == Mode.Select:
         var en = getEnemyAtMouse()
         set_enemy_focus(en)
-        if en != null and Input.is_action_just_pressed("click"):
+        if en != null and has_pending_click:
             mode = Mode.None
             set_enemy_focus(null)
             self.enemyPicked.emit(en)
     elif mode == Mode.SelectAll:
         var en = getEnemyAtMouse()
         if en:
-            if Input.is_action_just_pressed("click"):
+            if has_pending_click:
                 self.enemyPicked.emit(en)
             else:
                 for victim: Enemy in enemies.values():
@@ -70,6 +71,8 @@ func _process(_delta: float) -> void:
         else:
             for victim: Enemy in enemies.values():
                 victim.unfocus()
+
+    has_pending_click = false
 
 
 func set_enemy_focus(en: Enemy):

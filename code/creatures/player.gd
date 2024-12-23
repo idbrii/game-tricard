@@ -26,12 +26,17 @@ func _ready():
     cheat_upgrade_btn.pressed.connect(_on_cheat_upgrade_pressed)
     cheat_giveup_btn.pressed.connect(_on_cheat_giveup_pressed)
     discard_btn.pressed.connect(_on_discard_pressed)
+    $"%MonsterClick".pressed.connect(_on_monsterscene_pressed)
     scene.enemyPicked.connect(_on_enemyPicked)
     InputFocus.gain_focus.connect(_on_card_selected)
 
 
 func update_status_labels():
     $Stats.update_labels()
+
+
+func _on_monsterscene_pressed():
+    scene.has_pending_click = true
 
 
 func _on_died():
