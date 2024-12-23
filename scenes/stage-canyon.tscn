@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://duaopp0l0n4dv"]
+[gd_scene load_steps=18 format=3 uid="uid://duaopp0l0n4dv"]
 
 [ext_resource type="PackedScene" uid="uid://b7y82g5oxkqut" path="res://assets/3d/ST_CanyonBG.fbx" id="2_b5l0y"]
 [ext_resource type="Texture2D" uid="uid://x1rbjq1grg5v" path="res://assets/textures/environment/env_props_cactus01.png" id="2_x8hs1"]
@@ -70,11 +70,6 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_bh6y8"]
 material = SubResource("StandardMaterial3D_rnh0e")
 size = Vector2(3, 3)
-
-[sub_resource type="Curve" id="Curve_8062y"]
-max_value = 60.0
-_data = [Vector2(0, 1), 0.0, 9.43394, 0, 0, Vector2(1, 44.9729), 32.0812, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="QuadMesh" id="QuadMesh_mqk3n"]
 material = ExtResource("7_124fv")
@@ -149,10 +144,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_quusg")
 
 [node name="vfx" type="Marker3D" parent="."]
 
-[node name="vfx_tumbleweeds" type="CPUParticles3D" parent="vfx"]
+[node name="vfx_tumbleweeds_near" type="CPUParticles3D" parent="vfx"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.6458, 1.52301, 8.86028)
 amount = 1
 lifetime = 10.0
+speed_scale = 0.9
 explosiveness = 1.0
 randomness = 0.83
 lifetime_randomness = 0.05
@@ -164,15 +160,14 @@ flatness = 1.0
 gravity = Vector3(1, 0, 0)
 initial_velocity_min = 2.5
 initial_velocity_max = 3.5
+angular_velocity_min = 180.0
+angular_velocity_max = 200.0
 damping_min = 0.2
 damping_max = 0.4
-angle_min = 20.0
-angle_max = 40.0
-angle_curve = SubResource("Curve_8062y")
 scale_amount_min = 4.0
 scale_amount_max = 5.0
 
-[node name="vfx_tumbleweeds2" type="CPUParticles3D" parent="vfx"]
+[node name="vfx_tumbleweeds_far" type="CPUParticles3D" parent="vfx"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.6051, 1.96294, -6.26757)
 amount = 1
 lifetime = 14.0
@@ -185,13 +180,12 @@ emission_box_extents = Vector3(1, 0, 3)
 spread = 10.0
 flatness = 1.0
 gravity = Vector3(1, 0, 0)
-initial_velocity_min = 2.5
-initial_velocity_max = 3.5
+initial_velocity_min = 3.0
+initial_velocity_max = 4.0
+angular_velocity_min = 180.0
+angular_velocity_max = 200.0
 damping_min = 0.2
 damping_max = 0.4
-angle_min = 20.0
-angle_max = 40.0
-angle_curve = SubResource("Curve_8062y")
 scale_amount_min = 1.5
 scale_amount_max = 1.75
 
