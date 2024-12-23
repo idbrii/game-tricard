@@ -1,27 +1,28 @@
 extends Node
 class_name Status
 
-signal heal(amount:int)
-signal hurt(amount:int)
-signal die()
-signal turned(current:int)
-signal blocked_damage(amount:int)
-signal burn_damage(amount:int)
-signal poison_damage(amount:int)
+signal heal(amount: int)
+signal hurt(amount: int)
+signal die
+signal turned(current: int)
+signal blocked_damage(amount: int)
+signal burn_damage(amount: int)
+signal poison_damage(amount: int)
 
-@export var display_name:String
+@export var display_name: String
 ## Life force
-@export var health:int
+@export var health: int
 ## Prevent this much damage
-@export var block:int
+@export var block: int
 ## At end of turn, damage by this much and reduce burn by one.
-@export var burn:int
+@export var burn: int
 ## At end of turn, reduce health by this much and reduce poison by two.
-@export var poison:int
-@export var turns:int
-@export var maxTurns:int = 1
-@export var maxHealth:int = 3
-@export var maxBlocks:int = 1
+@export var poison: int
+@export var turns: int
+@export var maxTurns: int = 1
+@export var maxHealth: int = 3
+@export var maxBlocks: int = 1
+
 
 func reset():
     health = maxHealth
@@ -29,6 +30,7 @@ func reset():
     block = 0
     poison = 0
     burn = 0
+
 
 func is_dead() -> bool:
     return health <= 0
@@ -71,18 +73,23 @@ func _mod_stat(stat, amount):
     stat = max(stat, 0)
     return stat
 
+
 func mod_block(amount):
     block = _mod_stat(block, amount)
+
 
 func mod_burn(amount):
     burn = _mod_stat(burn, amount)
 
+
 func mod_poison(amount):
     poison = _mod_stat(poison, amount)
+
 
 func mod_turns(amount):
     turns += amount
     turned.emit(turns)
+
 
 func reset_turns():
     turns = maxTurns

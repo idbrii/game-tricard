@@ -1,6 +1,5 @@
 extends Node
 
-
 var unique_cards: Array[CardDef]
 @export var card_template: PackedScene
 

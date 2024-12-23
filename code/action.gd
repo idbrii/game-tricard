@@ -9,5 +9,5 @@ enum Move {
     Burn,
 }
 
-@export var power:int = 1
-@export var moves:Array[Move]
+@export var power: int = 1
+@export var moves: Array[Move]

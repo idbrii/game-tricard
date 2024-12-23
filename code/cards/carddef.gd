@@ -1,9 +1,7 @@
 extends Resource
 class_name CardDef
 
-
 var Barrage = preload("res://code/cards/action/barrage.gd")
-
 
 @export var card_name := ""
 
@@ -22,6 +20,7 @@ enum Target {
     SELF,
     OPPONENT,
 }
+
 
 # Resources don't display properly without this boilerplate init function.
 func _init(

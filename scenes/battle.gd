@@ -18,16 +18,16 @@ enum Mode {
     EnemyTurn,
 }
 
-var mode:Mode
-var currentSelection:Enemy
-var enemies:Dictionary
-var enemyCooldown:Dictionary = {
+var mode: Mode
+var currentSelection: Enemy
+var enemies: Dictionary
+var enemyCooldown: Dictionary = {
     "A": 1,
     "B": 0,
     "C": 2,
     "BossSpawnPoint": 5,
 }
-var enemy_types:Array = [
+var enemy_types: Array = [
     PrefabCowboy,
     PrefabGoblin,
     PrefabDemon,
@@ -35,18 +35,20 @@ var enemy_types:Array = [
     PrefabKillyote,
     PrefabSnake,
 ]
-var maxEnemiesOut:int = 1
-var maxSpawnPerRespawn:int = 1
-var killCount:int = 0
-@export var reqKillCount:int = 5
+var maxEnemiesOut: int = 1
+var maxSpawnPerRespawn: int = 1
+var killCount: int = 0
+@export var reqKillCount: int = 5
 
 signal enemyPicked
 signal allEnemiesDefeated
+
 
 func _ready() -> void:
     mode = Mode.Intro
     await spawnEnemies()
     mode = Mode.None
+
 
 func _process(_delta: float) -> void:
     if mode == Mode.Select:
@@ -69,7 +71,7 @@ func _process(_delta: float) -> void:
                 victim.unfocus()
 
 
-func set_enemy_focus(en:Enemy):
+func set_enemy_focus(en: Enemy):
     if en != currentSelection:
         if currentSelection != null:
             currentSelection.unfocus()
@@ -79,8 +81,9 @@ func set_enemy_focus(en:Enemy):
             en.focus()
     currentSelection = en
 
-func spawn(type, n:Node3D):
-    var en:Enemy = type.instantiate()
+
+func spawn(type, n: Node3D):
+    var en: Enemy = type.instantiate()
     en.position = n.position
     en.spawner = n.name
     en.disposable.connect(_on_enemy_disposable)
@@ -91,13 +94,14 @@ func spawn(type, n:Node3D):
     en.spawn()
     print("spawned enemy at ", n.name)
 
+
 func spawnEnemies():
     randomize()
     var isBossOut = enemies.has($BossSpawnPoint.name)
     var shouldSpawnBoss = killCount >= reqKillCount and !isBossOut
-    var spawned:int = 0
-    var out:int = enemies.size()
-    for n:Node3D in $SpawnPoints.get_children():
+    var spawned: int = 0
+    var out: int = enemies.size()
+    for n: Node3D in $SpawnPoints.get_children():
         if out + spawned >= maxEnemiesOut:
             break
         if enemies.has(n.name):
@@ -106,7 +110,7 @@ func spawnEnemies():
             continue
         if n.name == "B" and (isBossOut or shouldSpawnBoss):
             continue
-        var i:int = randi() % enemy_types.size()
+        var i: int = randi() % enemy_types.size()
         var type = enemy_types[i]
         spawn(type, n)
         spawned += 1
@@ -116,13 +120,15 @@ func spawnEnemies():
     if shouldSpawnBoss:
         spawn(PrefabBossilisk, $BossSpawnPoint)
 
+
 func selectEnemy():
     mode = Mode.Select
 
-func startEnemyTurn(player:Player):
+
+func startEnemyTurn(player: Player):
     mode = Mode.EnemyTurn
     var que = enemies.values()
-    for n:Enemy in que:
+    for n: Enemy in que:
         if n.status.is_dead():
             continue
         await n.tick(player)
@@ -130,25 +136,28 @@ func startEnemyTurn(player:Player):
     await spawnEnemies()
     mode = Mode.None
 
-func _on_enemy_died(en:Enemy):
+
+func _on_enemy_died(en: Enemy):
     print("deregistering enemy")
     killCount += 1
     enemies.erase(en.spawner)
-    maxSpawnPerRespawn = max(maxSpawnPerRespawn+1, 2)
-    maxEnemiesOut = max(maxEnemiesOut+1, 4)
+    maxSpawnPerRespawn = max(maxSpawnPerRespawn + 1, 2)
+    maxEnemiesOut = max(maxEnemiesOut + 1, 4)
     for key in enemyCooldown:
-        var count:int = enemyCooldown[key]
-        enemyCooldown[key] = max(count-1, 0)
+        var count: int = enemyCooldown[key]
+        enemyCooldown[key] = max(count - 1, 0)
     if enemyCooldown[en.spawner] == 0:
         enemyCooldown[en.spawner] += 1
 
-func _on_enemy_disposable(en:Enemy):
+
+func _on_enemy_disposable(en: Enemy):
     print("disposing enemy")
     remove_child(en)
     if en.spawner == $BossSpawnPoint.name:
         allEnemiesDefeated.emit()
 
-func getEnemyAtMouse(ray_len:int = 1000) -> Enemy:
+
+func getEnemyAtMouse(ray_len: int = 1000) -> Enemy:
     var space_state = get_world_3d().direct_space_state
     var cam = $Camera
     var mousepos = get_viewport().get_mouse_position()

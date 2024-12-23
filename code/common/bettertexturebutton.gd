@@ -1,7 +1,6 @@
 extends TextureButton
 class_name BetterTextureButton
 
-
 ## Use the Textures > Normal image as a mask for the clickable area instead of
 ## supplying a manually-generated one.
 @export var use_texture_normal_for_click_mask := true

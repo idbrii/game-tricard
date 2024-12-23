@@ -12,7 +12,6 @@ extends Control
 ## When a card is selected, move it up a bit.
 @export_range(0.0, 3.0) var selected_offset_multiplier := 1.4
 
-
 var pause_layout := false
 
 

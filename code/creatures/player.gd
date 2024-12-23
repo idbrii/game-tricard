@@ -1,9 +1,7 @@
 extends Node
 class_name Player
 
-
-@export var hand_neutral_pos : Control
-
+@export var hand_neutral_pos: Control
 
 @onready var status := $Status as Status
 @onready var attack_btn := $"%AttackButton"
@@ -11,7 +9,7 @@ class_name Player
 @onready var cheat_giveup_btn := $"%GiveUpButton"
 @onready var discard_btn := $"%HUD/DiscardAll"
 @onready var deck := $"%HUD/Deck"
-@onready var scene:Battle = self.get_parent()
+@onready var scene: Battle = self.get_parent()
 
 
 func _ready():
@@ -31,19 +29,23 @@ func _ready():
     scene.enemyPicked.connect(_on_enemyPicked)
     InputFocus.gain_focus.connect(_on_card_selected)
 
+
 func update_status_labels():
     $Stats.update_labels()
+
 
 func _on_died():
     update_status_labels()
     scene.get_node("Camera").shake()
     # TODO trigger game over!
 
-func _on_hurt(_amount:int):
+
+func _on_hurt(_amount: int):
     update_status_labels()
     scene.get_node("Camera").shake()
 
-func _on_block_damage(_amount:int):
+
+func _on_block_damage(_amount: int):
     update_status_labels()
     print("blocked_damage")
     # TODO play screen animation
@@ -106,7 +108,7 @@ func _play_card(card: Card, target):
     block_input(true)
     if card.def.is_barrage:
         var que = scene.enemies.values()
-        for en:Enemy in que:
+        for en: Enemy in que:
             card.play(self, en)
     else:
         card.play(self, target)

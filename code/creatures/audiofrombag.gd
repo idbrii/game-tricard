@@ -1,9 +1,9 @@
 extends Node
 class_name AudioFromBag
 
-@export var sound_bag : Array[AudioStream]
+@export var sound_bag: Array[AudioStream]
 
-var pool : AudioPooler
+var pool: AudioPooler
 
 
 func _ready():

@@ -1,14 +1,14 @@
 extends Node
 
-@export var spit : Array[AudioStream]
-@export var poison : Array[AudioStream]
-@export var burn : Array[AudioStream]
-@export var hurt : Array[AudioStream]
-@export var heal : Array[AudioStream]
+@export var spit: Array[AudioStream]
+@export var poison: Array[AudioStream]
+@export var burn: Array[AudioStream]
+@export var hurt: Array[AudioStream]
+@export var heal: Array[AudioStream]
 
 @onready var discard_btn := $"%HUD/DiscardAll"
 
-var pool : AudioPooler
+var pool: AudioPooler
 
 
 func _ready():

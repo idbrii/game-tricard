@@ -1,41 +1,48 @@
 extends RigidBody3D
 class_name Enemy
 
-var spawner:String
-var actionIndex:int
+var spawner: String
+var actionIndex: int
 @onready var status := $Status as Status
 @onready var actions := $Actions.get_children()
 
 signal disposable(n)
 signal died(n)
 
+
 func _ready():
     status.die.connect(onDied)
     status.hurt.connect(onHurt)
     status.blocked_damage.connect(onBlocked)
 
+
 func spawn():
-    actionIndex = actions.size()-1
+    actionIndex = actions.size() - 1
     status.reset()
     updateLabels()
     visible = true
     $Model/AnimationPlayer.play("enemy_anim_appear")
     await $Model/AnimationPlayer.animation_finished
 
+
 func updateLabels():
     $UI.update_labels()
+
 
 func focus():
     $Model/AnimationPlayer.play("enemy_anim_highlightedloop")
 
+
 func unfocus():
     idle()
+
 
 func idle():
     #~ print("Playing IDLE")
     $Model/AnimationPlayer.stop()
     $Model/AnimationPlayer.play("RESET")
     #$Model/AnimationPlayer.play("enemy_anim_idle")
+
 
 func onDied():
     died.emit(self)
@@ -49,7 +56,8 @@ func onDied():
     disposable.emit(self)
     prints(spawner, "died")
 
-func onHurt(_amount:int):
+
+func onHurt(_amount: int):
     #$VFX/HeartBreak/AnimationPlayer.play("particle_play")
     $Model/AnimationPlayer.play("enemy_anim_hurt")
     $SFX/Hurt.play()
@@ -58,14 +66,16 @@ func onHurt(_amount:int):
     idle()
     prints(spawner, "hurt")
 
-func onBlocked(_amount:int):
+
+func onBlocked(_amount: int):
     updateLabels()
     await get_tree().create_timer(0.1).timeout
     $VFX/GuardBreak/AnimationPlayer.play("particle_play")
     $SFX/ArmorBreak.play()
     idle()
 
-func tick(player:Player):
+
+func tick(player: Player):
     prints(spawner, "ticking")
     await get_tree().create_timer(0.1).timeout
     status.mod_turns(-1)
@@ -78,12 +88,13 @@ func tick(player:Player):
     status.end_turn()
     updateLabels()
 
-func performAction(player:Player):
+
+func performAction(player: Player):
     if actionIndex >= actions.size():
         actionIndex = 0
-    var action:Action = actions[actionIndex]
+    var action: Action = actions[actionIndex]
     prints(spawner, "executing action with power", action.power)
-    for move:Action.Move in action.moves:
+    for move: Action.Move in action.moves:
         prints(spawner, "using move", move)
         if move == Action.Move.Attack:
             $Model/AnimationPlayer.play("enemy_anim_fire")

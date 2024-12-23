@@ -1,5 +1,6 @@
 extends CardAction
 
+
 func _ready():
     texture = preload("res://assets/textures/icons/icon_heal.png")
 

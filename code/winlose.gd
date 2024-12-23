@@ -1,7 +1,7 @@
 extends Node
 
-@export var player : Node
-@export var battle : Node
+@export var player: Node
+@export var battle: Node
 
 
 func _ready():

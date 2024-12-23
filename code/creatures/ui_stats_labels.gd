@@ -1,12 +1,13 @@
 extends Node
 
-@export var status : Status
+@export var status: Status
 
-@export var hp : Node
-@export var turn : Node
-@export var block : Node
-@export var burn : Node
-@export var poison : Node
+@export var hp: Node
+@export var turn: Node
+@export var block: Node
+@export var burn: Node
+@export var poison: Node
+
 
 func update_labels():
     hp.get_node("Label").text = str(status.health)

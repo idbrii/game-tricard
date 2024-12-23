@@ -58,6 +58,7 @@ func load_card(card_def: CardDef):
     art.texture = card_def.get_art()
     card_def.add_actions(actions_root)
 
+
 func play(actor, target):
     if def.is_barrage or def.requires_target(actions_root):
         $SoundBag_firegun.play_sound()
