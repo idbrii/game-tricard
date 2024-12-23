@@ -50,8 +50,8 @@ func add_actions(actions_root: Control):
 
     for action in actions:
         var a = action.new()
-        a.mouse_filter = Control.MouseFilter.MOUSE_FILTER_IGNORE
         actions_root.add_child(a)
+        a.mouse_filter = Control.MouseFilter.MOUSE_FILTER_IGNORE
 
 
 func add_upgrade_action(actions_root: Control):
