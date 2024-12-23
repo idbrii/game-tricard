@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://code/common/bettertexturebutton.gd" id="11_5q8ej"]
 [ext_resource type="Texture2D" uid="uid://bpfles3bmbxlu" path="res://assets/textures/icons/status_icons_health.png" id="12_h08px"]
 [ext_resource type="Texture2D" uid="uid://cqm6wigsux7ef" path="res://assets/textures/card_ui/player_stats_bg.png" id="12_ljmd1"]
-[ext_resource type="LabelSettings" path="res://scenes/common/ui-label-settings.tres" id="13_43dyf"]
+[ext_resource type="LabelSettings" uid="uid://ckekpsvsuc8cu" path="res://scenes/common/ui-label-settings.tres" id="13_43dyf"]
 [ext_resource type="Texture2D" uid="uid://baciqafvs3ctw" path="res://assets/textures/icons/status_icons_block.png" id="14_57tco"]
 [ext_resource type="Texture2D" uid="uid://nts6jkuw5wg4" path="res://assets/textures/icons/status_icons_burn.png" id="15_rdamu"]
 [ext_resource type="Texture2D" uid="uid://ds3e2tqg4kxjs" path="res://assets/textures/icons/status_icons_poison.png" id="16_k0eud"]
@@ -53,6 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme = ExtResource("3_01oue")
 
 [node name="Deck" type="Node" parent="CanvasLayer/HUD" node_paths=PackedStringArray("hand")]
@@ -79,6 +80,7 @@ grow_vertical = 0
 scale = Vector2(0.6, 0.6)
 size_flags_horizontal = 4
 size_flags_vertical = 8
+mouse_filter = 2
 script = ExtResource("6_2m6ee")
 card_width = 750.0
 dist_from_root = 700.0
@@ -98,6 +100,7 @@ grow_vertical = 0
 scale = Vector2(0.6, 0.6)
 size_flags_horizontal = 4
 size_flags_vertical = 8
+mouse_filter = 2
 
 [node name="AttackButton" type="Button" parent="CanvasLayer/HUD"]
 unique_name_in_owner = true
@@ -123,6 +126,7 @@ anchor_right = 1.0
 offset_left = -246.0
 offset_bottom = 63.0
 grow_horizontal = 0
+mouse_filter = 2
 
 [node name="CheatButton" type="Button" parent="CanvasLayer/HUD/HBoxContainer"]
 unique_name_in_owner = true
@@ -196,6 +200,7 @@ offset_left = 3.0
 offset_top = 1.0
 offset_right = 659.0
 offset_bottom = 685.0
+mouse_filter = 2
 theme = ExtResource("3_01oue")
 script = ExtResource("11_2cw3i")
 status = NodePath("../Status")
@@ -211,6 +216,7 @@ offset_top = -6.0
 offset_right = 506.0
 offset_bottom = 506.0
 scale = Vector2(1.6, 1.6)
+mouse_filter = 2
 texture = ExtResource("12_ljmd1")
 stretch_mode = 4
 
@@ -221,6 +227,7 @@ offset_left = 132.0
 offset_top = 76.0
 offset_right = 261.0
 offset_bottom = 202.0
+mouse_filter = 1
 
 [node name="Icon" type="TextureRect" parent="Stats/HP"]
 layout_mode = 1
@@ -245,6 +252,7 @@ offset_right = 14.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 text = "9
 "
 label_settings = ExtResource("13_43dyf")
@@ -266,6 +274,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("14_57tco")
 metadata/_edit_lock_ = true
 
@@ -282,6 +291,7 @@ offset_right = 14.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 text = "9"
 label_settings = ExtResource("13_43dyf")
 metadata/_edit_lock_ = true
@@ -297,6 +307,7 @@ offset_left = 5.06403
 offset_top = -111.616
 offset_right = 134.064
 offset_bottom = 14.384
+mouse_filter = 2
 
 [node name="Icon" type="TextureRect" parent="Stats/Burn"]
 layout_mode = 1
@@ -305,6 +316,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("15_rdamu")
 metadata/_edit_lock_ = true
 
@@ -336,6 +348,7 @@ offset_left = -85.936
 offset_top = 69.384
 offset_right = 43.064
 offset_bottom = 195.384
+mouse_filter = 2
 
 [node name="Icon" type="TextureRect" parent="Stats/Poison"]
 layout_mode = 1
@@ -344,6 +357,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("16_k0eud")
 metadata/_edit_lock_ = true
 
