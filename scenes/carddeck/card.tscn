@@ -35,6 +35,7 @@ anchors_preset = 0
 offset_right = 750.0
 offset_bottom = 750.0
 pivot_offset = Vector2(375, 750)
+mouse_filter = 2
 script = ExtResource("1_7usar")
 chambers = [NodePath("card_root/barrel_root/chamber_00"), NodePath("card_root/barrel_root/chamber_01"), NodePath("card_root/barrel_root/chamber_02")]
 
